@@ -12,16 +12,21 @@
                 My first website with <strong>Bulma</strong>!
             </p>
 
+            {% set i = 0 %}
             {% for oeuvre in oeuvres %}
-                <div class="box">
+                <div class="box {% if i is odd %} has-background-black{% endif %}">
+                    <img src="{{ asset('build/images/') }}{{ oeuvre.fileName }}" alt="">
                     <h2 class="subtitle">
                         {{ oeuvre.titre }}
                     </h2>
+                    <span class="tag">
+                        {{ oeuvre.annee|date('Y') }}
+                    </span>
                     <p>
                         {{ oeuvre.description }}
                     </p>
                 </div>
-
+                {% set i = i+1 %}
             {% endfor %}
 
         </div>

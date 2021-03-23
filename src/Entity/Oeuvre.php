@@ -49,6 +49,11 @@ class Oeuvre
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $annee;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -107,6 +112,18 @@ class Oeuvre
     public function setFileName(?string $fileName): Oeuvre
     {
         $this->fileName = $fileName;
+        return $this;
+    }
+
+    public function getAnnee(): ?\DateTimeInterface
+    {
+        return $this->annee;
+    }
+
+    public function setAnnee(?\DateTimeInterface $annee): self
+    {
+        $this->annee = $annee;
+
         return $this;
     }
 }
