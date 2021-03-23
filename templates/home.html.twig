@@ -11,6 +11,19 @@
             <p class="subtitle">
                 My first website with <strong>Bulma</strong>!
             </p>
+
+            {% for oeuvre in oeuvres %}
+                <div class="box">
+                    <h2 class="subtitle">
+                        {{ oeuvre.titre }}
+                    </h2>
+                    <p>
+                        {{ oeuvre.description }}
+                    </p>
+                </div>
+
+            {% endfor %}
+
         </div>
     </section>
 {% endblock %}

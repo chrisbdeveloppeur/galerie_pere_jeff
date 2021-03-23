@@ -96,8 +96,23 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
+    "friendsofsymfony/ckeditor-bundle": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.0",
+            "ref": "8eb1cd0962ded6a6d6e1e5a9b6d3e888f9f94ff6"
+        },
+        "files": [
+            "./config/packages/fos_ckeditor.yaml"
+        ]
+    },
     "fzaninotto/faker": {
         "version": "v1.9.2"
+    },
+    "jms/metadata": {
+        "version": "2.5.0"
     },
     "laminas/laminas-code": {
         "version": "4.0.0"
@@ -199,6 +214,9 @@
     "symfony/event-dispatcher-contracts": {
         "version": "v1.1.9"
     },
+    "symfony/expression-language": {
+        "version": "v4.4.20"
+    },
     "symfony/filesystem": {
         "version": "v4.4.20"
     },
@@ -292,6 +310,9 @@
     "symfony/orm-pack": {
         "version": "v2.1.0"
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.22.1"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.22.1"
     },
@@ -368,6 +389,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.4.20"
+    },
+    "symfony/string": {
+        "version": "v5.2.4"
     },
     "symfony/translation-contracts": {
         "version": "v2.3.0"
@@ -464,5 +488,17 @@
     },
     "twig/twig": {
         "version": "v3.3.0"
+    },
+    "vich/uploader-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "c4f5755b37fb65b9c6a3cbdae91205c15a137ed4"
+        },
+        "files": [
+            "./config/packages/vich_uploader.yaml"
+        ]
     }
 }
