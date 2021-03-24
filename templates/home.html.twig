@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
     <section class="section">
         <div class="container">
             <h1 class="title">
-                Hello World
+                Accueil
             </h1>
             <p class="subtitle">
                 My first website with <strong>Bulma</strong>!
@@ -14,18 +14,25 @@
 
             {% set i = 0 %}
             {% for oeuvre in oeuvres %}
-                <div class="box {% if i is odd %} has-background-black{% endif %}">
-                    <img src="{{ asset('build/images/') }}{{ oeuvre.fileName }}" alt="">
-                    <h2 class="subtitle">
-                        {{ oeuvre.titre }}
-                    </h2>
-                    <span class="tag">
-                        {{ oeuvre.annee|date('Y') }}
-                    </span>
-                    <p>
-                        {{ oeuvre.description }}
-                    </p>
-                </div>
+
+                    <a class="box is-upscaled-hover has-transition-5-ms {% if i is odd %} has-background-white-ter{% endif %}" href="{{ path('gallery_year', {'year': oeuvre.annee }) }}">
+
+                        <div class="column is-flex is-justify-content-center">
+                            <img class="has-max-height-40vh" src="{{ asset('build/images/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+                        </div>
+
+                        <h2 class="subtitle has-text-centered">
+                            {{ oeuvre.titre }}
+                        </h2>
+
+                        <div class="is-flex is-justify-content-center column">
+                            <span class="tag is-size-2 is-info has-text-weight-bold">
+                                {{ oeuvre.annee }}
+                            </span>
+                        </div>
+
+                    </a>
+
                 {% set i = i+1 %}
             {% endfor %}
 

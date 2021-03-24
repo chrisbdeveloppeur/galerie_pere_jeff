@@ -50,9 +50,15 @@ class Oeuvre
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $annee;
+
+//    public function __construct()
+//    {
+//        $formatAnnee = new \DateTime($this->annee);
+//        $this->annee = $formatAnnee->format('Y');
+//    }
 
     public function getId(): ?int
     {
@@ -115,12 +121,12 @@ class Oeuvre
         return $this;
     }
 
-    public function getAnnee(): ?\DateTimeInterface
+    public function getAnnee()
     {
         return $this->annee;
     }
 
-    public function setAnnee(?\DateTimeInterface $annee): self
+    public function setAnnee($annee): self
     {
         $this->annee = $annee;
 

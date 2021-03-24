@@ -14,7 +14,8 @@ class HomeController extends AbstractController
      */
     public function index(OeuvreRepository $repository): Response
     {
-        $oeuvres = $repository->findAll();
+//        $oeuvres = $repository->findAll();
+        $oeuvres = $repository->groupedByAnnee();
         return $this->render('home.html.twig', [
             'oeuvres' => $oeuvres,
         ]);

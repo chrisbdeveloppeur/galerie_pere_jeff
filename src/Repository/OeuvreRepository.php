@@ -22,29 +22,32 @@ class OeuvreRepository extends ServiceEntityRepository
     // /**
     //  * @return Oeuvre[] Returns an array of Oeuvre objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+
+    public function groupedByAnnee()
     {
         return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
+            ->orderBy('o.annee', 'DESC')
+            ->groupBy('o.annee')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
+    public function findByYear($value)
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.annee = :val')
             ->setParameter('val', $value)
             ->orderBy('o.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Oeuvre
-    {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+
+
+
+
 }
