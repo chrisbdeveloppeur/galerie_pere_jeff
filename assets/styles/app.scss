@@ -25,7 +25,7 @@ $size-1 : 7rem;
 }
 
 .is-upscaled-hover:hover{
-  transform: scale(1.05);
+  transform: scale(1.05) !important;
 }
 
 .has-max-height-100vh{
@@ -66,6 +66,18 @@ $size-1 : 7rem;
 }
 .has-transition-2-ms{
   transition: .2s;
+}
+
+.is-boxed-like{
+  display: block;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px !important;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02) !important;
+}
+
+.has-no-text-decoration{
+  text-decoration: none !important;
 }
 
 @import "~bulma";

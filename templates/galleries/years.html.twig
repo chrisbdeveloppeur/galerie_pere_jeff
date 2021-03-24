@@ -8,28 +8,19 @@
             <h1 class="title is-size-1 has-text-weight-bold">
                 {{ year }}
             </h1>
-{#            <p class="subtitle">#}
-{#                My first website with <strong>Bulma</strong>!#}
-{#            </p>#}
 
             {% set i = 0 %}
             {% for oeuvre in oeuvres %}
-                <div class="box {% if i is odd %} has-background-black{% endif %}">
+                <div class="box {% if i is odd %} has-background-grey-lighter{% endif %}">
 
                     <div class="column is-flex is-justify-content-center">
-                        <img src="{{ asset('build/images/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+                        <img class="has-max-height-50vh" src="{{ asset('build/images/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
                     </div>
 
                     <h2 class="subtitle">
                         {{ oeuvre.titre }}
                     </h2>
-{#                    <div class="is-flex is-justify-content-center">#}
-{#                        <a href="{{ path('gallery_year', {'year': oeuvre.annee|date('Y') }) }}">#}
-{#                            <span class="tag is-large">#}
-{#                                {{ oeuvre.annee|date('Y') }}#}
-{#                            </span>#}
-{#                        </a>#}
-{#                    </div>#}
+
                     <p>
                         {{ oeuvre.description }}
                     </p>

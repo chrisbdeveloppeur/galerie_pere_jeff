@@ -54,11 +54,10 @@ class Oeuvre
      */
     private $annee;
 
-//    public function __construct()
-//    {
-//        $formatAnnee = new \DateTime($this->annee);
-//        $this->annee = $formatAnnee->format('Y');
-//    }
+    /**
+     * @ORM\ManyToOne(targetEntity=YearDirectory::class, inversedBy="oeuvres")
+     */
+    private $year_directory;
 
     public function getId(): ?int
     {
@@ -129,6 +128,18 @@ class Oeuvre
     public function setAnnee($annee): self
     {
         $this->annee = $annee;
+
+        return $this;
+    }
+
+    public function getYearDirectory(): ?YearDirectory
+    {
+        return $this->year_directory;
+    }
+
+    public function setYearDirectory(?YearDirectory $year_directory): self
+    {
+        $this->year_directory = $year_directory;
 
         return $this;
     }
