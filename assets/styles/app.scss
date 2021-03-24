@@ -81,5 +81,67 @@ $size-2 : 5rem;
   text-decoration: none !important;
 }
 
+
+
+
+
+// MENU BURGER
+
+#burger
+{
+  display: block;
+  position: relative;
+  z-index: 5;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.bars-centrales{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: flex;
+  align-items: center
+}
+
+.change .bar1 {
+  opacity: 0;
+}
+
+.change .bar2 {
+  transform: rotate(-40deg) rotate(1turn);
+  background-color: red !important;
+}
+
+.change .bar3 {
+  opacity: 0;
+}
+
+.change .bar4{
+  transform: rotate(40deg);
+  background-color: red !important;
+}
+
+#burger span
+{
+  display: block;
+  width: 33px;
+  height: 3px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 2px;
+  z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+  background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+  opacity 0.55s ease;
+}
+
+
+
+
+
 @import "~bulma";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";

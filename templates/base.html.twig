@@ -26,6 +26,16 @@
         {% block body %}{% endblock %}
     </body>
 
+{% block script %}
+
+    <script>
+        function burgerAnimation(object) {
+            object.classList.toggle("change");
+        }
+    </script>
+
+{% endblock %}
+
 </html>
 
 
