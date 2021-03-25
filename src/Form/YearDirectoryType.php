@@ -17,6 +17,7 @@ class YearDirectoryType extends AbstractType
             ->add('year')
             ->add('file', FileType::class,[
                 'error_bubbling' => true,
+                'required' => false,
             ])
 //            ->add('updatedAt')
         ;

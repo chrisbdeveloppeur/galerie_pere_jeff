@@ -19,6 +19,7 @@ class OeuvreType extends AbstractType
             ->add('description')
             ->add('file', FileType::class,[
                 'error_bubbling' => true,
+                'required' => false,
             ])
             ->add('annee')
             ->add('year_directory', EntityType::class,[

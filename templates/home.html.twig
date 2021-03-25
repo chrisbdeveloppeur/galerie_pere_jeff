@@ -22,9 +22,15 @@
                         <a class="mx-5 is-relative is-boxed-like is-upscaled-hover has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-evenly {% if i == 0 %} column is-full {% else %} column is-one-third is-one-quarter-desktop{% endif %}" href="{{ path('gallery_year', {'year': year.year }) }}">
 
                             <div class="px-1 py-1 z-index-less-1 is-absolute is-top-0 is-left-0 is-width-100 is-height-100 is-flex is-justify-content-center is-align-items-center">
-                                <div style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/oeuvres/') }}{{ year.oeuvres[0].filename }});width: 100%;height: 100%;">
+                                {% if not year.filename %}
+                                    <div style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/oeuvres/') }}{{ year.oeuvres[0].filename }});width: 100%;height: 100%;">
 
-                                </div>
+                                    </div>
+                                {% else %}
+                                    <div style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/years_directory_img//') }}{{ year.filename }});width: 100%;height: 100%;">
+
+                                    </div>
+                                {% endif %}
                                 <div class="has-background-light-transparent-50 is-absolute is-top-0 is-left-0 is-width-100 is-height-100">
 
                                 </div>
@@ -42,7 +48,7 @@
                                 </div>
                             {% else %}
                                 <div class="column is-flex is-justify-content-center">
-                                    <img class="has-max-height-40vh" src="{{ asset('/images/oeuvres/') }}{{ year.oeuvres[0].filename }}" alt="{{ year.title }}" title="{{ year.title }}">
+                                    <img class="has-max-height-40vh" src="{{ asset('/images/years_directory_img//') }}{{ year.filename }}" alt="{{ year.title }}" title="{{ year.title }}">
                                 </div>
                             {% endif %}
 
