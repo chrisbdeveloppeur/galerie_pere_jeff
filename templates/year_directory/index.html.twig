@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}YearDirectory index{% endblock %}
+
+{% block body %}
+    <h1>YearDirectory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>FileName</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for year_directory in year_directories %}
+            <tr>
+                <td>{{ year_directory.id }}</td>
+                <td>{{ year_directory.title }}</td>
+                <td>{{ year_directory.year }}</td>
+                <td>{{ year_directory.fileName }}</td>
+                <td>{{ year_directory.updatedAt ? year_directory.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('year_directory_show', {'id': year_directory.id}) }}">show</a>
+                    <a href="{{ path('year_directory_edit', {'id': year_directory.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('year_directory_new') }}">Create new</a>
+{% endblock %}

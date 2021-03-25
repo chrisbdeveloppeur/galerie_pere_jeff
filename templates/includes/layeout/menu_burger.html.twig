@@ -1,10 +1,15 @@
 
-{#<div style="width: 100vw; height: 100vh;background: #565656;z-index: 1">#}
+<div id="menu-slide" class="is-absolute-fullscreen has-transition-5-ms is-left-100 is-top-0 opacity-0">
 
-{#</div>#}
+    <div class="py-6 px-6 is-flex is-justify-content-center is-align-items-center" style="height: 100%;width: 100%">
+        <p class="is-size-4 has-text-light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque iure neque optio praesentium ullam. Aspernatur fugiat impedit incidunt iste labore neque officiis provident recusandae similique temporibus vero, voluptate voluptatum? Officia?
+        </p>
+    </div>
 
+</div>
 
-    <a id="burger" onclick="burgerAnimation(this)">
+    <a id="burger" onclick="burgerAnimation(this); slideFromRight('menu-slide')">
 
         <span class="bar1"></span>
         <span class="bar2"></span>

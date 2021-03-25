@@ -32,6 +32,19 @@
         function burgerAnimation(object) {
             object.classList.toggle("change");
         }
+
+        function slideFromRight(id) {
+            let object = document.getElementById(id);
+            object.classList.toggle("is-left-0");
+            object.classList.toggle("is-left-100");
+            object.classList.toggle("opacity-0");
+            object.classList.toggle("opacity-1");
+            let html = document.querySelector("html");
+            html.classList.toggle("has-scrollbar-hidden");
+        }
+
+
+
     </script>
 
 {% endblock %}

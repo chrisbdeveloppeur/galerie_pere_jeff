@@ -1,5 +1,6 @@
 $size-1 : 7rem;
 $size-2 : 5rem;
+$info : #3298DC;
 
 .has-background-light-transparent-75{
   background: rgba(255,255,255,.75) !important;
@@ -111,8 +112,8 @@ $size-2 : 5rem;
 }
 
 .change .bar2 {
-  transform: rotate(-40deg) rotate(1turn);
-  background-color: red !important;
+  transform: rotate(-40deg);
+  background-color: $info;
 }
 
 .change .bar3 {
@@ -121,7 +122,7 @@ $size-2 : 5rem;
 
 .change .bar4{
   transform: rotate(40deg);
-  background-color: red !important;
+  background-color: $info;
 }
 
 #burger span
@@ -139,9 +140,51 @@ $size-2 : 5rem;
   opacity 0.55s ease;
 }
 
+.is-absolute-fullscreen{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #565656;
+  z-index: 1
+}
+.is-width-0vw{
+  width: 0vw;
+}
+.opacity-0{
+  opacity: 0;
+}
+.opacity-1{
+  opacity: 1;
+}
+.is-right-0{
+   right: 0;
+ }
+.is-left-0{
+  left: 0;
+}
+.is-top-0{
+  top: 0;
+}
+.is-bottom-0{
+  bottom: 0;
+}
+.is-right-100{
+  right: 100vw;
+}
+.is-left-100{
+  left: 100vw;
+}
+.is-top-100{
+  top: 100vh;
+}
+.is-bottom-100{
+  bottom: 100vh;
+}
 
-
-
+.has-scrollbar-hidden{
+  overflow: hidden !important;
+}
 
 @import "~bulma";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
+
