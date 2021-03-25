@@ -55,7 +55,7 @@ class Oeuvre
     private $annee;
 
     /**
-     * @ORM\ManyToOne(targetEntity=YearDirectory::class, inversedBy="oeuvres")
+     * @ORM\ManyToOne(targetEntity=YearDirectory::class, inversedBy="oeuvres", cascade={"persist", "remove"})
      */
     private $year_directory;
 
