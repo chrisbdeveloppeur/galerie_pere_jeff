@@ -3,3 +3,11 @@
 twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+fos_ck_editor:
+    configs:
+        config_basic:
+            toolbar: basic
+        config_standard:
+            toolbar: standard
+        config_full:
+            toolbar: full

@@ -1,18 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}YearDirectory index{% endblock %}
+{% block title %}Gestion des galeries{% endblock %}
 
 {% block body %}
-    <h1>YearDirectory index</h1>
+<div class="container pt-6 mt-6">
+
+    <h1 class="title">Gestion des galeries</h1>
+
+    <a href="{{ path('year_directory_new') }}">Ajouter une galerie</a>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Year</th>
-                <th>FileName</th>
-                <th>actions</th>
+                <th>Titre</th>
+                <th>Année</th>
+                <th>Fichier</th>
+                <th>Gestion</th>
             </tr>
         </thead>
         <tbody>
@@ -23,17 +27,16 @@
                 <td>{{ year_directory.year }}</td>
                 <td>{{ year_directory.fileName }}</td>
                 <td>
-                    <a href="{{ path('year_directory_show', {'id': year_directory.id}) }}">show</a>
-                    <a href="{{ path('year_directory_edit', {'id': year_directory.id}) }}">edit</a>
+                    <a href="{{ path('year_directory_show', {'id': year_directory.id}) }}">Voir</a>
+                    <a href="{{ path('year_directory_edit', {'id': year_directory.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucune galeries trouvées</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('year_directory_new') }}">Create new</a>
+</div>
 {% endblock %}
