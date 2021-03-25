@@ -141,6 +141,13 @@ $info-light: rgb(203, 245, 255);
   z-index: -1;
 }
 
+.has-border-thin{
+  border: solid 1px rgba(0,0,0,.1);
+}
+.has-border-radius-3px{
+  border-radius: 3px !important;
+}
+
 
 .has-scrollbar-hidden{
   overflow: hidden !important;

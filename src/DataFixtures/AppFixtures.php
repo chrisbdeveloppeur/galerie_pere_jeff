@@ -2,25 +2,42 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Admin;
 use App\Entity\Oeuvre;
 use App\Entity\YearDirectory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
 
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 class AppFixtures extends Fixture
 {
+
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->passwordEncoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
-
         $faker = Faker\Factory::create('fr_FR');
+
+        $admin = new Admin();
+        $admin->setEmail('admin@gmail.com');
+        $admin->setRoles(['ROLE_ADMIN']);
+        $password = '123456';
+        $admin->setPassword($this->passwordEncoder->encodePassword($admin, $password));
+        $manager->persist($admin);
 
         for ($i=0; $i < 10; $i++){
             $year = new YearDirectory();
-            $nb = $faker->numberBetween(1,4);
+            $nb = $faker->numberBetween(1,7);
             $nb2 = $faker->numberBetween(3,10);
             $year->setTitle($faker->words($nb, true));
-            $annee = $faker->dateTimeBetween('-10 years','now');
+            $annee = new \DateTime('now -'.$i.'Years');
             $annee = $annee->format('Y');
             $year->setYear($annee);
 

@@ -43,7 +43,15 @@
             html.classList.toggle("has-scrollbar-hidden");
         }
 
-
+        function setOpacity1OnHover(targetsClassName, container) {
+            // console.log('OK');
+            // let targets = container.querySelectorAll(targetsClassName);
+            // console.log(targets);
+            container.querySelectorAll(targetsClassName).forEach(function (elem) {
+                elem.classList.toggle("opacity-0");
+                elem.classList.toggle("opacity-1");
+            });
+        }
 
     </script>
 

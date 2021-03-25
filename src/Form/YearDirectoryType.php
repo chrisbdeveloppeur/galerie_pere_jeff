@@ -32,7 +32,7 @@ class YearDirectoryType extends AbstractType
                 'label' => 'Fichier',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'attr' => [
-                    'class' => 'file-input has-text-centered'
+                    'class' => 'has-text-centered'
                 ],
                 'error_bubbling' => true,
                 'required' => false,

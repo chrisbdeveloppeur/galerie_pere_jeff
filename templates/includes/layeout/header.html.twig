@@ -6,22 +6,28 @@
             </a>
         </div>
 
-        <div class="navbar-menu">
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    Gestion
-                </a>
 
-                <div class="navbar-dropdown">
-                    <a href="{{ path('year_directory_new') }}" class="navbar-item">
-                        Ajouter une Galerie
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="navbar-menu">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Gestion
                     </a>
-                    <a href="{{ path('oeuvre_new') }}" class="navbar-item">
-                        Ajouter une Oeuvre
-                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a href="{{ path('year_directory_new') }}" class="navbar-item">
+                            Ajouter une Galerie
+                        </a>
+                        <a href="{{ path('oeuvre_new') }}" class="navbar-item">
+                            Ajouter une Oeuvre
+                        </a>
+                    </div>
                 </div>
+                <a href="{{ path('app_logout') }}" class="navbar-item is-small is-danger">
+                    Deconnexion
+                </a>
             </div>
-        </div>
+        {% endif %}
 
         <div class="is-flex is-justify-content-center is-align-items-center px-3">
             {{ include('includes/layeout/menu_burger.html.twig') }}

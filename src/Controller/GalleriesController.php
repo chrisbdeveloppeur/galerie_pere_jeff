@@ -18,7 +18,7 @@ class GalleriesController extends AbstractController
     public function galeriesAnnees(OeuvreRepository $repository, $year): Response
     {
         $oeuvres = $repository->findByYear($year);
-        return $this->render('galleries/years.html.twig', [
+        return $this->render('galleries/gallery.html.twig', [
             'oeuvres' => $oeuvres,
             'year' => $year,
         ]);

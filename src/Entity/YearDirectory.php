@@ -6,6 +6,7 @@ use App\Repository\YearDirectoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -14,6 +15,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * @ORM\Entity(repositoryClass=YearDirectoryRepository::class)
  * @Vich\Uploadable
+ * @UniqueEntity(
+ *     fields={"year"},
+ *     message="Une galerie avec cette année existe déjà"
+ * )
  */
 class YearDirectory
 {

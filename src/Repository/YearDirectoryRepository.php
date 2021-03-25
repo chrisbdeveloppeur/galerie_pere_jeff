@@ -22,19 +22,19 @@ class YearDirectoryRepository extends ServiceEntityRepository
     // /**
     //  * @return YearDirectory[] Returns an array of YearDirectory objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function classByYear()
     {
         return $this->createQueryBuilder('y')
-            ->andWhere('y.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('y.id', 'ASC')
-            ->setMaxResults(10)
+//            ->andWhere('y.exampleField = :val')
+//            ->setParameter('val', $value)
+            ->orderBy('y.year', 'DESC')
+//            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?YearDirectory
