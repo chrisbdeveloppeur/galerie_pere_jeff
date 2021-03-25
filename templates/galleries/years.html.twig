@@ -12,10 +12,23 @@
             <div class="is-flex-desktop columns is-multiline is-justify-content-center">
                 {% set i = 0 %}
                 {% for oeuvre in oeuvres %}
-                    <div class="column is-full-touch mb-5 {% if i is divisible by(4) %} is-full-desktop has-background-white-bis{% else %} is-one-third-desktop has-background-info-light{% endif %}">
+                    <div class="column is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
+
+                        <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-absolute is-top-0 is-left-0">
+                            Editer cette oeuvre
+                        </a>
+
+{#                        <div class="z-index-less-1 is-absolute is-top-0 is-left-0 is-width-100 is-height-100 is-flex is-justify-content-center is-align-items-center">#}
+{#                            <div style="filter: blur(15px);background:center / cover no-repeat url({{ asset('build/images/') }}{{ oeuvre.filename }}); width: 100%;height: 100%">#}
+
+{#                            </div>#}
+{#                            <div class="has-background-light-transparent-50 is-absolute is-top-0 is-left-0 is-width-100 is-height-100">#}
+
+{#                            </div>#}
+{#                        </div>#}
 
                         <div class="column is-flex is-justify-content-center">
-                            <img class="has-max-height-50vh" src="{{ asset('build/images/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+                            <img class="has-max-height-50vh" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
                         </div>
 
                         <h2 class="subtitle has-text-centered has-text-weight-bold">

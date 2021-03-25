@@ -6,6 +6,7 @@ use App\Entity\Oeuvre;
 use App\Entity\YearDirectory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,7 +17,9 @@ class OeuvreType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('fileName')
+            ->add('file', FileType::class,[
+                'error_bubbling' => true,
+            ])
             ->add('annee')
             ->add('year_directory', EntityType::class,[
                 'class' => YearDirectory::class,

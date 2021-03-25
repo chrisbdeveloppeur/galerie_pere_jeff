@@ -84,7 +84,7 @@ $info-light: rgb(203, 245, 255);
 }
 
 .is-absolute{
-  position: absolute;
+  position: absolute !important;
 }
 
 .is-absolute-fullscreen{
