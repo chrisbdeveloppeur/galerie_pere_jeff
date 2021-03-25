@@ -35,6 +35,18 @@ class YearDirectoryRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findByYear($value)
+    {
+        return $this->createQueryBuilder('y')
+            ->andWhere('y.year = :val')
+            ->setParameter('val', $value)
+            ->orderBy('y.year', 'DESC')
+//            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
     /*
     public function findOneBySomeField($value): ?YearDirectory

@@ -20,7 +20,7 @@ class HomeController extends AbstractController
     public function index(OeuvreRepository $repository, YearDirectoryRepository $yearDirectoryRepository, EntityManagerInterface $em): Response
     {
         $allOeuvres = $repository->findAll();
-        $oeuvres = $repository->groupedByAnnee();
+//        $oeuvres = $repository->groupedByAnnee();
 
 //        $years = [];
 //        for($i=0; $i<count($oeuvres); $i++){
@@ -38,7 +38,7 @@ class HomeController extends AbstractController
 
         $years = $yearDirectoryRepository->classByYear();
         return $this->render('home.html.twig', [
-            'oeuvres' => $oeuvres,
+//            'oeuvres' => $oeuvres,
             'years' => $years,
         ]);
     }

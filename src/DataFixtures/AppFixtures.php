@@ -49,7 +49,6 @@ class AppFixtures extends Fixture
                 $oeuvre->setFileName($faker->randomElement(['480x600.603e1bf2.png','480x480.ec819a0d.png','480x320.86ac0bc4.png','360x640.17a22b99.png']));
 //                $annee = $faker->dateTimeBetween('-10 years','now');
 //                $annee = $annee->format('Y');
-                $oeuvre->setAnnee($annee);
                 $manager->persist($oeuvre);
                 $year->addOeuvre($oeuvre);
             }

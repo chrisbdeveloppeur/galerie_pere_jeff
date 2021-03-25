@@ -49,13 +49,14 @@ class Oeuvre
      */
     private $updatedAt;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $annee;
+//    /**
+//     * @ORM\Column(type="string", nullable=true)
+//     */
+//    private $annee;
 
     /**
      * @ORM\ManyToOne(targetEntity=YearDirectory::class, inversedBy="oeuvres", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(onDelete="SET NULL");
      */
     private $year_directory;
 
@@ -120,17 +121,17 @@ class Oeuvre
         return $this;
     }
 
-    public function getAnnee()
-    {
-        return $this->annee;
-    }
-
-    public function setAnnee($annee): self
-    {
-        $this->annee = $annee;
-
-        return $this;
-    }
+//    public function getAnnee()
+//    {
+//        return $this->annee;
+//    }
+//
+//    public function setAnnee($annee): self
+//    {
+//        $this->annee = $annee;
+//
+//        return $this;
+//    }
 
     public function getYearDirectory(): ?YearDirectory
     {
