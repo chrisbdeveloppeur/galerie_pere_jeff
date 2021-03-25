@@ -20,21 +20,21 @@ class HomeController extends AbstractController
         $allOeuvres = $repository->findAll();
         $oeuvres = $repository->groupedByAnnee();
 
-        $years = [];
-        for($i=0; $i<count($oeuvres); $i++){
-            $yearDirectory = new YearDirectory();
-            $yearDirectory->setTitle('Galerie ' . $i);
-            $annee = $oeuvres[$i]->getAnnee();
-            $yearDirectory->setYear($annee);
-            foreach ($allOeuvres as $o){
-                if ($o->getAnnee() == $annee ){
-                    $yearDirectory->addOeuvre($o);
-                }
-            }
-            $years[] = $yearDirectory;
-        }
+//        $years = [];
+//        for($i=0; $i<count($oeuvres); $i++){
+//            $yearDirectory = new YearDirectory();
+//            $yearDirectory->setTitle('Galerie ' . $i);
+//            $annee = $oeuvres[$i]->getAnnee();
+//            $yearDirectory->setYear($annee);
+//            foreach ($allOeuvres as $o){
+//                if ($o->getAnnee() == $annee ){
+//                    $yearDirectory->addOeuvre($o);
+//                }
+//            }
+//            $years[] = $yearDirectory;
+//        }
 
-//        $years = $yearDirectoryRepository->findAll();
+        $years = $yearDirectoryRepository->findAll();
         return $this->render('home.html.twig', [
             'oeuvres' => $oeuvres,
             'years' => $years,
