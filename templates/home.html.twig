@@ -13,32 +13,46 @@
             </p>
 
 
-            {% set i = 0 %}
-            {% for year in years %}
+            <div class="columns is-multiline is-justify-content-center">
+                {% set i = 0 %}
+                {% for year in years %}
 
-                <a class="is-boxed-like is-upscaled-hover has-transition-5-ms has-no-text-decoration {% if i is odd %} has-background-grey-lighter{% endif %}" href="{{ path('gallery_year', {'year': year.year }) }}">
+{#                    {% if i is odd %}{% endif %}#}
 
-                    {% if not year.filename %}
-                        <div class="column is-flex is-justify-content-center">
-                            <img class="has-max-height-40vh" src="{{ asset('build/images/480x600.603e1bf2.png') }}" alt="{{ year.title }}">
-                        </div>
-                    {% endif %}
+                        <a class="mx-5 is-relative is-boxed-like is-upscaled-hover has-transition-5-ms has-no-text-decoration {% if i == 0 %} column is-full {% else %} column is-one-third is-one-quarter-desktop{% endif %}" href="{{ path('gallery_year', {'year': year.year }) }}">
 
-                    <h2 class="subtitle has-text-centered">
-                        {{ year.title }}
-                    </h2>
+                            <div class="z-index-less-1 is-absolute is-top-0 is-left-0 is-width-100 is-height-100 is-flex is-justify-content-center is-align-items-center">
+                                <div style="filter: blur(15px);background:center / cover no-repeat url({{ asset('build/images/') }}{{ year.oeuvres[0].filename }}); width: 100%;height: 100%">
 
-                    <div class="is-flex is-justify-content-center column">
-                            <span class="is-size-2 is-info has-text-weight-bold">
-                                {{ year.year }}
-                            </span>
-                    </div>
+                                </div>
+                                <div class="has-background-light-transparent-50 is-absolute is-top-0 is-left-0 is-width-100 is-height-100">
 
-                </a>
+                                </div>
+                            </div>
 
-                {% set i = i+1 %}
-            {% endfor %}
+                            <div class="is-flex is-justify-content-center column">
+                                <span class="is-size-2 has-text-info has-text-weight-bold">
+                                    {{ year.year }}
+                                </span>
+                            </div>
 
+                            {% if not year.filename %}
+                                <div class="column is-flex is-justify-content-center">
+                                    <img class="has-max-height-40vh" src="{{ asset('build/images/') }}{{ year.oeuvres[0].filename }}" alt="{{ year.title }}" title="{{ year.title }}">
+                                </div>
+                            {% endif %}
+
+                            <h2 class="subtitle has-text-centered">
+                                {{ year.title }}
+                            </h2>
+
+                        </a>
+
+{#                    {% if i is odd %}{% endif %}#}
+
+                    {% set i = i+1 %}
+                {% endfor %}
+            </div>
 
 {#            {% set i = 0 %}#}
 {#            {% for oeuvre in oeuvres %}#}

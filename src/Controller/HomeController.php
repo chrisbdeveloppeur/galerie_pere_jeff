@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\YearDirectory;
 use App\Repository\OeuvreRepository;
+use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,10 +15,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(OeuvreRepository $repository, EntityManagerInterface $em): Response
+    public function index(OeuvreRepository $repository, YearDirectoryRepository $yearDirectoryRepository, EntityManagerInterface $em): Response
     {
         $allOeuvres = $repository->findAll();
         $oeuvres = $repository->groupedByAnnee();
+
         $years = [];
         for($i=0; $i<count($oeuvres); $i++){
             $yearDirectory = new YearDirectory();
@@ -31,6 +33,8 @@ class HomeController extends AbstractController
             }
             $years[] = $yearDirectory;
         }
+
+//        $years = $yearDirectoryRepository->findAll();
         return $this->render('home.html.twig', [
             'oeuvres' => $oeuvres,
             'years' => $years,

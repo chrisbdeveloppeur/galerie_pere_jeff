@@ -62,6 +62,11 @@ class YearDirectory
         $this->oeuvres = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->year;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

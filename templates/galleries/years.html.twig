@@ -5,28 +5,31 @@
 {% block body %}
     <section class="section">
         <div class="container">
-            <h1 class="title is-size-1 has-text-weight-bold">
+            <h1 class="title has-text-info is-size-1 has-text-weight-bold">
                 {{ year }}
             </h1>
 
-            {% set i = 0 %}
-            {% for oeuvre in oeuvres %}
-                <div class="box {% if i is odd %} has-background-grey-lighter{% endif %}">
+            <div class="is-flex-desktop columns is-multiline is-justify-content-center">
+                {% set i = 0 %}
+                {% for oeuvre in oeuvres %}
+                    <div class="column is-full-touch mb-5 {% if i is divisible by(4) %} is-full-desktop has-background-white-bis{% else %} is-one-third-desktop has-background-info-light{% endif %}">
 
-                    <div class="column is-flex is-justify-content-center">
-                        <img class="has-max-height-50vh" src="{{ asset('build/images/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+                        <div class="column is-flex is-justify-content-center">
+                            <img class="has-max-height-50vh" src="{{ asset('build/images/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+                        </div>
+
+                        <h2 class="subtitle has-text-centered has-text-weight-bold">
+                            {{ oeuvre.titre }}
+                        </h2>
+
+                        <p>
+                            {{ oeuvre.description }}
+                        </p>
                     </div>
+                    {% set i = i+1 %}
+                {% endfor %}
+            </div>
 
-                    <h2 class="subtitle">
-                        {{ oeuvre.titre }}
-                    </h2>
-
-                    <p>
-                        {{ oeuvre.description }}
-                    </p>
-                </div>
-                {% set i = i+1 %}
-            {% endfor %}
 
         </div>
     </section>
