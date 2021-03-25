@@ -169,6 +169,10 @@ $info-light: rgb(203, 245, 255);
   user-select: none;
 }
 
+#burger:hover span{
+  background-color: $info;
+}
+
 .bars-centrales{
   position: absolute;
   height: 100%;
