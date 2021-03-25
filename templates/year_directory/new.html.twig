@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New YearDirectory{% endblock %}
+{% block title %}Nouvelle galerie{% endblock %}
 
 {% block body %}
-    <h1>Create new YearDirectory</h1>
+<div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center pt-6 mt-6">
+    <h1>Créer une nouvelle galerie</h1>
 
     {{ include('year_directory/_form.html.twig') }}
 
-    <a href="{{ path('year_directory_index') }}">back to list</a>
+    <a href="{{ path('year_directory_index') }}">Retour à la liste</a>
+</div>
 {% endblock %}

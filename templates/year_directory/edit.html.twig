@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit YearDirectory{% endblock %}
+{% block title %}Modifier la galerie{% endblock %}
 
 {% block body %}
-    <h1>Edit YearDirectory</h1>
+<div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center pt-6 mt-6">
+    <h1>Modifier la galerie</h1>
 
     {{ include('year_directory/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('year_directory_index') }}">back to list</a>
+    <a href="{{ path('year_directory_index') }}">Retour à la liste</a>
 
     {{ include('year_directory/_delete_form.html.twig') }}
+</div>
 {% endblock %}
