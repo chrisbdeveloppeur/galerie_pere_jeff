@@ -12,7 +12,7 @@
             <div class="is-flex-desktop columns is-multiline is-justify-content-center">
                 {% set i = 0 %}
                 {% for oeuvre in oeuvres %}
-                    <div class="column has-text-centered is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-border-thin has-border-radius-3px is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
+                    <div class="column has-text-centered has-border-thin has-border-radius-3px is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
 
                         {% if is_granted('ROLE_ADMIN') %}
                             <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-info is-small is-absolute is-top-0 is-left-0">
@@ -37,6 +37,9 @@
                             {{ oeuvre.titre }}
                         </h2>
 
+                        <div>
+
+                        </div>
                         <p class="has-font-playfair has-max-width-500px">
                             {{ oeuvre.description }}
                         </p>
