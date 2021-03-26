@@ -56,8 +56,14 @@
 
         function setOpacity1OnHover(targetsClassName, container) {
             container.querySelectorAll(targetsClassName).forEach(function (elem) {
-                elem.classList.toggle("opacity-0");
-                elem.classList.toggle("opacity-1");
+                elem.classList.remove("opacity-0");
+                elem.classList.add("opacity-1");
+            });
+        }
+        function setOpacity0OnHover(targetsClassName, container) {
+            container.querySelectorAll(targetsClassName).forEach(function (elem) {
+                elem.classList.add("opacity-0");
+                elem.classList.remove("opacity-1");
             });
         }
 

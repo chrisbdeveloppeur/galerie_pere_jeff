@@ -5,11 +5,20 @@
 {% block body %}
     <section class="section">
         <div class="container">
-            <h1 class="title has-text-info is-size-1 has-text-weight-bold has-font-playfair">
-                {{ year }}
-            </h1>
 
-            <div class="is-flex-desktop columns is-multiline is-justify-content-center">
+            <div class="is-relative">
+                <h1 class="title has-text-info is-size-1 has-text-weight-bold has-font-playfair has-text-right">
+                    {{ year }}
+                </h1>
+{#                <div class="column is-full is-flex is-justify-content-start">#}
+                    <a class="button is-small is-dark is-absolute is-top-0 is-left-0" href="{{ path('home') }}">Retour aux galeries</a>
+{#                </div>#}
+            </div>
+
+
+
+
+            <div class="is-flex columns is-multiline is-justify-content-center">
                 {% set i = 0 %}
                 {% for oeuvre in oeuvres %}
                     <div class="column has-text-centered has-border-thin has-border-radius-3px is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
