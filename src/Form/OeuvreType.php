@@ -48,9 +48,11 @@ class OeuvreType extends AbstractType
             ])
             ->add('year_directory', EntityType::class,[
                 'class' => YearDirectory::class,
-                'label' => 'Année',
+                'required' => false,
+                'label' => false,
+                'placeholder' => 'selectionner une galerie',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
-                'row_attr' => ['class'=>'mb-4'],
+                'row_attr' => ['class' => 'mb-4 select'],
                 'attr' => [
                     'class' => 'has-text-centered'
                 ],

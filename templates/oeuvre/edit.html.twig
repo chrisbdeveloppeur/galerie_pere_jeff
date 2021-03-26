@@ -6,9 +6,11 @@
 <div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center pt-6 mt-6">
     <h1>Modifier l'oeuvre</h1>
 
-    {{ include('oeuvre/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="column is-full is-flex is-justify-content-start">
+        <a class="button is-small is-dark" href="{{ path('oeuvre_index') }}">Retour à la liste</a>
+    </div>
 
-    <a href="{{ path('oeuvre_index') }}">Retour à la liste</a>
+    {{ include('oeuvre/_form.html.twig', {'button_label': 'Update'}) }}
 
     {{ include('oeuvre/_delete_form.html.twig') }}
 </div>

@@ -3,7 +3,16 @@
 {% block title %}Oeuvre{% endblock %}
 
 {% block body %}
-    <h1>Oeuvre</h1>
+
+<div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center pt-6 mt-6">
+
+    <div class="column is-full is-flex is-justify-content-start">
+        <a class="button is-small is-dark" href="{{ path('oeuvre_index') }}">Retour à la liste</a>
+    </div>
+
+    <img class="has-max-height-30vh" src="{{ asset('images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+
+    <h1>Oeuvre : {{ oeuvre.titre }}</h1>
 
     <table class="table">
         <tbody>
@@ -25,14 +34,16 @@
             </tr>
             <tr>
                 <th>Annee</th>
-                <td>{{ oeuvre.annee }}</td>
+                <td>{{ oeuvre.yearDirectory }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('oeuvre_index') }}">Retour à la liste</a>
+    <div class="column is-full is-flex is-justify-content-space-evenly">
+        <a class="button is-small is-info mr-5" href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">Modifier</a>
 
-    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">Modifier</a>
+        {{ include('oeuvre/_delete_form.html.twig') }}
+    </div>
 
-    {{ include('oeuvre/_delete_form.html.twig') }}
+</div>
 {% endblock %}
