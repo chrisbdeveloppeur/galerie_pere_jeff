@@ -22,8 +22,10 @@
                         <div class="mx-5 is-relative is-boxed-like has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-between {% if i == 0 %} column is-full {% else %} column is-one-third is-one-quarter-desktop{% endif %}" onmouseenter="setOpacity1OnHover('.target-change-opacity', this)" onmouseleave="setOpacity0OnHover('.target-change-opacity', this)">
 
                             {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('year_directory_edit', {'id': year.id}) }}" class="button is-dark is-small is-absolute is-top-0 is-left-0">
-                                    Editer la galerie
+                                <a href="{{ path('year_directory_edit', {'id': year.id}) }}" class="button is-dark is-small is-absolute is-top-0 is-left-0" title="Modifier cette galerie">
+                                    <span class="icon has-text-light">
+                                        <i class="fas fa-lg fa-pencil-alt"></i>
+                                    </span>
                                 </a>
                             {% endif %}
 
