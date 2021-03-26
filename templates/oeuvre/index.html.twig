@@ -8,7 +8,7 @@
 
         <h1 class="title">Gestion des oeuvres</h1>
 
-        <a class="button is-small is-info" href="{{ path('oeuvre_new') }}">Ajouter une oeuvre</a>
+        <a class="button is-small is-dark" href="{{ path('oeuvre_new') }}">Ajouter une oeuvre</a>
 
         <table class="table" style="margin: auto">
             <thead>
@@ -16,8 +16,8 @@
 {#                <th>Id</th>#}
                 <th>Titre</th>
 {#                <th>Description</th>#}
-                <th>Fichier</th>
-                <th>Annee</th>
+                <th>Année</th>
+                <th>Fichier image</th>
                 <th>Gestion</th>
             </tr>
             </thead>
@@ -27,17 +27,32 @@
 {#                    <td>{{ oeuvre.id }}</td>#}
                     <td>{{ oeuvre.titre }}</td>
 {#                    <td>{{ oeuvre.description|raw }}</td>#}
-                    <td>{{ oeuvre.fileName }}</td>
-                    <td class="is-flex is-justify-content-center is-align-items-center">
+                    <td>{{ oeuvre.yearDirectory }}</td>
+                    <td class="has-text-centered is-relative">
                         {% if oeuvre.fileName %}
-                            <img class="has-max-height-20vh has-border-white-5px" src="{{ asset('/images/oeuvres/' ~ oeuvre.filename ) | imagine_filter('vignette') }}" alt="{{ oeuvre.titre }}" title="{{ oeuvre.fileName }}">
+                            <div class="">
+                                <img style="bottom: 100%;left: 0" class="is-hidden is-absolute has-max-height-20vh has-border-white-5px" src="{{ asset('/images/oeuvres/' ~ oeuvre.filename ) | imagine_filter('vignette') }}" alt="{{ oeuvre.titre }}" title="{{ oeuvre.fileName }}">
+                                <span class="icon has-text-dark is-hoverable-help-cursor" onmouseenter="showPrevOnHover(this)" onmouseleave="hidePrevOnHover(this)">
+                                    <i class="fas fa-lg fa-eye"></i>
+                                </span>
+                            </div>
                         {% else %}
-                            <span class="has-text-weight-light is-italic" title="Sans fichier image">Vide</span>
+                            <span class="has-text-weight-light is-italic is-hoverable-help-cursor" title="Sans fichier image">Vide</span>
                         {% endif %}
                     </td>
                     <td>
-                        <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}">Voir</a>
-                        <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">Modifier</a>
+                        <div class="is-flex is-justify-content-space-between is-align-items-center">
+                            <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}" title="Voir les détails de cette oeuvre">
+                                <span class="icon has-text-dark">
+                                    <i class="fas fa-lg fa-search"></i>
+                                </span>
+                            </a>
+                            <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" title="Modifier cette oeuvre">
+                                <span class="icon has-text-dark">
+                                    <i class="fas fa-lg fa-edit"></i>
+                                </span>
+                            </a>
+                        </div>
                     </td>
                 </tr>
             {% else %}

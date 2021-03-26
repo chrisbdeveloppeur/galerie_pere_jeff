@@ -3,7 +3,7 @@
     {% if oeuvre.fileName %}
         <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center field">
             <figure class="is-relative">
-                <img class="has-max-height-20vh has-border-white-5px" src="{{ asset('/images/oeuvres/' ~ oeuvre.filename ) | imagine_filter('small') }}" alt="{{ oeuvre.titre }}" title="{{ oeuvre.fileName }}">
+                <img class="" src="{{ asset('/images/oeuvres/' ~ oeuvre.filename ) | imagine_filter('small') }}" alt="{{ oeuvre.titre }}" title="{{ oeuvre.fileName }}">
             </figure>
             <span>{{ oeuvre.fileName }}</span>
         </div>

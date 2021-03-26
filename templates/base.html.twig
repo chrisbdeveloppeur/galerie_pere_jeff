@@ -105,6 +105,19 @@
         let notifBlocks = document.querySelectorAll('.notification').forEach(elem => delAutoFlashMsg(elem));
     </script>
     {#                               #}
+
+    {#  JS POUR MONTRER LELEMENT PRECEDENT AU SURVALAGE DE LA SOURI  #}
+    <script>
+        function showPrevOnHover(object){
+            object.previousElementSibling.classList.remove('is-hidden');
+        }
+
+        function hidePrevOnHover(object){
+            object.previousElementSibling.classList.add('is-hidden');
+        }
+    </script>
+    {#                               #}
+
 {% endblock %}
 
 </html>

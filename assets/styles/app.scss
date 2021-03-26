@@ -167,6 +167,18 @@ $info-light: rgb(203, 245, 255);
 .is-bottom-0{
   bottom: 0;
 }
+.is-right-075rem{
+  right: .75rem;
+}
+.is-left-075rem{
+  left: .75rem;
+}
+.is-top-075rem{
+  top: .75rem;
+}
+.is-bottom-075rem{
+  bottom: .75rem;
+}
 .is-right-100{
   right: 100vw;
 }
@@ -210,6 +222,9 @@ $info-light: rgb(203, 245, 255);
 }
 .is-hoverable-zoom-in:hover{
   cursor: zoom-in !important;
+}
+.is-hoverable-help-cursor:hover{
+  cursor: help !important;
 }
 
 

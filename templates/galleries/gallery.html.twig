@@ -24,7 +24,7 @@
                             <div class="modal opacity-0 has-transition-5-ms">
                                 <div class="modal-background" onclick="closeModal(this)"></div>
                                 <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
-                                    <img class="img-galery has-max-height-70vh" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+                                    <img class="img-galery has-max-height-70vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
                                     <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">
                                 </figure>
                                 <h3 class="subtitle has-text-centered has-font-playfair has-text-weight-bold has-text-light z-index-more-1">
