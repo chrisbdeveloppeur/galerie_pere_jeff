@@ -40,7 +40,8 @@ class OeuvreController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($oeuvre);
             $entityManager->flush();
-
+            $msg = 'L\'oeuvre à bien été ajoutée';
+            $this->addFlash('success', $msg);
             return $this->redirectToRoute('oeuvre_index');
         }
 
@@ -70,8 +71,9 @@ class OeuvreController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('oeuvre_index');
+            $msg = 'L\'oeuvre à bien été modifiée';
+            $this->addFlash('success', $msg);
+//            return $this->redirectToRoute('oeuvre_index');
         }
 
         return $this->render('oeuvre/edit.html.twig', [
@@ -90,7 +92,8 @@ class OeuvreController extends AbstractController
             $entityManager->remove($oeuvre);
             $entityManager->flush();
         }
-
+        $msg = 'L\'oeuvre à été supprimée';
+        $this->addFlash('warning', $msg);
         return $this->redirectToRoute('oeuvre_index');
     }
 }

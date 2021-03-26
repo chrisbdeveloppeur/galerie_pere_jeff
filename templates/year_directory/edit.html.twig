@@ -4,11 +4,13 @@
 
 {% block body %}
 <div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center pt-6 mt-6">
-    <h1>Modifier la galerie</h1>
+    <div class="column is-full is-flex is-justify-content-start">
+        <a class="button is-small is-dark" href="{{ path('year_directory_index') }}">Retour à la liste</a>
+    </div>
+
+    <h1 class="title">Modifier la galerie</h1>
 
     {{ include('year_directory/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('year_directory_index') }}">Retour à la liste</a>
 
     {{ include('year_directory/_delete_form.html.twig') }}
 </div>

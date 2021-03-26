@@ -1,7 +1,17 @@
 
-
     {{ form_start(form, {'attr': {'class':'column has-text-centered'}}) }}
     {{ form_widget(form) }}
-    <button class="button is-info is-small">Valider</button>
+    {% if year_directory.fileName %}
+        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center field">
+            <figure class="is-relative">
+                <a href="{{ path('year_directory_delete_img', {'id': year_directory.id}) }}" class="delete is-large is-absolute is-top-0 is-right-0" title="Supprimer l'image de la galerie" onclick="return confirm('Êtes-vous sur de vouloir supprimer cette l\'image de couverture de la galerie ?');"></a>
+                <img class="has-max-height-20vh has-border-white-5px" src="{{ asset('/images/years_directory_img//') }}{{ year_directory.filename }}" alt="{{ year_directory.title }}" title="{{ year_directory.title }}">
+            </figure>
+            <span>{{ year_directory.fileName }}</span>
+        </div>
+    {% endif %}
+    <div class="field">
+        <button class="button is-info is-normal">Valider</button>
+    </div>
     {{ form_end(form) }}
 

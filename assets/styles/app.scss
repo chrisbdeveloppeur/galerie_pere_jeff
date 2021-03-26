@@ -135,6 +135,12 @@ $info-light: rgb(203, 245, 255);
 .is-absolute{
   position: absolute !important;
 }
+.is-fixed{
+  position: fixed !important;
+}
+.is-sticky{
+  position: sticky !important;
+}
 
 .is-absolute-fullscreen{
   position: absolute;

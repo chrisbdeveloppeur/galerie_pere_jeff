@@ -8,14 +8,14 @@
 
         <h1 class="title">Gestion des oeuvres</h1>
 
-        <a href="{{ path('oeuvre_new') }}">Ajouter une oeuvre</a>
+        <a class="button is-small is-info" href="{{ path('oeuvre_new') }}">Ajouter une oeuvre</a>
 
         <table class="table">
             <thead>
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
-                <th>Description</th>
+{#                <th>Description</th>#}
                 <th>Fichier</th>
                 <th>Annee</th>
                 <th>Gestion</th>
@@ -26,7 +26,7 @@
                 <tr>
                     <td>{{ oeuvre.id }}</td>
                     <td>{{ oeuvre.titre }}</td>
-                    <td>{{ oeuvre.description|raw }}</td>
+{#                    <td>{{ oeuvre.description|raw }}</td>#}
                     <td>{{ oeuvre.fileName }}</td>
                     <td>{{ oeuvre.yearDirectory }}</td>
                     <td>

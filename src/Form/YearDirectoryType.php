@@ -17,6 +17,7 @@ class YearDirectoryType extends AbstractType
             ->add('title',TextType::class,[
                 'label' => 'Titre',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
+                'row_attr' => ['class' => 'field'],
                 'attr' => [
                     'class' => 'input has-text-centered'
                 ]
@@ -24,18 +25,22 @@ class YearDirectoryType extends AbstractType
             ->add('year',TextType::class,[
                 'label' => 'Année',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
+                'row_attr' => ['class' => 'field'],
                 'attr' => [
                     'class' => 'input has-text-centered'
                 ]
             ])
             ->add('file', FileType::class,[
-                'label' => 'Fichier',
+                'label' => 'Image de couverture',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
+                'row_attr' => ['class' => 'field is-flex is-flex-direction-column'],
                 'attr' => [
                     'class' => 'has-text-centered'
                 ],
                 'error_bubbling' => true,
                 'required' => false,
+                'help' => 'Si aucune image n\'est selectionnée, l\'image de la première oeuvre de la gallerie sera affichée',
+                'help_attr' => ['class' => 'help']
             ])
 //            ->add('updatedAt')
         ;

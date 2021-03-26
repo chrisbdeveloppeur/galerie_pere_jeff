@@ -1,0 +1,89 @@
+{# Affichage des messages flash #}
+{% for type, message_list in app.flashes %}
+    {% for message in message_list %}
+
+        {% if type == 'danger' %}
+            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg has-text-light">
+                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+                <div class="is-flex">
+                    <div class="is-flex is-align-items-center is-justify-content-center">
+                        <span class="icon px-5">
+                            <i class="fas fa-lg fa-exclamation-triangle"></i>
+                        </span>
+                    </div>
+                    <div class="container">{{ message|raw }}</div>
+                </div>
+            </div>
+        {% elseif type == 'info' %}
+            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg">
+                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+                <div class="is-flex has-text-light">
+                    <div class="is-flex is-align-items-center is-justify-content-center">
+                        <span class="icon px-5">
+                            <i class="fas fa-lg fa-info-circle"></i>
+                        </span>
+                    </div>
+                    <div class="container">{{ message|raw }}</div>
+                </div>
+            </div>
+        {% else %}
+            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg">
+                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+                <div class="is-flex">
+                    <div class="is-flex is-align-items-center is-justify-content-center">
+                        <span class="icon px-5">
+                            <i class="fas fa-lg fa-check"></i>
+                        </span>
+                    </div>
+                    <div class="container">{{ message|raw }}</div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% if form is defined %}
+    {% if form_errors(form) != null %}
+        <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-light">
+            <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+            <div class="is-flex">
+                <div class="is-flex is-align-items-center is-justify-content-center">
+                    <span class="icon px-5">
+                        <i class="fas fa-lg fa-exclamation-triangle"></i>
+                    </span>
+                </div>
+                <div class="container">
+                    {{ form_errors(form)|raw }}
+{#                    <span class="icon px-5">#}
+{#                        <i class="fas fa-lg fa-sad-tear"></i>#}
+{#                    </span>#}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}
+
+    {% if error is defined %}
+        {% if error %}
+            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-light">
+                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+                <div class="is-flex">
+                    <div class="is-flex is-align-items-center is-justify-content-center">
+                    <span class="icon px-5">
+                        <i class="fas fa-lg fa-exclamation-triangle"></i>
+                    </span>
+                    </div>
+                    <div class="container">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                        <span class="icon px-5">
+                        <i class="fas fa-lg fa-sad-tear"></i>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
+{#{% if app.request.get('login') == "success" %}#}
+{#    <p>You have successfully logged in!</p>#}
+{#{% endif %}#}

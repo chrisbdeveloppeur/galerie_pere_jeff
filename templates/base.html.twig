@@ -30,6 +30,9 @@
         {% endblock %}
     </header>
 
+
+    {{ include('includes/flash_message.html.twig') }}
+
     <body class="has-navbar-fixed-top">
         {% block body %}{% endblock %}
     </body>
@@ -52,20 +55,11 @@
         }
 
         function setOpacity1OnHover(targetsClassName, container) {
-            // console.log('OK');
-            // let targets = container.querySelectorAll(targetsClassName);
-            // console.log(targets);
             container.querySelectorAll(targetsClassName).forEach(function (elem) {
                 elem.classList.toggle("opacity-0");
                 elem.classList.toggle("opacity-1");
             });
         }
-
-        // function changeBackgroundColorOnHover(container, queryTargets, color) {
-        //     container.querySelectorAll(queryTargets).forEach(function (elem) {
-        //         elem.style.backgroundColor = color;
-        //     })
-        // }
 
     </script>
 
@@ -76,19 +70,41 @@
             element.addEventListener('click', function () {
                 let modal = element.previousElementSibling;
                 modal.style.display = 'flex';
+                setTimeout(function(){
+                    modal.classList.toggle("opacity-0");
+                    modal.classList.toggle("opacity-1");
+                    }, 100);
                 let html = document.querySelector("html");
                 html.classList.toggle("has-scrollbar-hidden");
             });
         });
 
         function closeModal(element) {
-            element.parentElement.style.display = 'none';
+            element.parentElement.classList.toggle("opacity-0");
+            element.parentElement.classList.toggle("opacity-1");
+            setTimeout(function(){
+                element.parentElement.style.display = 'none';
+            }, 300);
             let html = document.querySelector("html");
             html.classList.toggle("has-scrollbar-hidden");
         }
     </script>
     {#                               #}
 
+    {#  JS POUR DEL AUTO NOTIF (FLASH-MESSAGE)  #}
+    <script>
+        function delAutoFlashMsg(notifBlock){
+            notifBlock.classList.toggle('has-transition-5-ms');
+            setTimeout(function (){
+                notifBlock.classList.toggle('opacity-0');
+                setTimeout(function () {
+                    notifBlock.remove();
+                },500);
+            },5000)
+        }
+        let notifBlocks = document.querySelectorAll('.notification').forEach(elem => delAutoFlashMsg(elem));
+    </script>
+    {#                               #}
 {% endblock %}
 
 </html>

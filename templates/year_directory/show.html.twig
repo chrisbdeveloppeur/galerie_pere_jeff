@@ -4,7 +4,16 @@
 
 {% block body %}
 <div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center pt-6 mt-6">
-    <h1>Galerie {{ year_directory.title }}</h1>
+
+    <div class="column is-full is-flex is-justify-content-start">
+        <a class="button is-small is-dark" href="{{ path('year_directory_index') }}">Retour à la liste des galeries</a>
+    </div>
+
+    <h1 class="title"><span class="has-text-weight-light">Galerie</span> {{ year_directory.title }}</h1>
+
+    {% if year_directory.fileName %}
+        <img class="has-max-height-20vh has-border-white-5px" src="{{ asset('/images/years_directory_img//') }}{{ year_directory.filename }}" alt="{{ year_directory.title }}" title="{{ year_directory.title }}">
+    {% endif %}
 
     <table class="table">
         <tbody>
@@ -27,10 +36,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('year_directory_index') }}">Retour à la liste</a>
+    <div class="column is-full is-flex is-justify-content-space-evenly">
+        <a class="button is-small is-info mr-5" href="{{ path('year_directory_edit', {'id': year_directory.id}) }}">Modifier</a>
 
-    <a href="{{ path('year_directory_edit', {'id': year_directory.id}) }}">Modifier</a>
+        {{ include('year_directory/_delete_form.html.twig') }}
+    </div>
 
-    {{ include('year_directory/_delete_form.html.twig') }}
 </div>
 {% endblock %}

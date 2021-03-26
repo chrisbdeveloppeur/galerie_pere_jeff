@@ -40,7 +40,8 @@ class YearDirectoryController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($yearDirectory);
             $entityManager->flush();
-
+            $msg = 'La galerie à bien été créée';
+            $this->addFlash('success', $msg);
             return $this->redirectToRoute('year_directory_index');
         }
 
@@ -69,9 +70,10 @@ class YearDirectoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $msg = 'La galerie à bien été modifiée';
+            $this->addFlash('success', $msg);
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('year_directory_index');
+//            return $this->redirectToRoute('year_directory_index');
         }
 
         return $this->render('year_directory/edit.html.twig', [
@@ -90,7 +92,24 @@ class YearDirectoryController extends AbstractController
             $entityManager->remove($yearDirectory);
             $entityManager->flush();
         }
-
+        $msg = 'La galerie à bien été supprimée';
+        $this->addFlash('warning', $msg);
         return $this->redirectToRoute('year_directory_index');
+    }
+
+    /**
+     * @Route("/{id}/del-img", name="year_directory_delete_img")
+     */
+    public function deleteImg(YearDirectory $yearDirectory, $id): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $yearDirectory->setFileName(null);
+        $entityManager->persist($yearDirectory);
+        $entityManager->flush();
+        $msg = 'L\'image de couverture de la galerie à bien été supprimée';
+        $this->addFlash('warning', $msg);
+        return $this->redirectToRoute('year_directory_edit',[
+            'id' => $id,
+        ]);
     }
 }

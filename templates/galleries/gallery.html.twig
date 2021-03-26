@@ -21,9 +21,15 @@
                         {% endif %}
 
                         <div class="column is-flex is-justify-content-center">
-                            <div class="modal">
+                            <div class="modal opacity-0 has-transition-5-ms">
                                 <div class="modal-background" onclick="closeModal(this)"></div>
-                                <img class="img-galery z-index-more-1 has-max-height-90vh" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+                                <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
+                                    <img class="img-galery has-max-height-70vh" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+                                    <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">
+                                </figure>
+                                <h3 class="subtitle has-text-centered has-font-playfair has-text-weight-bold has-text-light z-index-more-1">
+                                    {{ oeuvre.titre }}
+                                </h3>
                                 <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
                             </div>
                             <img class="has-max-height-50vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
