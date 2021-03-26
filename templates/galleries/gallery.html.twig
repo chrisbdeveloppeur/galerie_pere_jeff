@@ -5,7 +5,7 @@
 {% block body %}
     <section class="section">
         <div class="container">
-            <h1 class="title has-text-info is-size-1 has-text-weight-bold">
+            <h1 class="title has-text-info is-size-1 has-text-weight-bold has-font-playfair">
                 {{ year }}
             </h1>
 
@@ -15,22 +15,18 @@
                     <div class="column has-text-centered has-border-thin has-border-radius-3px is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
 
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-info is-small is-absolute is-top-0 is-left-0">
+                            <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark is-small is-absolute is-top-0 is-left-0">
                                 Editer cette oeuvre
                             </a>
                         {% endif %}
 
-{#                        <div class="z-index-less-1 is-absolute is-top-0 is-left-0 is-width-100 is-height-100 is-flex is-justify-content-center is-align-items-center">#}
-{#                            <div style="filter: blur(15px);background:center / cover no-repeat url({{ asset('build/images/') }}{{ oeuvre.filename }}); width: 100%;height: 100%">#}
-
-{#                            </div>#}
-{#                            <div class="has-background-light-transparent-50 is-absolute is-top-0 is-left-0 is-width-100 is-height-100">#}
-
-{#                            </div>#}
-{#                        </div>#}
-
                         <div class="column is-flex is-justify-content-center">
-                            <img class="has-max-height-50vh" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
+                            <div class="modal">
+                                <div class="modal-background" onclick="closeModal(this)"></div>
+                                <img class="img-galery z-index-more-1 has-max-height-90vh" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}">
+                                <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
+                            </div>
+                            <img class="has-max-height-50vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
                         </div>
 
                         <h2 class="subtitle has-text-centered has-text-weight-bold">
@@ -38,9 +34,7 @@
                         </h2>
 
                         <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px has-font-playfair" style="margin: auto">
-{#                            <p class="">#}
-                                {{ oeuvre.description|raw }}
-{#                            </p>#}
+                            {{ oeuvre.description|raw }}
                         </div>
 
                     </div>
