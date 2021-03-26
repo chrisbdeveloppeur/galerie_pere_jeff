@@ -49,9 +49,9 @@ class OeuvreType extends AbstractType
                 'choice_label' => 'year',
             ])
             ->add('file', FileType::class,[
-                'label' => 'Fichier',
+                'label' => 'Fichier image',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
-                'row_attr' => ['class'=>'mb-4'],
+                'row_attr' => ['class'=>'field is-flex is-flex-direction-column'],
                 'attr' => [
                     'class' => 'has-text-centered'
                 ],

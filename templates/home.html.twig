@@ -50,11 +50,11 @@
 
                             {% if not year.filename %}
                                 <div class="column is-flex is-justify-content-center is-align-items-center">
-                                    <img class="has-max-height-40vh has-border-white-5px" src="{{ asset('/images/oeuvres/') }}{{ year.oeuvres[0].filename }}" alt="{{ year.title }}" title="{{ year.title }}">
+                                    <img class="has-max-height-40vh has-border-white-5px" src="{{ asset('/images/oeuvres/') }}{{ year.oeuvres[0].filename }}" alt="Couverture de galerie manquante" title="{{ year.title }}">
                                 </div>
                             {% else %}
                                 <div class="column is-flex is-justify-content-center is-align-items-center">
-                                    <img class="has-max-height-40vh has-border-white-5px" src="{{ asset('/images/years_directory_img//') }}{{ year.filename }}" alt="{{ year.title }}" title="{{ year.title }}">
+                                    <img class="has-max-height-40vh has-border-white-5px" src="{{ asset('/images/years_directory_img//') }}{{ year.filename }}" alt="{{ year.filename }}" title="{{ year.title }}">
                                 </div>
                             {% endif %}
 
