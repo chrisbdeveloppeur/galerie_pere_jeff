@@ -37,10 +37,10 @@
                             {{ oeuvre.titre }}
                         </h2>
 
-                        <div class="is-flex is-justify-content-center is-align-items-center">
-                            <p class="has-font-playfair has-max-width-500px">
-                                {{ oeuvre.description }}
-                            </p>
+                        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px has-font-playfair" style="margin: auto">
+{#                            <p class="">#}
+                                {{ oeuvre.description|raw }}
+{#                            </p>#}
                         </div>
 
                     </div>
