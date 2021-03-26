@@ -13,10 +13,10 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Titre</th>
 {#                <th>Description</th>#}
-                <th>Fichier</th>
+{#                <th>Fichier</th>#}
                 <th>Annee</th>
                 <th>Gestion</th>
             </tr>
@@ -24,10 +24,10 @@
             <tbody>
             {% for oeuvre in oeuvres %}
                 <tr>
-                    <td>{{ oeuvre.id }}</td>
+{#                    <td>{{ oeuvre.id }}</td>#}
                     <td>{{ oeuvre.titre }}</td>
 {#                    <td>{{ oeuvre.description|raw }}</td>#}
-                    <td>{{ oeuvre.fileName }}</td>
+{#                    <td>{{ oeuvre.fileName }}</td>#}
                     <td>{{ oeuvre.yearDirectory }}</td>
                     <td>
                         <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}">Voir</a>

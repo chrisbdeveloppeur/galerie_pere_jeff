@@ -12,7 +12,7 @@
     <h1 class="title"><span class="has-text-weight-light">Galerie</span> {{ year_directory.title }}</h1>
 
     {% if year_directory.fileName %}
-        <img class="has-max-height-20vh has-border-white-5px" src="{{ asset('/images/years_directory_img//') }}{{ year_directory.filename }}" alt="{{ year_directory.title }}" title="{{ year_directory.title }}">
+        <img class="has-max-height-20vh has-border-white-5px" src="{{ asset('images/years_directory_img/' ~ year_directory.filename ) | imagine_filter('small') }}" alt="{{ year_directory.title }}" title="{{ year_directory.fileName }}">
     {% endif %}
 
     <table class="table">

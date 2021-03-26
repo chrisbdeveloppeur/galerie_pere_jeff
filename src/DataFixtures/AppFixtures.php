@@ -46,7 +46,7 @@ class AppFixtures extends Fixture
                 $nb = $faker->numberBetween(1,4);
                 $oeuvre->setTitre($faker->words($nb, true));
                 $oeuvre->setDescription($faker->realText());
-                $oeuvre->setFileName($faker->randomElement(['480x600.603e1bf2.png','480x480.ec819a0d.png','480x320.86ac0bc4.png','360x640.17a22b99.png']));
+//                $oeuvre->setFileName($faker->randomElement(['480x600.603e1bf2.png','480x480.ec819a0d.png','480x320.86ac0bc4.png','360x640.17a22b99.png']));
 //                $annee = $faker->dateTimeBetween('-10 years','now');
 //                $annee = $annee->format('Y');
                 $manager->persist($oeuvre);

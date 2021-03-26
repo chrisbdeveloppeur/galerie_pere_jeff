@@ -9,27 +9,39 @@
 
     <a class="button is-small is-info" href="{{ path('year_directory_new') }}">Ajouter une galerie</a>
 
-    <table class="table">
+    <table class="table" style="margin: auto">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Titre</th>
                 <th>Année</th>
-                <th>Fichier</th>
+                <th>Couverture</th>
                 <th>Gestion</th>
             </tr>
         </thead>
         <tbody>
         {% for year_directory in year_directories %}
             <tr>
-                <td>{{ year_directory.id }}</td>
-                <td>{{ year_directory.title }}</td>
-                <td>{{ year_directory.year }}</td>
-                <td>{{ year_directory.fileName }}</td>
+                <td>
+                    {{ year_directory.title }}
+                </td>
+
+                <td>
+                    {{ year_directory.year }}
+                </td>
+
+                <td class="is-flex is-justify-content-center is-align-items-center">
+                    {% if year_directory.fileName %}
+                        <img class="has-max-height-20vh has-border-white-5px" src="{{ asset('/images/years_directory_img/' ~ year_directory.filename ) | imagine_filter('vignette') }}" alt="{{ year_directory.title }}" title="{{ year_directory.fileName }}">
+                    {% else %}
+                        <span class="has-text-weight-light is-italic" title="L'image de la première oeuvre de cette galerie sera donc affichée">Vide</span>
+                    {% endif %}
+                </td>
+
                 <td>
                     <a href="{{ path('year_directory_show', {'id': year_directory.id}) }}">Voir</a>
                     <a href="{{ path('year_directory_edit', {'id': year_directory.id}) }}">Modifier</a>
                 </td>
+
             </tr>
         {% else %}
             <tr>
@@ -37,6 +49,14 @@
             </tr>
         {% endfor %}
         </tbody>
+        <tfoot>
+        <tr>
+            <th>Titre</th>
+            <th>Année</th>
+            <th>Couverture</th>
+            <th>Gestion</th>
+        </tr>
+        </tfoot>
     </table>
 </div>
 {% endblock %}
