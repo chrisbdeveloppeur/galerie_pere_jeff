@@ -1,4 +1,12 @@
 {{ form_start(form, {'attr': {'class':'column has-text-centered'}}) }}
     {{ form_widget(form) }}
-    <button class="button is-info is-normal">Valider</button>
+    {% if oeuvre.fileName %}
+        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center field">
+            <figure class="is-relative">
+                <img class="has-max-height-20vh has-border-white-5px" src="{{ asset('/images/oeuvres/' ~ oeuvre.filename ) | imagine_filter('small') }}" alt="{{ oeuvre.titre }}" title="{{ oeuvre.fileName }}">
+            </figure>
+            <span>{{ oeuvre.fileName }}</span>
+        </div>
+    {% endif %}
+    <button class="button is-info is-outlined is-normal">Valider</button>
 {{ form_end(form) }}

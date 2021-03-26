@@ -4,19 +4,19 @@
 
 {% block body %}
 
-    <div class="container pt-6 mt-6">
+    <div class="container py-6">
 
         <h1 class="title">Gestion des oeuvres</h1>
 
         <a class="button is-small is-info" href="{{ path('oeuvre_new') }}">Ajouter une oeuvre</a>
 
-        <table class="table">
+        <table class="table" style="margin: auto">
             <thead>
             <tr>
 {#                <th>Id</th>#}
                 <th>Titre</th>
 {#                <th>Description</th>#}
-{#                <th>Fichier</th>#}
+                <th>Fichier</th>
                 <th>Annee</th>
                 <th>Gestion</th>
             </tr>
@@ -27,8 +27,14 @@
 {#                    <td>{{ oeuvre.id }}</td>#}
                     <td>{{ oeuvre.titre }}</td>
 {#                    <td>{{ oeuvre.description|raw }}</td>#}
-{#                    <td>{{ oeuvre.fileName }}</td>#}
-                    <td>{{ oeuvre.yearDirectory }}</td>
+                    <td>{{ oeuvre.fileName }}</td>
+                    <td class="is-flex is-justify-content-center is-align-items-center">
+                        {% if oeuvre.fileName %}
+                            <img class="has-max-height-20vh has-border-white-5px" src="{{ asset('/images/oeuvres/' ~ oeuvre.filename ) | imagine_filter('vignette') }}" alt="{{ oeuvre.titre }}" title="{{ oeuvre.fileName }}">
+                        {% else %}
+                            <span class="has-text-weight-light is-italic" title="Sans fichier image">Vide</span>
+                        {% endif %}
+                    </td>
                     <td>
                         <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}">Voir</a>
                         <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">Modifier</a>

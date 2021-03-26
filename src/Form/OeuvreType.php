@@ -36,6 +36,18 @@ class OeuvreType extends AbstractType
                 ],
                 'required' => true,
             ])
+            ->add('year_directory', EntityType::class,[
+                'class' => YearDirectory::class,
+                'required' => false,
+                'label' => false,
+                'placeholder' => 'selectionner une galerie',
+                'label_attr' => ['class'=>'has-text-weight-bold'],
+                'row_attr' => ['class' => 'mb-4 select field is-flex is-flex-direction-column'],
+                'attr' => [
+                    'class' => 'has-text-centered'
+                ],
+                'choice_label' => 'year',
+            ])
             ->add('file', FileType::class,[
                 'label' => 'Fichier',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
@@ -45,18 +57,6 @@ class OeuvreType extends AbstractType
                 ],
                 'error_bubbling' => true,
                 'required' => false,
-            ])
-            ->add('year_directory', EntityType::class,[
-                'class' => YearDirectory::class,
-                'required' => false,
-                'label' => false,
-                'placeholder' => 'selectionner une galerie',
-                'label_attr' => ['class'=>'has-text-weight-bold'],
-                'row_attr' => ['class' => 'mb-4 select'],
-                'attr' => [
-                    'class' => 'has-text-centered'
-                ],
-                'choice_label' => 'year',
             ])
         ;
     }
