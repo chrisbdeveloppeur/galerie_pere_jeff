@@ -226,6 +226,10 @@ $dark: #363636;
 .is-hoverable-help-cursor:hover{
   cursor: help !important;
 }
+.table-wrapper {
+  //overflow-x: auto;
+  max-width: 100vw;
+}
 
 
 .has-scrollbar-hidden{

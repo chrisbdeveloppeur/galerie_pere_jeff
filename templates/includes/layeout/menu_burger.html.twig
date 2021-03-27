@@ -1,6 +1,24 @@
 
 <div id="menu-slide" class="is-absolute-fullscreen has-max-height-100vh has-transition-7-ms is-left-100 is-top-0 opacity-0 has-background-white-ter is-bold">
 
+    {% if is_granted('ROLE_ADMIN') %}
+    <div class="is-absolute is-flex is-flex-direction-column is-width-100 is-hidden-desktop">
+        <div class="column">
+            <a class="button is-small is-danger" href="{{ path('app_logout') }}">
+                Deconnexion
+            </a>
+        </div>
+        <div class="column is-flex is-justify-content-space-evenly has-text-weight-bold">
+            <a href="{{ path('year_directory_index') }}" class="">
+                Galeries
+            </a>
+            <a href="{{ path('oeuvre_index') }}" class="">
+                Oeuvres
+            </a>
+        </div>
+    </div>
+    {% endif %}
+
     <div class="is-flex is-justify-content-center is-align-items-center" style="height: 100%;width: 100%">
         <div class="column is-flex-desktop">
             <div class="px-6 is-flex is-align-items-center mb-6">
