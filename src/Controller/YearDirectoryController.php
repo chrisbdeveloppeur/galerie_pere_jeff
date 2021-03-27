@@ -22,16 +22,19 @@ class YearDirectoryController extends AbstractController
      */
     public function index(YearDirectoryRepository $yearDirectoryRepository): Response
     {
+        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('year_directory/index.html.twig', [
             'year_directories' => $yearDirectoryRepository->findAll(),
+            'galeries' => $galeries,
         ]);
     }
 
     /**
      * @Route("/new", name="year_directory_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, YearDirectoryRepository $yearDirectoryRepository): Response
     {
+        $galeries = $yearDirectoryRepository->classByYear();
         $yearDirectory = new YearDirectory();
         $form = $this->createForm(YearDirectoryType::class, $yearDirectory);
         $form->handleRequest($request);
@@ -48,24 +51,28 @@ class YearDirectoryController extends AbstractController
         return $this->render('year_directory/new.html.twig', [
             'year_directory' => $yearDirectory,
             'form' => $form->createView(),
+            'galeries' => $galeries,
         ]);
     }
 
     /**
      * @Route("/{id}", name="year_directory_show", methods={"GET"})
      */
-    public function show(YearDirectory $yearDirectory): Response
+    public function show(YearDirectory $yearDirectory, YearDirectoryRepository $yearDirectoryRepository): Response
     {
+        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('year_directory/show.html.twig', [
             'year_directory' => $yearDirectory,
+            'galeries' => $galeries,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="year_directory_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, YearDirectory $yearDirectory): Response
+    public function edit(Request $request, YearDirectory $yearDirectory, YearDirectoryRepository $yearDirectoryRepository): Response
     {
+        $galeries = $yearDirectoryRepository->classByYear();
         $form = $this->createForm(YearDirectoryType::class, $yearDirectory);
         $form->handleRequest($request);
 
@@ -73,12 +80,12 @@ class YearDirectoryController extends AbstractController
             $msg = 'La galerie à bien été modifiée';
             $this->addFlash('success', $msg);
             $this->getDoctrine()->getManager()->flush();
-//            return $this->redirectToRoute('year_directory_index');
         }
 
         return $this->render('year_directory/edit.html.twig', [
             'year_directory' => $yearDirectory,
             'form' => $form->createView(),
+            'galeries' => $galeries,
         ]);
     }
 

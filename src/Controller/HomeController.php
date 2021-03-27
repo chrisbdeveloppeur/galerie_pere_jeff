@@ -19,27 +19,9 @@ class HomeController extends AbstractController
      */
     public function index(OeuvreRepository $repository, YearDirectoryRepository $yearDirectoryRepository, EntityManagerInterface $em): Response
     {
-        $allOeuvres = $repository->findAll();
-//        $oeuvres = $repository->groupedByAnnee();
-
-//        $years = [];
-//        for($i=0; $i<count($oeuvres); $i++){
-//            $yearDirectory = new YearDirectory();
-//            $yearDirectory->setTitle('Galerie ' . $i);
-//            $annee = $oeuvres[$i]->getAnnee();
-//            $yearDirectory->setYear($annee);
-//            foreach ($allOeuvres as $o){
-//                if ($o->getAnnee() == $annee ){
-//                    $yearDirectory->addOeuvre($o);
-//                }
-//            }
-//            $years[] = $yearDirectory;
-//        }
-
-        $years = $yearDirectoryRepository->classByYear();
+        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('home.html.twig', [
-//            'oeuvres' => $oeuvres,
-            'years' => $years,
+            'galeries' => $galeries,
         ]);
     }
 }

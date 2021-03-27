@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Oeuvre;
 use App\Form\OeuvreType;
 use App\Repository\OeuvreRepository;
+use App\Repository\YearDirectoryRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,18 +21,21 @@ class OeuvreController extends AbstractController
     /**
      * @Route("/", name="oeuvre_index", methods={"GET"})
      */
-    public function index(OeuvreRepository $oeuvreRepository): Response
+    public function index(OeuvreRepository $oeuvreRepository, YearDirectoryRepository $yearDirectoryRepository): Response
     {
+        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('oeuvre/index.html.twig', [
             'oeuvres' => $oeuvreRepository->findAll(),
+            'galeries' => $galeries,
         ]);
     }
 
     /**
      * @Route("/new", name="oeuvre_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, YearDirectoryRepository $yearDirectoryRepository): Response
     {
+        $galeries = $yearDirectoryRepository->classByYear();
         $oeuvre = new Oeuvre();
         $form = $this->createForm(OeuvreType::class, $oeuvre);
         $form->handleRequest($request);
@@ -48,24 +52,28 @@ class OeuvreController extends AbstractController
         return $this->render('oeuvre/new.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form->createView(),
+            'galeries' => $galeries,
         ]);
     }
 
     /**
      * @Route("/{id}", name="oeuvre_show", methods={"GET"})
      */
-    public function show(Oeuvre $oeuvre): Response
+    public function show(Oeuvre $oeuvre, YearDirectoryRepository $yearDirectoryRepository): Response
     {
+        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('oeuvre/show.html.twig', [
             'oeuvre' => $oeuvre,
+            'galeries' => $galeries,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="oeuvre_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Oeuvre $oeuvre): Response
+    public function edit(Request $request, Oeuvre $oeuvre, YearDirectoryRepository $yearDirectoryRepository): Response
     {
+        $galeries = $yearDirectoryRepository->classByYear();
         $form = $this->createForm(OeuvreType::class, $oeuvre);
         $form->handleRequest($request);
 
@@ -79,6 +87,7 @@ class OeuvreController extends AbstractController
         return $this->render('oeuvre/edit.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form->createView(),
+            'galeries' => $galeries,
         ]);
     }
 

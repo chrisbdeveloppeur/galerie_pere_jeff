@@ -7,9 +7,10 @@
         <div class="container">
 
             <div class="is-relative">
-                <h1 class="title has-text-info is-size-1 has-text-weight-bold has-font-playfair has-text-right">
+                <h1 class="title has-text-info is-size-1 has-text-weight-bold has-text-right">
                     {{ year }}
                 </h1>
+                <h2 class="subtitle is-3 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ galerie.title }}</h2>
 {#                <div class="column is-full is-flex is-justify-content-start">#}
                     <a class="button is-small is-dark is-absolute is-top-0 is-left-0" href="{{ path('home') }}">Retour aux galeries</a>
 {#                </div>#}
@@ -48,7 +49,7 @@
                             </div>
                         {% endif %}
 
-                        <h2 class="subtitle has-text-centered has-text-weight-bold">
+                        <h2 class="subtitle has-text-centered has-text-weight-bold has-font-playfair">
                             {{ oeuvre.titre }}
                         </h2>
 

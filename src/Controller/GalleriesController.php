@@ -17,15 +17,16 @@ class GalleriesController extends AbstractController
     /**
      * @Route("/{year}", name="year")
      */
-    public function galeriesAnnees(OeuvreRepository $repository, $year, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function galeriesAnnees($year, YearDirectoryRepository $yearDirectoryRepository): Response
     {
-//        $oeuvres = $repository->findByYear($year);
-        $galeries = $yearDirectoryRepository->findOneBy(['year' => $year]);
-        $oeuvres = $galeries->getOeuvres();
-//        dd($galeries->getOeuvres());
+        $galerie = $yearDirectoryRepository->findOneBy(['year' => $year]);
+        $galeries = $yearDirectoryRepository->classByYear();
+        $oeuvres = $galerie->getOeuvres();
         return $this->render('galleries/gallery.html.twig', [
             'oeuvres' => $oeuvres,
             'year' => $year,
+            'galerie' => $galerie,
+            'galeries' => $galeries,
         ]);
     }
 }
