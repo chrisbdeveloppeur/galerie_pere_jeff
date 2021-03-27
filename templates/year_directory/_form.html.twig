@@ -7,7 +7,19 @@
                 <a href="{{ path('year_directory_delete_img', {'id': year_directory.id}) }}" class="delete is-medium is-absolute is-top-075rem is-right-075rem" title="Supprimer l'image de la galerie" onclick="return confirm('Êtes-vous sur de vouloir supprimer cette l\'image de couverture de la galerie ?');"></a>
                 <img class="" src="{{ asset('/images/years_directory_img/' ~ year_directory.filename ) | imagine_filter('small') }}" alt="{{ year_directory.title }}" title="{{ year_directory.fileName }}">
             </figure>
-            <span>{{ year_directory.fileName }}</span>
+{#            <span>{{ year_directory.fileName }}</span>#}
+        </div>
+    {% else %}
+        <div class="column has-text-centered">
+            <h3 class="subtitle">
+                Aucun fichier image uploadé pour cette galerie
+            </h3>
+            <div class="help pb-6 text-icon">
+                <span class="icon">
+                    <i class="fas fa-lg fa-info-circle"></i>
+                </span>
+                Si aucun fichier image n'a été uploader, l'image de la première oeuvre sera affichée en couverture
+            </div>
         </div>
     {% endif %}
     <div class="field">

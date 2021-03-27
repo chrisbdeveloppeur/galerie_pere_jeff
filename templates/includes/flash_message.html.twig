@@ -6,7 +6,7 @@
 
         {% if type == 'danger' %}
             <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg has-text-light">
-                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+{#                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
                 <div class="is-flex">
                     <div class="is-flex is-align-items-center is-justify-content-center">
                         <span class="icon px-5">
@@ -18,7 +18,7 @@
             </div>
         {% elseif type == 'info' %}
             <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg">
-                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+{#                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
                 <div class="is-flex has-text-light">
                     <div class="is-flex is-align-items-center is-justify-content-center">
                         <span class="icon px-5">
@@ -30,7 +30,7 @@
             </div>
         {% else %}
             <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg">
-                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+{#                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
                 <div class="is-flex">
                     <div class="is-flex is-align-items-center is-justify-content-center">
                         <span class="icon px-5">
@@ -47,7 +47,7 @@
 {% if form is defined %}
     {% if form_errors(form) != null %}
         <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-light">
-            <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+{#            <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
             <div class="is-flex">
                 <div class="is-flex is-align-items-center is-justify-content-center">
                     <span class="icon px-5">
@@ -68,7 +68,7 @@
     {% if error is defined %}
         {% if error %}
             <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-light">
-                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>
+{#                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
                 <div class="is-flex">
                     <div class="is-flex is-align-items-center is-justify-content-center">
                     <span class="icon px-5">

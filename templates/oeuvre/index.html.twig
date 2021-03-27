@@ -14,9 +14,7 @@
             <table class="table" style="margin: auto">
                 <thead>
                 <tr>
-                    {#                <th>Id</th>#}
                     <th>Titre</th>
-                    {#                <th>Description</th>#}
                     <th>Année</th>
                     <th class="is-hidden-touch">Fichier image</th>
                     <th>Gestion</th>
@@ -25,14 +23,12 @@
                 <tbody>
                 {% for oeuvre in oeuvres %}
                     <tr>
-                        {#                    <td>{{ oeuvre.id }}</td>#}
                         <td>{{ oeuvre.titre }}</td>
-                        {#                    <td>{{ oeuvre.description|raw }}</td>#}
                         <td>{{ oeuvre.yearDirectory }}</td>
                         <td class="has-text-centered is-relative is-hidden-touch">
                             {% if oeuvre.fileName %}
                                 <div class="">
-                                    <img style="bottom: 100%;left: 0" class="is-hidden is-absolute has-max-height-20vh has-border-white-5px" src="{{ asset('/images/oeuvres/' ~ oeuvre.filename ) | imagine_filter('vignette') }}" alt="{{ oeuvre.titre }}" title="{{ oeuvre.fileName }}">
+                                    <img style="bottom: 100%;left: 0" class="is-hidden is-absolute has-max-height-20vh has-border-dark-2px" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName ) | imagine_filter('vignette') }}" alt="{{ oeuvre.titre }}" title="{{ oeuvre.fileName }}">
                                     <span class="icon has-text-dark is-hoverable-help-cursor" onmouseenter="showPrevOnHover(this)" onmouseleave="hidePrevOnHover(this)">
                                     <i class="fas fa-lg fa-eye"></i>
                                 </span>

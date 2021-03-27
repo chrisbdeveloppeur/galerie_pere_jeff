@@ -223,6 +223,15 @@ $dark: #363636;
 .has-border-white-5px{
   border: 5px solid white;
 }
+.has-border-dark-5px{
+  border: 5px solid $dark;
+}
+.has-border-white-2px{
+  border: 2px solid white;
+}
+.has-border-dark-2px{
+  border: 2px solid $dark;
+}
 .is-hoverable-zoom-in:hover{
   cursor: zoom-in !important;
 }

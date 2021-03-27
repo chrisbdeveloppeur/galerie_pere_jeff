@@ -43,8 +43,8 @@ class YearDirectoryType extends AbstractType
                 ],
                 'error_bubbling' => true,
                 'required' => false,
-                'help' => 'Si aucun fichier n\'est uploadé, l\'image de la première oeuvre de la gallerie sera affichée en couverture',
-                'help_attr' => ['class' => 'help']
+//                'help' => 'Si aucun fichier n\'est uploadé, l\'image de la première oeuvre de la gallerie sera affichée en couverture',
+//                'help_attr' => ['class' => 'help']
             ])
         ;
     }

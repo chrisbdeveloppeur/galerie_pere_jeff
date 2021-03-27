@@ -9,25 +9,40 @@
         <a class="button is-small is-dark" href="{{ path('year_directory_index') }}">Retour à la liste des galeries</a>
     </div>
 
-    <h1 class="title"><span class="has-text-weight-light">Galerie</span> {{ year_directory.title }}</h1>
+    <h1 class="title"><span class="has-text-weight-light">Galerie</span> {{ year_directory.year }}</h1>
 
     {% if year_directory.fileName %}
         <img class="" src="{{ asset('images/years_directory_img/' ~ year_directory.filename ) | imagine_filter('small') }}" alt="{{ year_directory.title }}" title="{{ year_directory.fileName }}">
+    {% else %}
+
+        {% if year_directory.oeuvres is not empty and year_directory.oeuvres[0].filename %}
+            <div class="column is-flex is-justify-content-center is-align-items-center">
+                <img class="has-max-height-40vh has-border-white-5px" src="{{ asset('/images/oeuvres/' ~ year_directory.oeuvres[0].filename ) }}" alt="Couverture de galerie manquante" title="{{ year_directory.title }}">
+            </div>
+        {% endif %}
+
+        <div class="column has-text-centered">
+            <h3 class="subtitle">
+                Aucun fichier image uploadé pour cette galerie
+            </h3>
+            <div class="help pb-6 text-icon">
+                <span class="icon">
+                    <i class="fas fa-lg fa-info-circle"></i>
+                </span>
+                Si aucun fichier image n'a été uploader, l'image de la première oeuvre sera affichée en couverture
+            </div>
+        </div>
     {% endif %}
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ year_directory.id }}</td>
-            </tr>
-            <tr>
                 <th>Titre</th>
-                <td>{{ year_directory.title }}</td>
+                <td>{{ year_directory.year }}</td>
             </tr>
             <tr>
-                <th>Année</th>
-                <td>{{ year_directory.year }}</td>
+                <th>Sous-titre</th>
+                <td>{{ year_directory.title }}</td>
             </tr>
             <tr>
                 <th>Fichier</th>
