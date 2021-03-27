@@ -25,7 +25,7 @@ class OeuvreController extends AbstractController
     {
         $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('oeuvre/index.html.twig', [
-            'oeuvres' => $oeuvreRepository->findAll(),
+            'oeuvres' => $oeuvreRepository->classByAnnee(),
             'galeries' => $galeries,
         ]);
     }

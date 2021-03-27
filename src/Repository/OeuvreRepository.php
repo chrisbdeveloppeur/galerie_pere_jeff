@@ -34,6 +34,14 @@ class OeuvreRepository extends ServiceEntityRepository
             ;
     }
 
+    public function classByAnnee()
+    {
+        return $this->createQueryBuilder('o')
+            ->orderBy('o.year_directory', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
     public function findByYear($value)
     {
