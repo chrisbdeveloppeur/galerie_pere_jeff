@@ -257,6 +257,7 @@ $dark: #363636;
 
 #burger:hover .bar1, #burger:hover .bar3{
   background-color: $info;
+  width: 40px;
 }
 
 .bars-centrales{
@@ -287,6 +288,7 @@ $dark: #363636;
 }
 .bar1, .bar3{
   background: $dark;
+  transition: .5s !important;
 }
 .bar3{
   width: 30px;
