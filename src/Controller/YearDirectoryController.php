@@ -102,6 +102,7 @@ class YearDirectoryController extends AbstractController
     {
         $oeuvre = $oeuvreRepository->find($id_oeuvre);
         $gallery = $yearDirectoryRepository->find($id_gallery);
+        $add = false;
 
         if ($gallery->getOeuvres()->contains($oeuvre)){
             $gallery->removeOeuvre($oeuvre);
@@ -109,6 +110,7 @@ class YearDirectoryController extends AbstractController
         }else{
             $gallery->addOeuvre($oeuvre);
             $msg = 'L\'oeuvre à été ajoutée à cette galerie';
+            $add = true;
         }
         $em->persist($gallery);
         $em->flush();
@@ -116,6 +118,7 @@ class YearDirectoryController extends AbstractController
         return $this->json([
             'id' => $id_gallery,
             'flash_message' => $msg,
+            'add' => $add,
         ]);
     }
 

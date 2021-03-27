@@ -112,6 +112,16 @@
             },5000)
         }
 
+        function delAutoFlashMsgAjax(notifBlockAjax){
+            notifBlockAjax.firstElementChild.classList.toggle('has-transition-5-ms');
+            setTimeout(function (){
+                notifBlockAjax.firstElementChild.classList.toggle('opacity-0');
+                setTimeout(function () {
+                    notifBlockAjax.firstElementChild.remove();
+                },500);
+            },5000)
+        }
+
     </script>
     {#                               #}
 
@@ -141,22 +151,23 @@
             let blockImg = this;
             let checkIcon = this.querySelector('span');
             let notifAjaxBlock = document.getElementById('notification-ajax');
-            notifAjaxBlock.innerHTML = "            <div class=\"notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg has-text-light\">\n" +
-                "                <button class=\"delete\" onclick=\"this.parentElement.parentElement.removeChild(this.parentElement);\"></button>\n" +
-                "                <div class=\"is-flex\">\n" +
-                "                    <div class=\"is-flex is-align-items-center is-justify-content-center\">\n" +
-                "                        <span class=\"icon px-5\">\n" +
-                "                            <i class=\"fas fa-lg fa-exclamation-triangle\"></i>\n" +
-                "                        </span>\n" +
-                "                    </div>\n" +
-                "                    <div class=\"container\"></div>\n" +
-                "                </div>\n" +
-                "            </div>";
+            blockImg.classList.toggle('opacity-1');
+            blockImg.classList.toggle('opacity-05');
+            checkIcon.classList.toggle('is-hidden');
 
             axios.get(url).then(function (response) {
-                blockImg.classList.toggle('opacity-1');
-                blockImg.classList.toggle('opacity-05');
-                checkIcon.classList.toggle('is-hidden');
+                notifAjaxBlock.innerHTML += "            <div class=\"notification is-info my-2 mx-2 flash-msg has-text-centered flash-msg\">\n" +
+                    "                <button class=\"delete\" onclick=\"this.parentElement.parentElement.removeChild(this.parentElement);\"></button>\n" +
+                    "                <div class=\"is-flex\">\n" +
+                    "                    <div class=\"is-flex is-align-items-center is-justify-content-center\">\n" +
+                    "                        <span class=\"icon px-5\">\n" +
+                    "                            <i class=\"fas fa-lg fa-info-circle\"></i>\n" +
+                    "                        </span>\n" +
+                    "                    </div>\n" +
+                    "                    <div class=\"container\">L'oeuvre à bien été ajouter à la galerie</div>\n" +
+                    "                </div>\n" +
+                    "            </div>";
+                delAutoFlashMsgAjax(notifAjaxBlock);
             })
         }
         let addRemoveOeuvreBtns = document.querySelectorAll('a.add-remove-oeuvre-ajax');
