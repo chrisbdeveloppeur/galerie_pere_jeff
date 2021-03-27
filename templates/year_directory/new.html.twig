@@ -5,7 +5,7 @@
 {% block body %}
 <div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center py-6">
     <div class="column is-full is-flex is-justify-content-start">
-        <a class="button is-small is-dark" href="{{ path('year_directory_index') }}">Retour à la liste</a>
+        <a class="button is-small is-dark" href="{{ path('year_directory_index') }}">Retour à la liste des galeries</a>
     </div>
 
     <h1 class="title">Créer une nouvelle galerie</h1>
@@ -17,9 +17,8 @@
     <div class="columns is-multiline px-6 is-flex is-justify-content-center">
         {% for oeuvre in oeuvres %}
             {% if oeuvre.fileName %}
-
-                <a href="" class="column is-one-fifth is-full-mobile has-text-centered opacity-05">
-                        <img src="{{ asset('images/oeuvres/' ~ oeuvre.fileName) | imagine_filter('small') }}" alt="">
+                <a href="" class="column is-flex is-flex-direction-column is-justify-content-space-evenly is-align-items-center is-one-fifth is-full-mobile has-text-centered opacity-05">
+                    <img src="{{ asset('images/oeuvres/' ~ oeuvre.fileName) | imagine_filter('small') }}" alt="">
                     <div class="tag">
                         {{ oeuvre.titre }}
                     </div>

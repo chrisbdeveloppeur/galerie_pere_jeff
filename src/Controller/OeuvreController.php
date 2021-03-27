@@ -81,7 +81,7 @@ class OeuvreController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             $msg = 'L\'oeuvre à bien été modifiée';
             $this->addFlash('success', $msg);
-//            return $this->redirectToRoute('oeuvre_index');
+            return $this->redirectToRoute('oeuvre_index');
         }
 
         return $this->render('oeuvre/edit.html.twig', [
