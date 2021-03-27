@@ -11,7 +11,13 @@
                     {{ galerie.year }}
                 </h1>
                 <h2 class="subtitle is-3 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ galerie.title }}</h2>
-                <a class="button is-small is-dark is-absolute is-top-0 is-left-0" href="{{ path('home') }}">Retour aux galeries</a>
+                <div class="buttons is-absolute is-top-0 is-left-0">
+                    <a class="button is-small is-dark" href="{{ path('home') }}">Retour aux galeries</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="button is-small is-dark" href="{{ path('year_directory_edit', {'id': galerie.id}) }}" title="Modifier cette galerie">Modifier la galerie</a>
+                    {% endif %}
+                </div>
+
             </div>
 
 
