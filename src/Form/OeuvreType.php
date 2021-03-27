@@ -25,6 +25,16 @@ class OeuvreType extends AbstractType
                     'class' => 'input has-text-centered'
                 ]
             ])
+            ->add('file', FileType::class,[
+                'label' => 'Fichier image',
+                'label_attr' => ['class'=>'has-text-weight-bold'],
+                'row_attr' => ['class'=>'field is-flex is-flex-direction-column'],
+                'attr' => [
+                    'class' => 'has-text-centered'
+                ],
+                'error_bubbling' => true,
+                'required' => false,
+            ])
             ->add('description',CKEditorType::class,[
                 'config' => ['toolbar' => 'standard'],
                 'error_bubbling' => true,
@@ -41,22 +51,13 @@ class OeuvreType extends AbstractType
                 'required' => false,
                 'label' => false,
                 'placeholder' => 'selectionner une galerie',
-                'label_attr' => ['class'=>'has-text-weight-bold'],
-                'row_attr' => ['class' => 'mb-4 select field is-flex is-flex-direction-column'],
+                'row_attr' => [
+                    'class' => 'select',
+                ],
                 'attr' => [
-                    'class' => 'has-text-centered'
+                    'class' => 'has-text-centered has-font-poppins'
                 ],
                 'choice_label' => 'year',
-            ])
-            ->add('file', FileType::class,[
-                'label' => 'Fichier image',
-                'label_attr' => ['class'=>'has-text-weight-bold'],
-                'row_attr' => ['class'=>'field is-flex is-flex-direction-column'],
-                'attr' => [
-                    'class' => 'has-text-centered'
-                ],
-                'error_bubbling' => true,
-                'required' => false,
             ])
         ;
     }

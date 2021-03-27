@@ -10,34 +10,56 @@
         <a class="button is-small is-dark" href="{{ path('oeuvre_index') }}">Retour à la liste des oeuvres</a>
     </div>
 
-    <img class="" src="{{ asset('images/oeuvres/' ~ oeuvre.fileName) | imagine_filter('small') }}" alt="{{ oeuvre.fileName }}">
+    <div class="column {% if not oeuvre.fileName %}is-flex is-flex-direction-column is-justify-content-center{% endif %} has-text-centered has-border-thin has-border-radius-3px is-relative is-full-touch mb-5 mx-3 has-background-white-bis is-full-desktop">
 
-    <h1>Oeuvre : {{ oeuvre.titre }}</h1>
+        <h3 class="subtitle is-4 is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px" style="margin: 0 auto">
+            Gallerie : {{ oeuvre.yearDirectory }}
+        </h3>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ oeuvre.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ oeuvre.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ oeuvre.description|raw }}</td>
-            </tr>
-            <tr>
-                <th>Fichier</th>
-                <td>{{ oeuvre.fileName }}</td>
-            </tr>
-            <tr>
-                <th>Annee</th>
-                <td>{{ oeuvre.yearDirectory }}</td>
-            </tr>
-        </tbody>
-    </table>
+        {% if oeuvre.fileName %}
+            <div class="column is-flex is-justify-content-center">
+                <img class="has-max-height-50vh" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
+            </div>
+        {% endif %}
+
+        <h2 class="subtitle has-text-centered has-text-weight-bold has-font-playfair">
+            {{ oeuvre.titre }}
+        </h2>
+
+        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px has-font-playfair" style="margin: 0 auto">
+            {{ oeuvre.description|raw }}
+        </div>
+
+    </div>
+
+{#    <img class="" src="{{ asset('images/oeuvres/' ~ oeuvre.fileName) | imagine_filter('small') }}" alt="{{ oeuvre.fileName }}">#}
+
+{#    <h1>Oeuvre : {{ oeuvre.titre }}</h1>#}
+
+{#    <table class="table">#}
+{#        <tbody>#}
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ oeuvre.id }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Titre</th>#}
+{#                <td>{{ oeuvre.titre }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Description</th>#}
+{#                <td>{{ oeuvre.description|raw }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Fichier</th>#}
+{#                <td>{{ oeuvre.fileName }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Annee</th>#}
+{#                <td>{{ oeuvre.yearDirectory }}</td>#}
+{#            </tr>#}
+{#        </tbody>#}
+{#    </table>#}
 
     <div class="column is-full is-flex is-justify-content-space-evenly">
         <a class="button is-small is-dark is-outlined mr-5" href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">Modifier</a>
