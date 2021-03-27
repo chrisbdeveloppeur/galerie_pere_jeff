@@ -9,6 +9,11 @@
 
         {% if is_granted('ROLE_ADMIN') %}
             <div class="navbar-menu">
+                <div class="navbar-item">
+                    <a class="button is-small is-danger" href="{{ path('app_logout') }}">
+                        Deconnexion
+                    </a>
+                </div>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
                         Gestion
@@ -22,11 +27,6 @@
                             Oeuvres
                         </a>
                     </div>
-                </div>
-                <div class="navbar-item">
-                    <a class="button is-small is-danger" href="{{ path('app_logout') }}">
-                        Deconnexion
-                    </a>
                 </div>
             </div>
         {% endif %}
