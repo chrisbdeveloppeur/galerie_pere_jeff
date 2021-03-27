@@ -156,7 +156,7 @@
             checkIcon.classList.toggle('is-hidden');
 
             axios.get(url).then(function (response) {
-                notifAjaxBlock.innerHTML += "            <div class=\"notification is-info my-2 mx-2 flash-msg has-text-centered flash-msg\">\n" +
+                notifAjaxBlock.innerHTML += "            <div class=\"notification is-"+ response.data['type'] +" my-2 mx-2 flash-msg has-text-centered is-light\">\n" +
                     "                <button class=\"delete\" onclick=\"this.parentElement.parentElement.removeChild(this.parentElement);\"></button>\n" +
                     "                <div class=\"is-flex\">\n" +
                     "                    <div class=\"is-flex is-align-items-center is-justify-content-center\">\n" +
@@ -164,7 +164,7 @@
                     "                            <i class=\"fas fa-lg fa-info-circle\"></i>\n" +
                     "                        </span>\n" +
                     "                    </div>\n" +
-                    "                    <div class=\"container\">L'oeuvre à bien été ajouter à la galerie</div>\n" +
+                    "                    <div class=\"container\">"+ response.data['flash_message'] +"</div>\n" +
                     "                </div>\n" +
                     "            </div>";
                 delAutoFlashMsgAjax(notifAjaxBlock);
