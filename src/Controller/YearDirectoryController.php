@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\YearDirectory;
 use App\Form\YearDirectoryType;
+use App\Repository\OeuvreRepository;
 use App\Repository\YearDirectoryRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,9 +34,10 @@ class YearDirectoryController extends AbstractController
     /**
      * @Route("/new", name="year_directory_new", methods={"GET","POST"})
      */
-    public function new(Request $request, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function new(Request $request, YearDirectoryRepository $yearDirectoryRepository, OeuvreRepository $oeuvreRepository): Response
     {
         $galeries = $yearDirectoryRepository->classByYear();
+        $oeuvres = $oeuvreRepository->findAll();
         $yearDirectory = new YearDirectory();
         $form = $this->createForm(YearDirectoryType::class, $yearDirectory);
         $form->handleRequest($request);
@@ -52,6 +55,7 @@ class YearDirectoryController extends AbstractController
             'year_directory' => $yearDirectory,
             'form' => $form->createView(),
             'galeries' => $galeries,
+            'oeuvres' => $oeuvres,
         ]);
     }
 
@@ -70,9 +74,10 @@ class YearDirectoryController extends AbstractController
     /**
      * @Route("/{id}/edit", name="year_directory_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, YearDirectory $yearDirectory, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function edit(Request $request, YearDirectory $yearDirectory, YearDirectoryRepository $yearDirectoryRepository, OeuvreRepository $oeuvreRepository): Response
     {
         $galeries = $yearDirectoryRepository->classByYear();
+        $oeuvres = $oeuvreRepository->findAll();
         $form = $this->createForm(YearDirectoryType::class, $yearDirectory);
         $form->handleRequest($request);
 
@@ -86,6 +91,30 @@ class YearDirectoryController extends AbstractController
             'year_directory' => $yearDirectory,
             'form' => $form->createView(),
             'galeries' => $galeries,
+            'oeuvres' => $oeuvres,
+        ]);
+    }
+
+    /**
+     * @Route("/{id_gallery}/add-{id_oeuvre}", name="year_directory_add_oeuvre")
+     */
+    public function addOeuvreInGallery(YearDirectoryRepository $yearDirectoryRepository,OeuvreRepository $oeuvreRepository, $id_gallery, $id_oeuvre, EntityManagerInterface $em): Response
+    {
+        $oeuvre = $oeuvreRepository->find($id_oeuvre);
+        $gallery = $yearDirectoryRepository->find($id_gallery);
+
+        if ($gallery->getOeuvres()->contains($oeuvre)){
+            $gallery->removeOeuvre($oeuvre);
+            $msg = 'L\'oeuvre à été retirée de cette galerie';
+        }else{
+            $gallery->addOeuvre($oeuvre);
+            $msg = 'L\'oeuvre à été ajoutée à cette galerie';
+        }
+        $em->persist($gallery);
+        $em->flush();
+        $this->addFlash('success', $msg);
+        return $this->redirectToRoute('year_directory_edit', [
+            'id' => $id_gallery,
         ]);
     }
 

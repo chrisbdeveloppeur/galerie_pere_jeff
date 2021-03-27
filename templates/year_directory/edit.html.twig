@@ -14,4 +14,18 @@
 
     {{ include('year_directory/_delete_form.html.twig') }}
 </div>
+
+    <div class="columns is-multiline px-6 is-flex is-justify-content-center">
+        {% for oeuvre in oeuvres %}
+            {% if oeuvre.fileName %}
+                <a href="{{ path('year_directory_add_oeuvre', {'id_gallery': year_directory.id, 'id_oeuvre': oeuvre.id }) }}" class="column is-one-fifth is-full-mobile has-text-centered {% if oeuvre.yearDirectory == year_directory %} opacity-1{% else %} opacity-05{% endif %}">
+                    <img src="{{ asset('images/oeuvres/' ~ oeuvre.fileName) | imagine_filter('small') }}" alt="">
+                    <div class="tag">
+                        {{ oeuvre.titre }}
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+
 {% endblock %}
