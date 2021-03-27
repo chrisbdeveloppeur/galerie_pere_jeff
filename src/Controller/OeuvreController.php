@@ -33,15 +33,17 @@ class OeuvreController extends AbstractController
     /**
      * @Route("/new", name="oeuvre_new", methods={"GET","POST"})
      */
-    public function new(Request $request, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function new(Request $request, YearDirectoryRepository $yearDirectoryRepository, OeuvreRepository $oeuvreRepository): Response
     {
         $galeries = $yearDirectoryRepository->classByYear();
         $oeuvre = new Oeuvre();
         $form = $this->createForm(OeuvreType::class, $oeuvre);
         $form->handleRequest($request);
+        $nb_oeuvre = count($oeuvreRepository->findAll()) + 1;
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $oeuvre->setImgPosition($nb_oeuvre);
             $entityManager->persist($oeuvre);
             $entityManager->flush();
             $msg = 'L\'oeuvre à bien été ajoutée';

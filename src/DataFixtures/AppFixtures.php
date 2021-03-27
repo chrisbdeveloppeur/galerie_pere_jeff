@@ -32,6 +32,7 @@ class AppFixtures extends Fixture
         $admin->setPassword($this->passwordEncoder->encodePassword($admin, $password));
         $manager->persist($admin);
 
+        $k = 0;
         for ($i=0; $i < 10; $i++){
             $year = new YearDirectory();
             $nb = $faker->numberBetween(1,7);
@@ -43,6 +44,8 @@ class AppFixtures extends Fixture
 
             for ($j=0; $j < $nb2; $j++){
                 $oeuvre = new Oeuvre();
+                $k = $k+1;
+                $oeuvre->setImgPosition($k);
                 $nb = $faker->numberBetween(1,4);
                 $oeuvre->setTitre($faker->words($nb, true));
                 $oeuvre->setDescription($faker->realText());

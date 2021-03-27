@@ -49,16 +49,20 @@ class Oeuvre
      */
     private $updatedAt;
 
-//    /**
-//     * @ORM\Column(type="string", nullable=true)
-//     */
-//    private $annee;
-
     /**
      * @ORM\ManyToOne(targetEntity=YearDirectory::class, inversedBy="oeuvres", cascade={"persist", "remove"})
      * @ORM\JoinColumn(onDelete="SET NULL");
      */
     private $year_directory;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $img_position;
+
+    public function __construct()
+    {
+    }
 
     public function getId(): ?int
     {
@@ -121,18 +125,6 @@ class Oeuvre
         return $this;
     }
 
-//    public function getAnnee()
-//    {
-//        return $this->annee;
-//    }
-//
-//    public function setAnnee($annee): self
-//    {
-//        $this->annee = $annee;
-//
-//        return $this;
-//    }
-
     public function getYearDirectory(): ?YearDirectory
     {
         return $this->year_directory;
@@ -141,6 +133,18 @@ class Oeuvre
     public function setYearDirectory(?YearDirectory $year_directory): self
     {
         $this->year_directory = $year_directory;
+
+        return $this;
+    }
+
+    public function getImgPosition(): ?int
+    {
+        return $this->img_position;
+    }
+
+    public function setImgPosition(?int $img_position): self
+    {
+        $this->img_position = $img_position;
 
         return $this;
     }
