@@ -12,10 +12,6 @@
 
     <div class="column {% if not oeuvre.fileName %}is-flex is-flex-direction-column is-justify-content-center{% endif %} has-text-centered has-border-thin has-border-radius-3px is-relative is-full-touch mb-5 mx-3 has-background-white-bis is-full-desktop">
 
-        <h3 class="subtitle has-text-weight-bold is-4 is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px" style="margin: 0 auto">
-            Gallerie associée : {{ oeuvre.yearDirectory }}
-        </h3>
-
         {% if oeuvre.fileName %}
             <div class="column is-flex is-justify-content-center">
                 <img class="has-max-height-50vh" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
@@ -26,9 +22,18 @@
             {{ oeuvre.titre }}
         </h2>
 
-        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px has-font-playfair" style="margin: 0 auto">
+        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px has-font-playfair  mb-4" style="margin: 0 auto">
             {{ oeuvre.description|raw }}
         </div>
+
+        <h3 class="subtitle has-text-weight-light is-4 is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px" style="margin: 0 auto">
+            Gallerie associée :
+            {% if oeuvre.yearDirectory is empty %}
+                <span class="has-text-weight-light is-italic">Aucune</span>
+            {% else %}
+                <span class="has-text-weight-bold">{{ oeuvre.yearDirectory }}</span>
+            {% endif %}
+        </h3>
 
     </div>
 
