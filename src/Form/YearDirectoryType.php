@@ -14,17 +14,17 @@ class YearDirectoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title',TextType::class,[
+            ->add('year',TextType::class,[
                 'label' => 'Titre',
+                'required' => false,
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class' => 'field'],
                 'attr' => [
                     'class' => 'input has-text-centered'
                 ]
             ])
-            ->add('year',TextType::class,[
-                'label' => 'Année',
-                'required' => false,
+            ->add('title',TextType::class,[
+                'label' => 'Description',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class' => 'field'],
                 'attr' => [

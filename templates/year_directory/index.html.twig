@@ -14,7 +14,7 @@
             <thead>
             <tr>
                 <th>Titre</th>
-                <th>Année</th>
+                <th>Description</th>
                 <th class="is-hidden-touch">Couverture</th>
                 <th>Gestion</th>
             </tr>
@@ -23,11 +23,11 @@
             {% for year_directory in year_directories %}
                 <tr>
                     <td>
-                        {{ year_directory.title }}
+                        {{ year_directory.year }}
                     </td>
 
                     <td>
-                        {{ year_directory.year }}
+                        {{ year_directory.title }}
                     </td>
 
                     <td class="has-text-centered is-relative is-hidden-touch">
