@@ -20,7 +20,7 @@
     <div class="columns is-multiline px-6 is-flex is-justify-content-center">
         {% for oeuvre in oeuvres %}
             {% if oeuvre.fileName %}
-                <a class="column is-relative is-flex is-flex-direction-column is-justify-content-space-evenly is-align-items-center is-one-fifth is-full-mobile has-text-centered add-remove-oeuvre-ajax {% if oeuvre.yearDirectory == year_directory %} opacity-1{% else %} opacity-05{% endif %}" href="{{ path('year_directory_add_oeuvre', {'id_gallery': year_directory.id, 'id_oeuvre': oeuvre.id }) }}">
+                <a class="has-transition-5-ms column is-relative is-flex is-flex-direction-column is-justify-content-space-evenly is-align-items-center is-one-fifth is-full-mobile has-text-centered add-remove-oeuvre-ajax {% if oeuvre.yearDirectory == year_directory %} opacity-1{% else %} opacity-05{% endif %}" href="{{ path('year_directory_add_oeuvre', {'id_gallery': year_directory.id, 'id_oeuvre': oeuvre.id }) }}">
 
                         <span class="icon tag is-light is-medium is-absolute is-top-075rem is-right-075rem has-text-info {% if oeuvre.yearDirectory != year_directory %}is-hidden{% endif %}">
                             <i class="fas fa-lg fa-check-circle"></i>
