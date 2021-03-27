@@ -27,7 +27,7 @@
                 </p>
             </div>
             <div class="column px-6 is-flex is-align-items-center">
-                <div class="columns has-text-info is-multiline is-flex is-justify-content-center is-align-items-center">
+                <div class="columns has-text-info is-multiline is-flex is-align-items-center">
                     {% for galerie in galeries %}
                         {% if galerie.year %}
                             <a class="column has-transition-5-ms is-half has-text-weight-bold is-size-4 has-text-centered" href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}">

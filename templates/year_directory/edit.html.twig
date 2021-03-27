@@ -16,6 +16,7 @@
     {{ include('year_directory/_delete_form.html.twig') }}
 </div>
 
+    <h3 class="subtitle has-text-centered has-text-weight-bold">Selectionner les oeuvres de cette galerie</h3>
     <div class="columns is-multiline px-6 is-flex is-justify-content-center">
         {% for oeuvre in oeuvres %}
             {% if oeuvre.fileName %}
