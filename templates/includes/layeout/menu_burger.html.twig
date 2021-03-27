@@ -1,7 +1,7 @@
 
 <div id="menu-slide" class="is-absolute-fullscreen has-max-height-100vh has-transition-7-ms is-left-100 is-top-0 opacity-0 has-background-white-ter is-bold">
 
-    <div class="py-6 px-6 is-flex is-justify-content-center is-align-items-center" style="height: 100%;width: 100%">
+    <div class="is-flex is-justify-content-center is-align-items-center" style="height: 100%;width: 100%">
         <div class="column is-flex-desktop">
             <div class="px-6 is-flex is-align-items-center mb-6">
                 <p class="has-text-info">
@@ -11,7 +11,7 @@
             <div class="px-6 is-flex is-align-items-center">
                 <div class="columns has-text-info is-multiline is-flex is-justify-content-center is-align-items-center">
                     {% for galerie in galeries %}
-                        <a class="column is-half has-text-weight-bold is-size-4 has-text-centered" href="{{ path('gallery_year', {'year': galerie.year}) }}">
+                        <a class="column has-transition-5-ms is-half has-text-weight-bold is-size-4 has-text-centered" href="{{ path('gallery_year', {'year': galerie.year}) }}">
                             {{ galerie.year }}
                         </a>
                     {% endfor %}

@@ -248,7 +248,7 @@ $dark: #363636;
   user-select: none;
 }
 
-#burger:hover span{
+#burger:hover .bar1, #burger:hover .bar3{
   background-color: $info;
 }
 
@@ -267,7 +267,7 @@ $dark: #363636;
 
 .change .bar2 {
   transform: rotate(-40deg);
-  background-color: $info;
+  background-color: $dark;
 }
 
 .change .bar3 {
@@ -276,6 +276,7 @@ $dark: #363636;
 
 .change .bar4{
   transform: rotate(40deg);
+  background-color: $dark;
 }
 .bar1, .bar3{
   background: $dark;
