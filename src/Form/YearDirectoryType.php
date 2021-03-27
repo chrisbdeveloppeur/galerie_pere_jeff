@@ -24,6 +24,7 @@ class YearDirectoryType extends AbstractType
             ])
             ->add('year',TextType::class,[
                 'label' => 'Année',
+                'required' => false,
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class' => 'field'],
                 'attr' => [

@@ -15,16 +15,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class GalleriesController extends AbstractController
 {
     /**
-     * @Route("/{year}", name="year")
+     * @Route("/{id_gallery}", name="year")
      */
-    public function galeriesAnnees($year, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function galeriesAnnees($id_gallery, YearDirectoryRepository $yearDirectoryRepository): Response
     {
-        $galerie = $yearDirectoryRepository->findOneBy(['year' => $year]);
+        $galerie = $yearDirectoryRepository->find($id_gallery);
         $galeries = $yearDirectoryRepository->classByYear();
         $oeuvres = $galerie->getOeuvres();
         return $this->render('galleries/gallery.html.twig', [
             'oeuvres' => $oeuvres,
-            'year' => $year,
+            'id_gallery' => $id_gallery,
             'galerie' => $galerie,
             'galeries' => $galeries,
         ]);

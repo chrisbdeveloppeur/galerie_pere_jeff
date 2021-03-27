@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gallerie - {{ year }}{% endblock %}
+{% block title %}Gallerie - {{ galerie.year }}{% endblock %}
 
 {% block body %}
     <section class="section">
@@ -8,7 +8,7 @@
 
             <div class="is-relative">
                 <h1 class="title has-text-info is-size-1 has-text-weight-bold has-text-right">
-                    {{ year }}
+                    {{ galerie.year }}
                 </h1>
                 <h2 class="subtitle is-3 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ galerie.title }}</h2>
 {#                <div class="column is-full is-flex is-justify-content-start">#}
