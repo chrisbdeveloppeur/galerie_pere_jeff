@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class YearDirectoryType extends AbstractType
 {
@@ -20,29 +21,45 @@ class YearDirectoryType extends AbstractType
     {
         $builder
             ->add('year',TextType::class,[
-                'label' => 'Titre',
-                'required' => false,
+                'label' => 'Titre *',
+                'required' => true,
                 'label_attr' => ['class'=>'has-text-weight-bold'],
-                'row_attr' => ['class' => 'field'],
+                'row_attr' => [
+                    'class' => 'field',
+                    ],
                 'attr' => [
-                    'class' => 'input has-text-centered'
+                    'class' => 'input has-text-centered',
+                    'placeholder' => 'Ex : Mariage',
                 ],
-                'help' => 'Nommez cette galerie avec quelques mots',
+                'help' => 'Nommez cette galerie avec quelques mots. Exemple : une année / un nom',
                 'help_attr' => ['class' => 'help'],
                 'constraints' => [
-                  new Length(['max' => 25, 'maxMessage' => 'Le titre est trop long']),
+                  new Length([
+                      'max' => 25,
+                      'maxMessage' => 'Le titre est trop long . . . (25 char. max)'
+                  ]),
+                  new NotBlank([
+                      'message' => 'Ce champs ce ne peut être vide'
+                  ])
                 ],
             ])
             ->add('title',TextareaType::class,[
                 'label' => 'Sous-titre',
+                'required' => false,
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class' => 'field'],
                 'attr' => [
                     'class' => 'textarea has-text-centered',
                     'style' => 'resize:none;',
+                    'placeholder' => 'Ex : Immortalisation des moments merveilleux',
                 ],
+                'help' => 'Donnez un sous-titre succinct et pertinent à cette galerie (description)',
+                'help_attr' => ['class' => 'help'],
                 'constraints' => [
-                    new Length(['max' => 150, 'maxMessage' => 'Le sous-titre est trop long']),
+                    new Length([
+                        'max' => 150,
+                        'maxMessage' => 'Le sous-titre est trop long . . . (150 char. max)'
+                    ]),
                 ],
             ])
             ->add('file', FileType::class,[
@@ -54,8 +71,6 @@ class YearDirectoryType extends AbstractType
                 ],
                 'error_bubbling' => true,
                 'required' => false,
-//                'help' => 'Si aucun fichier n\'est uploadé, l\'image de la première oeuvre de la gallerie sera affichée en couverture',
-//                'help_attr' => ['class' => 'help']
             ])
         ;
     }
