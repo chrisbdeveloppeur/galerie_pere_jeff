@@ -112,9 +112,10 @@ class YearDirectoryController extends AbstractController
         }
         $em->persist($gallery);
         $em->flush();
-        $this->addFlash('success', $msg);
-        return $this->redirectToRoute('year_directory_edit', [
+//        $this->addFlash('success', $msg);
+        return $this->json([
             'id' => $id_gallery,
+            'flash_message' => $msg,
         ]);
     }
 

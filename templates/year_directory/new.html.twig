@@ -14,18 +14,18 @@
 
 </div>
 
-    <h3 class="subtitle has-text-centered has-text-weight-bold">Selectionner les oeuvres de cette galerie</h3>
-    <div class="columns is-multiline px-6 is-flex is-justify-content-center">
-        {% for oeuvre in oeuvres %}
-            {% if oeuvre.fileName %}
-                <a href="" class="column is-flex is-flex-direction-column is-justify-content-space-evenly is-align-items-center is-one-fifth is-full-mobile has-text-centered opacity-05">
-                    <img src="{{ asset('images/oeuvres/' ~ oeuvre.fileName) | imagine_filter('small') }}" alt="">
-                    <div class="tag">
-                        {{ oeuvre.titre }}
-                    </div>
-                </a>
-            {% endif %}
-        {% endfor %}
-    </div>
+{#    <h3 class="subtitle has-text-centered has-text-weight-bold">Selectionner les oeuvres de cette galerie</h3>#}
+{#    <div class="columns is-multiline px-6 is-flex is-justify-content-center">#}
+{#        {% for oeuvre in oeuvres %}#}
+{#            {% if oeuvre.fileName %}#}
+{#                <a href="" class="column is-flex is-flex-direction-column is-justify-content-space-evenly is-align-items-center is-one-fifth is-full-mobile has-text-centered opacity-05">#}
+{#                    <img src="{{ asset('images/oeuvres/' ~ oeuvre.fileName) | imagine_filter('small') }}" alt="">#}
+{#                    <div class="tag">#}
+{#                        {{ oeuvre.titre }}#}
+{#                    </div>#}
+{#                </a>#}
+{#            {% endif %}#}
+{#        {% endfor %}#}
+{#    </div>#}
 
 {% endblock %}

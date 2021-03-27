@@ -2,8 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Oeuvre;
 use App\Entity\YearDirectory;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,7 +27,7 @@ class YearDirectoryType extends AbstractType
                 ]
             ])
             ->add('title',TextType::class,[
-                'label' => 'Description',
+                'label' => 'Sous-titre',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class' => 'field'],
                 'attr' => [
@@ -43,7 +46,6 @@ class YearDirectoryType extends AbstractType
                 'help' => 'Si aucun fichier n\'est uploadé, l\'image de la première oeuvre de la gallerie sera affichée en couverture',
                 'help_attr' => ['class' => 'help']
             ])
-//            ->add('updatedAt')
         ;
     }
 

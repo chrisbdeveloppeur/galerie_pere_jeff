@@ -99,6 +99,9 @@
 
     {#  JS POUR DEL AUTO NOTIF (FLASH-MESSAGE)  #}
     <script>
+
+        let notifBlocks = document.querySelectorAll('.notification').forEach(elem => delAutoFlashMsg(elem));
+
         function delAutoFlashMsg(notifBlock){
             notifBlock.classList.toggle('has-transition-5-ms');
             setTimeout(function (){
@@ -108,7 +111,7 @@
                 },500);
             },5000)
         }
-        let notifBlocks = document.querySelectorAll('.notification').forEach(elem => delAutoFlashMsg(elem));
+
     </script>
     {#                               #}
 
@@ -121,6 +124,45 @@
         function hidePrevOnHover(object){
             object.previousElementSibling.classList.add('is-hidden');
         }
+    </script>
+    {#                               #}
+
+
+
+    {#               SCRIPT POUR AJAX                   #}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    {#  JS POUR AJAX ADD/REMOVE OEUVRE TO/FROM GALLERY  #}
+
+    <script>
+        function addRemoveOeuvre(event){
+            event.preventDefault();
+            const url = this.href;
+            let blockImg = this;
+            let checkIcon = this.querySelector('span');
+            let notifAjaxBlock = document.getElementById('notification-ajax');
+            notifAjaxBlock.innerHTML = "            <div class=\"notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg has-text-light\">\n" +
+                "                <button class=\"delete\" onclick=\"this.parentElement.parentElement.removeChild(this.parentElement);\"></button>\n" +
+                "                <div class=\"is-flex\">\n" +
+                "                    <div class=\"is-flex is-align-items-center is-justify-content-center\">\n" +
+                "                        <span class=\"icon px-5\">\n" +
+                "                            <i class=\"fas fa-lg fa-exclamation-triangle\"></i>\n" +
+                "                        </span>\n" +
+                "                    </div>\n" +
+                "                    <div class=\"container\"></div>\n" +
+                "                </div>\n" +
+                "            </div>";
+
+            axios.get(url).then(function (response) {
+                blockImg.classList.toggle('opacity-1');
+                blockImg.classList.toggle('opacity-05');
+                checkIcon.classList.toggle('is-hidden');
+            })
+        }
+        let addRemoveOeuvreBtns = document.querySelectorAll('a.add-remove-oeuvre-ajax');
+        addRemoveOeuvreBtns.forEach(function (element){
+            element.addEventListener('click' || 'touchstart', addRemoveOeuvre);
+        });
     </script>
     {#                               #}
 
