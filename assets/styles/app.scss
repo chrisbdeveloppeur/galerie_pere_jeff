@@ -2,6 +2,7 @@ $size-1 : 7rem;
 $size-2 : 5rem;
 $info : #3298DC;
 $info-light: rgb(203, 245, 255);
+$dark: #363636;
 
 *{
   font-family: 'Poppins', serif;
@@ -257,7 +258,7 @@ $info-light: rgb(203, 245, 255);
   width: 100%;
   top: 0;
   display: flex;
-  align-items: center
+  align-items: center;
 }
 
 .change .bar1 {
@@ -275,18 +276,29 @@ $info-light: rgb(203, 245, 255);
 
 .change .bar4{
   transform: rotate(40deg);
-  background-color: $info;
 }
+.bar1, .bar3{
+  background: $dark;
+}
+.bar3{
+  width: 30px;
+}
+.bar1{
+  width: 25px;
+}
+.bar4, .bar2{
+  background-color: $info;
+  width: 40px;
+}
+
 
 #burger span
 {
   display: block;
-  width: 33px;
   height: 3px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   position: relative;
-  background: #cdcdcd;
-  border-radius: 2px;
+  border-radius: 5px;
   z-index: 1;
   transition: transform 0.7s cubic-bezier(0.77,0.2,0.05,1.0),
   background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
