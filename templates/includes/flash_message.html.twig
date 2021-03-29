@@ -1,11 +1,11 @@
 {# Affichage des messages flash #}
-<div id="notification-ajax" class="is-fixed is-bottom-0 is-left-0 is-hidden">
+<div id="notification-ajax" class="is-fixed is-bottom-0 is-left-0 is-hidden z-index-more-1">
 </div>
 {% for type, message_list in app.flashes %}
     {% for message in message_list %}
 
         {% if type == 'danger' %}
-            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg has-text-light">
+            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 has-text-centered flash-msg z-index-more-1 has-text-light">
 {#                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
                 <div class="is-flex">
                     <div class="is-flex is-align-items-center is-justify-content-center">
@@ -17,7 +17,7 @@
                 </div>
             </div>
         {% elseif type == 'info' %}
-            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg">
+            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 has-text-centered flash-msg z-index-more-1">
 {#                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
                 <div class="is-flex has-text-light">
                     <div class="is-flex is-align-items-center is-justify-content-center">
@@ -29,7 +29,7 @@
                 </div>
             </div>
         {% else %}
-            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-centered flash-msg">
+            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 has-text-centered flash-msg z-index-more-1">
 {#                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
                 <div class="is-flex">
                     <div class="is-flex is-align-items-center is-justify-content-center">
@@ -46,7 +46,7 @@
 
 {% if form is defined %}
     {% if form_errors(form) != null %}
-        <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-light">
+        <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg z-index-more-1 has-text-light">
 {#            <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
             <div class="is-flex">
                 <div class="is-flex is-align-items-center is-justify-content-center">
@@ -67,7 +67,7 @@
 
     {% if error is defined %}
         {% if error %}
-            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg has-text-light">
+            <div class="notification is-fixed is-bottom-0 is-left-0 my-2 mx-2 flash-msg z-index-more-1 has-text-light">
 {#                <button class="delete" onclick="this.parentElement.parentElement.removeChild(this.parentElement);"></button>#}
                 <div class="is-flex">
                     <div class="is-flex is-align-items-center is-justify-content-center">
