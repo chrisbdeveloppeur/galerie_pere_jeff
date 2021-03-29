@@ -87,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/templates/includes/flash_message.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-367">
-              <caret line="53" column="73" lean-forward="true" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="73" />
+              <caret line="53" column="73" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -391,16 +391,15 @@
       <workItem from="1616711273347" duration="4058000" />
       <workItem from="1616751706167" duration="13175000" />
       <workItem from="1616790010801" duration="42609000" />
-      <workItem from="1617013614587" duration="5869000" />
+      <workItem from="1617013614587" duration="7126000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122707000" />
+    <option name="totallyTimeSpent" value="123964000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27854252" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -802,7 +801,7 @@
     <entry file="file://$PROJECT_DIR$/templates/includes/flash_message.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-367">
-          <caret line="53" column="73" lean-forward="true" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="73" />
+          <caret line="53" column="73" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="73" />
         </state>
       </provider>
     </entry>
