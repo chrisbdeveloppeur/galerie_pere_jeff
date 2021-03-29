@@ -1,0 +1,17 @@
+<footer class="footer">
+    <div class="content has-text-centered">
+        <div class="columns is-multiline is-justify-content-center">
+            {% for galerie in galeries %}
+                <div class="column is-one-quarter">
+                    <a href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}" class="has-text-centered has-text-weight-bold">
+                        {{ galerie.year }}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+
+        © 2021 | www.site_galerie.com | Tout droits réservés.
+
+    </div>
+</footer>

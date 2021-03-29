@@ -19,7 +19,7 @@
 
 {#                    {% if i is odd %}{% endif %}#}
 
-                        <div class="mx-5 is-relative is-boxed-like has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-between {% if i == 0 %} column is-full {% else %} column is-one-third is-one-quarter-desktop{% endif %}" onmouseenter="setOpacity1OnHover('.target-change-opacity', this)" onmouseleave="setOpacity0OnHover('.target-change-opacity', this)">
+                        <div class="mx-5 is-relative is-boxed-like has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-between {% if i == 0 %} column is-full {% else %} column is-one-third is-one-quarter-desktop{% endif %}" onmouseenter="changeTargetOpacity('.target-change-opacity', this)" onmouseleave="changeTargetOpacity('.target-change-opacity', this)">
 
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('year_directory_edit', {'id': galerie.id}) }}" class="button is-dark is-small is-absolute is-top-0 is-left-0" title="Modifier cette galerie">
@@ -32,16 +32,16 @@
                             <div class="px-1 py-1 z-index-less-1 is-absolute is-top-0 is-left-0 is-width-100 is-height-100 is-flex is-justify-content-center is-align-items-center">
                                 {% if not galerie.filename %}
                                     {% if galerie.oeuvres is not empty and galerie.oeuvres[0].filename %}
-                                        <div class="opacity-0 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }});width: 100%;height: 100%;">
+                                        <div class="opacity-05 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }});width: 100%;height: 100%;">
 
                                         </div>
                                     {% endif %}
                                 {% else %}
-                                    <div class="opacity-0 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/years_directory_img/' ~ galerie.filename ) }});width: 100%;height: 100%;">
+                                    <div class="opacity-05 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/years_directory_img/' ~ galerie.filename ) }});width: 100%;height: 100%;">
 
                                     </div>
                                 {% endif %}
-                                <div class="has-background-light-transparent-75 is-absolute is-top-0 is-left-0 is-width-100 is-height-100">
+                                <div class="has-background-light-transparent-50 is-absolute is-top-0 is-left-0 is-width-100 is-height-100">
 
                                 </div>
                             </div>
