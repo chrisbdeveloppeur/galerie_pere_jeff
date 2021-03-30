@@ -25,45 +25,48 @@
             <div class="is-flex columns is-multiline is-justify-content-center">
                 {% set i = 0 %}
                 {% for oeuvre in oeuvres %}
-                    <div class="column {% if not oeuvre.fileName %}is-flex is-flex-direction-column is-justify-content-center{% endif %} has-text-centered has-border-thin has-border-radius-3px is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
+                    <div class="column {% if not oeuvre.fileName %}is-flex is-flex-direction-column is-justify-content-center{% endif %} has-text-centered is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
 
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
+                        <div class="has-border-thin has-border-radius-3px py-2 px-2">
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
                                 <span class="icon">
                                     <i class="fas fa-lg fa-pencil-alt"></i>
                                 </span>
-                            </a>
-                        {% endif %}
+                                </a>
+                            {% endif %}
 
-                        {% if oeuvre.fileName %}
-                            <div class="column is-flex is-justify-content-center">
-                                <div class="modal opacity-0 has-transition-5-ms">
-                                    <div class="modal-background" onclick="closeModal(this)"></div>
-                                    <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
-                                        <img class="img-galery has-max-height-70vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
-                                        <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">
-                                    </figure>
-                                    <h3 class="has-text-centered has-font-playfair has-text-weight-bold has-text-light z-index-more-1">
-                                        {{ oeuvre.titre }}
-                                    </h3>
-                                    <div class="column is-one-third is-flex is-justify-content-center is-align-items-center">
+                            {% if oeuvre.fileName %}
+                                <div class="column is-flex is-justify-content-center">
+                                    <div class="modal opacity-0 has-transition-5-ms">
+                                        <div class="modal-background" onclick="closeModal(this)"></div>
+                                        <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
+                                            <img class="img-galery has-max-height-70vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
+                                            <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">
+                                        </figure>
+                                        <h3 class="has-text-centered has-font-playfair has-text-weight-bold has-text-light z-index-more-1">
+                                            {{ oeuvre.titre }}
+                                        </h3>
+                                        <div class="column is-one-third is-flex is-justify-content-center is-align-items-center">
                                         <span class="has-text-centered has-font-playfair has-text-weight-light has-text-light z-index-more-1 help">
                                             {{ oeuvre.description|raw }}
                                         </span>
+                                        </div>
+                                        <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
                                     </div>
-                                    <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
+                                    <img class="has-max-height-30vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
                                 </div>
-                                <img class="has-max-height-30vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
+                            {% endif %}
+
+                            <h3 class="subtitle has-text-centered has-text-weight-bold has-font-playfair">
+                                {{ oeuvre.titre }}
+                            </h3>
+
+                            <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px has-font-playfair help" style="margin: 0 auto">
+                                {{ oeuvre.description|raw }}
                             </div>
-                        {% endif %}
-
-                        <h2 class="subtitle has-text-centered has-text-weight-bold has-font-playfair">
-                            {{ oeuvre.titre }}
-                        </h2>
-
-                        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px has-font-playfair" style="margin: 0 auto">
-                            {{ oeuvre.description|raw }}
                         </div>
+
 
                     </div>
                     {% set i = i+1 %}
