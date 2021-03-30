@@ -15,7 +15,7 @@
                 <thead>
                 <tr>
                     <th>Titre</th>
-                    <th>Année</th>
+                    <th>Galerie</th>
                     <th class="is-hidden-touch">Fichier image</th>
                     <th>Gestion</th>
                 </tr>
@@ -24,7 +24,13 @@
                 {% for oeuvre in oeuvres %}
                     <tr>
                         <td>{{ oeuvre.titre }}</td>
-                        <td>{{ oeuvre.yearDirectory }}</td>
+                        <td>
+                            {% if oeuvre.yearDirectory %}
+                                <a href="{{ path('gallery_year', {'id_gallery': oeuvre.yearDirectory.id }) }}" title="Se rendre à la galerie {{ oeuvre.yearDirectory }}">{{ oeuvre.yearDirectory }}</a>
+                            {% else %}
+                                <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" class="is-italic has-text-weight-light" title="Modifier cette oeuvre">(Vide)</a>
+                            {% endif %}
+                        </td>
                         <td class="has-text-centered is-relative is-hidden-touch">
                             {% if oeuvre.fileName %}
                                 <div class="">
@@ -34,7 +40,7 @@
                                 </span>
                                 </div>
                             {% else %}
-                                <span class="has-text-weight-light is-italic is-hoverable-help-cursor" title="Sans fichier image">Vide</span>
+                                <span class="has-text-weight-light is-italic is-hoverable-help-cursor" title="Sans fichier image">(Vide)</span>
                             {% endif %}
                         </td>
                         <td>

@@ -11,3 +11,26 @@ fos_ck_editor:
             toolbar: standard
         config_full:
             toolbar: full
+    toolbars:
+        configs:
+            config_custom_min: [
+                ['Undo', 'Redo']
+                ['Bold',
+                 'Italic',
+                 'Strike',
+                 'Subscript',
+                 'Superscript',
+                 'RemoveFormat'],
+                ['NumberedList',
+                 'BulletedList',
+                 'Indent',
+                 'Outdent']
+                ['HorizontalRule', 'SpecialChar']
+                ['Link', 'Unlink'],
+                ['JustifyLeft',
+                 'JustifyCenter',
+                 'JustifyRight',
+                 'JustifyBlock',
+                ]
+                ['Scayt']
+            ]

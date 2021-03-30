@@ -22,8 +22,11 @@ class OeuvreType extends AbstractType
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class'=>'mb-4'],
                 'attr' => [
-                    'class' => 'input has-text-centered'
-                ]
+                    'class' => 'input has-text-centered',
+                    'placeholder' => 'Ex : Ma belle photo',
+                ],
+                'help' => 'Nommez cette oeuvre',
+                'help_attr' => ['class' => 'help'],
             ])
             ->add('file', FileType::class,[
                 'label' => 'Fichier image',
@@ -36,7 +39,7 @@ class OeuvreType extends AbstractType
                 'required' => false,
             ])
             ->add('description',CKEditorType::class,[
-                'config' => ['toolbar' => 'standard'],
+                'config' => ['toolbar' => 'config_custom_min'],
                 'error_bubbling' => true,
                 'label' => 'Description',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
@@ -45,14 +48,16 @@ class OeuvreType extends AbstractType
                     'class' => 'textarea has-text-centered'
                 ],
                 'required' => true,
+                'help' => 'Entrez éventuellement la description de cette oeuvre',
+                'help_attr' => ['class' => 'help'],
             ])
             ->add('year_directory', EntityType::class,[
                 'class' => YearDirectory::class,
                 'required' => false,
                 'label' => false,
-                'placeholder' => 'selectionner une galerie',
+                'placeholder' => '',
                 'row_attr' => [
-                    'class' => 'select',
+                    'class' => 'select is-fullwidth',
                 ],
                 'attr' => [
                     'class' => 'has-text-centered has-font-poppins'

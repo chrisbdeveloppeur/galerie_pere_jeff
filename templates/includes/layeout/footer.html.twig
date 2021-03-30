@@ -1,9 +1,9 @@
 <footer class="footer">
     <div class="content has-text-centered">
-        <div class="columns is-multiline is-justify-content-center">
+        <div class="columns is-multiline is-justify-content-center is-flex">
             {% for galerie in galeries %}
-                <div class="column is-one-quarter">
-                    <a href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}" class="has-text-centered has-text-weight-bold">
+                <div class="column is-one-quarter is-half-mobile is-flex is-justify-content-center is-align-items-center">
+                    <a href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}" class="has-text-centered has-text-weight-bold has-text-info">
                         {{ galerie.year }}
                     </a>
                 </div>

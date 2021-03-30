@@ -3,11 +3,10 @@
 {% block title %}Gallerie - {{ galerie.year }}{% endblock %}
 
 {% block body %}
-    <section class="section">
         <div class="container">
 
             <div class="is-relative">
-                <h1 class="title has-text-info is-size-1 has-text-weight-bold has-text-right">
+                <h1 class="title has-text-info is-size-1 has-text-weight-bold has-text-right title-galerie">
                     {{ galerie.year }}
                 </h1>
                 <h2 class="subtitle is-3 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ galerie.title }}</h2>
@@ -29,8 +28,8 @@
                     <div class="column {% if not oeuvre.fileName %}is-flex is-flex-direction-column is-justify-content-center{% endif %} has-text-centered has-border-thin has-border-radius-3px is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
 
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
-                                <span class="icon has-text-light">
+                            <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
+                                <span class="icon">
                                     <i class="fas fa-lg fa-pencil-alt"></i>
                                 </span>
                             </a>
@@ -44,12 +43,17 @@
                                         <img class="img-galery has-max-height-70vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
                                         <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">
                                     </figure>
-                                    <h3 class="subtitle has-text-centered has-font-playfair has-text-weight-bold has-text-light z-index-more-1">
+                                    <h3 class="has-text-centered has-font-playfair has-text-weight-bold has-text-light z-index-more-1">
                                         {{ oeuvre.titre }}
                                     </h3>
+                                    <div class="column is-one-third is-flex is-justify-content-center is-align-items-center">
+                                        <span class="has-text-centered has-font-playfair has-text-weight-light has-text-light z-index-more-1 help">
+                                            {{ oeuvre.description|raw }}
+                                        </span>
+                                    </div>
                                     <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
                                 </div>
-                                <img class="has-max-height-50vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
+                                <img class="has-max-height-30vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
                             </div>
                         {% endif %}
 
@@ -68,5 +72,4 @@
 
 
         </div>
-    </section>
 {% endblock %}

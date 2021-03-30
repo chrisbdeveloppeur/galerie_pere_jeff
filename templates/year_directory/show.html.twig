@@ -7,6 +7,7 @@
 
     <div class="column is-full is-flex is-justify-content-start">
         <a class="button is-small is-dark" href="{{ path('year_directory_index') }}">Retour à la liste des galeries</a>
+        <a class="button is-small is-dark" href="{{ path('gallery_year', {'id_gallery': year_directory.id}) }}">Parcourir cette galerie</a>
     </div>
 
     <h1 class="title"><span class="has-text-weight-light">Galerie</span> {{ year_directory.year }}</h1>
