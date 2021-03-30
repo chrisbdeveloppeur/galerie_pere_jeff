@@ -25,7 +25,7 @@
             <div class="is-flex columns is-multiline is-justify-content-center">
                 {% set i = 0 %}
                 {% for oeuvre in oeuvres %}
-                    <div class="column {% if not oeuvre.fileName %}is-flex is-flex-direction-column is-justify-content-center{% endif %} has-text-centered is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
+                    <div class="column is-flex is-flex-direction-column is-justify-content-center has-text-centered is-relative is-full-touch mb-5 mx-3 has-background-white-bis {% if i is divisible by(4) %} is-full-desktop {% else %} is-one-quarter-desktop{% endif %}">
 
                         <div class="has-border-thin has-border-radius-3px py-2 px-2">
                             {% if is_granted('ROLE_ADMIN') %}
