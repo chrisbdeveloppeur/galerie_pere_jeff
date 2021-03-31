@@ -1,5 +1,6 @@
 $size-1 : 7rem;
 $size-2 : 5rem;
+$size-3 : 3em;
 //$info : #3298DC;
 $info : #5158a1;
 $info-light: rgb(203, 245, 255);
@@ -7,6 +8,7 @@ $dark: #363636;
 $link-hover: $info;
 $navbar-item-hover-color: $info;
 $link: $info;
+$modal-background-background-color: rgba(0,0,0,0.95);
 
 *{
   font-family: 'Poppins', serif;

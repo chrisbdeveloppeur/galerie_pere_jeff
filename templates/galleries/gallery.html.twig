@@ -6,10 +6,10 @@
         <div class="container">
 
             <div class="is-relative">
-                <h1 class="title has-text-info is-size-1 is-size-2-touch has-text-weight-bold has-text-right title-galerie">
+                <h1 class="title has-text-info is-size-1 is-size-3-touch has-text-weight-bold has-text-right title-galerie">
                     {{ galerie.year }}
                 </h1>
-                <h2 class="subtitle is-3 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ galerie.title }}</h2>
+                <h2 class="subtitle is-5 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ galerie.title }}</h2>
                 <div class="buttons is-absolute is-left-0" style="top: -25px;">
                     <a class="button is-small is-dark" href="{{ path('home') }}">Retour aux galeries</a>
                     {% if is_granted('ROLE_ADMIN') %}
@@ -41,7 +41,7 @@
                                     <div class="modal opacity-0 has-transition-5-ms">
                                         <div class="modal-background" onclick="closeModal(this)"></div>
                                         <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
-                                            <img class="img-galery has-max-height-70vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
+                                            <img class="img-galery has-max-height-60vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
                                             <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">
                                         </figure>
                                         <h3 class="has-text-centered has-font-playfair has-text-weight-bold has-text-light z-index-more-1">
