@@ -23,7 +23,7 @@
     <div class="is-flex is-justify-content-center is-align-items-center" style="height: 100%;width: 100%">
         <div class="column is-flex-desktop">
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="button is-small is-dark is-absolute is-left-075rem" style="top: 50px;">Modifier le contenue</a>
+                <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="button is-small is-dark is-absolute is-left-075rem" style="top: 50px;">Modifier le contenu</a>
             {% endif %}
             <div class="column px-6">
                 {{ text_menu_burger.text|raw }}

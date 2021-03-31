@@ -6,11 +6,11 @@
         <div class="container">
 
             <div class="is-relative">
-                <h1 class="title has-text-info is-size-1 has-text-weight-bold has-text-right title-galerie">
+                <h1 class="title has-text-info is-size-1 is-size-2-touch has-text-weight-bold has-text-right title-galerie">
                     {{ galerie.year }}
                 </h1>
                 <h2 class="subtitle is-3 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ galerie.title }}</h2>
-                <div class="buttons is-absolute is-top-0 is-left-0">
+                <div class="buttons is-absolute is-left-0" style="top: -25px;">
                     <a class="button is-small is-dark" href="{{ path('home') }}">Retour aux galeries</a>
                     {% if is_granted('ROLE_ADMIN') %}
                         <a class="button is-small is-dark" href="{{ path('year_directory_edit', {'id': galerie.id}) }}" title="Modifier cette galerie">Modifier la galerie</a>
