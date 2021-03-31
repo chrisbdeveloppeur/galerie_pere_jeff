@@ -18,7 +18,7 @@
 
 {#                    {% if i is odd %}{% endif %}#}
 
-                        <div class="mx-5 is-relative is-boxed-like has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-between {% if i == 0 %} column is-full {% else %} column is-one-third is-one-quarter-desktop{% endif %}" onmouseenter="changeTargetOpacity('.target-change-opacity', this)" onmouseleave="changeTargetOpacity('.target-change-opacity', this)">
+                        <div class="mx-5 is-relative is-boxed-like has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-between {% if i == 0 %} column is-full {% else %} column is-one-third is-one-quarter-desktop{% endif %}">
 
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('year_directory_edit', {'id': galerie.id}) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette galerie">
@@ -46,7 +46,7 @@
                             </div>
 
                             <div class="is-flex is-justify-content-end">
-                                <span class="is-size-3 has-text-info has-text-weight-bold title-galerie">
+                                <span class="title has-text-info has-text-weight-bold title-galerie has-text-right">
                                     {{ galerie.year }}
                                 </span>
                             </div>
