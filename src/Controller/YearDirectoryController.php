@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\TextMenuBurger;
 use App\Entity\YearDirectory;
 use App\Form\YearDirectoryType;
 use App\Repository\OeuvreRepository;
+use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -19,24 +21,39 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class YearDirectoryController extends AbstractController
 {
+
+    private $galeries;
+    private $textMenuBurger;
+    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em)
+    {
+        $this->galeries = $yearDirectoryRepository->classByYear();
+        if (empty($textMenuBurgerRepository->findAll())){
+            $newTextMenuBurger = new TextMenuBurger();
+            $em->persist($newTextMenuBurger);
+            $em->flush();
+            $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }else{
+            $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }
+    }
+
     /**
      * @Route("/", name="year_directory_index", methods={"GET"})
      */
     public function index(YearDirectoryRepository $yearDirectoryRepository): Response
     {
-        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('year_directory/index.html.twig', [
             'year_directories' => $yearDirectoryRepository->findAll(),
-            'galeries' => $galeries,
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 
     /**
      * @Route("/new", name="year_directory_new", methods={"GET","POST"})
      */
-    public function new(Request $request, YearDirectoryRepository $yearDirectoryRepository, OeuvreRepository $oeuvreRepository): Response
+    public function new(Request $request, OeuvreRepository $oeuvreRepository): Response
     {
-        $galeries = $yearDirectoryRepository->classByYear();
         $oeuvres = $oeuvreRepository->findAll();
         $yearDirectory = new YearDirectory();
         $form = $this->createForm(YearDirectoryType::class, $yearDirectory);
@@ -54,7 +71,8 @@ class YearDirectoryController extends AbstractController
         return $this->render('year_directory/new.html.twig', [
             'year_directory' => $yearDirectory,
             'form' => $form->createView(),
-            'galeries' => $galeries,
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
             'oeuvres' => $oeuvres,
         ]);
     }
@@ -62,21 +80,20 @@ class YearDirectoryController extends AbstractController
     /**
      * @Route("/{id}", name="year_directory_show", methods={"GET"})
      */
-    public function show(YearDirectory $yearDirectory, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function show(YearDirectory $yearDirectory): Response
     {
-        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('year_directory/show.html.twig', [
             'year_directory' => $yearDirectory,
-            'galeries' => $galeries,
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="year_directory_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, YearDirectory $yearDirectory, YearDirectoryRepository $yearDirectoryRepository, OeuvreRepository $oeuvreRepository): Response
+    public function edit(Request $request, YearDirectory $yearDirectory, OeuvreRepository $oeuvreRepository): Response
     {
-        $galeries = $yearDirectoryRepository->classByYear();
         $oeuvres = $oeuvreRepository->findAll();
         $form = $this->createForm(YearDirectoryType::class, $yearDirectory);
         $form->handleRequest($request);
@@ -90,7 +107,8 @@ class YearDirectoryController extends AbstractController
         return $this->render('year_directory/edit.html.twig', [
             'year_directory' => $yearDirectory,
             'form' => $form->createView(),
-            'galeries' => $galeries,
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
             'oeuvres' => $oeuvres,
         ]);
     }
@@ -102,7 +120,6 @@ class YearDirectoryController extends AbstractController
     {
         $oeuvre = $oeuvreRepository->find($id_oeuvre);
         $gallery = $yearDirectoryRepository->find($id_gallery);
-        $type = 'info';
 
         if ($gallery->getOeuvres()->contains($oeuvre)){
             $gallery->removeOeuvre($oeuvre);
@@ -115,7 +132,7 @@ class YearDirectoryController extends AbstractController
         }
         $em->persist($gallery);
         $em->flush();
-//        $this->addFlash('success', $msg);
+
         return $this->json([
             'id' => $id_gallery,
             'flash_message' => $msg,

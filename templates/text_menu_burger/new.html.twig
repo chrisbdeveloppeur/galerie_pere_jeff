@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TextMenuBurger{% endblock %}
+
+{% block body %}
+    <h1>Create new TextMenuBurger</h1>
+
+    {{ include('text_menu_burger/_form.html.twig') }}
+
+    <a href="{{ path('text_menu_burger_index') }}">back to list</a>
+{% endblock %}

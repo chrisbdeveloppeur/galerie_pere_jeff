@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Oeuvre;
+use App\Entity\TextMenuBurger;
 use App\Form\OeuvreType;
 use App\Repository\OeuvreRepository;
+use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,24 +21,38 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class OeuvreController extends AbstractController
 {
+    private $galeries;
+    private $textMenuBurger;
+    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em)
+    {
+        $this->galeries = $yearDirectoryRepository->classByYear();
+        if (empty($textMenuBurgerRepository->findAll())){
+            $newTextMenuBurger = new TextMenuBurger();
+            $em->persist($newTextMenuBurger);
+            $em->flush();
+            $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }else{
+            $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }
+    }
+
     /**
      * @Route("/", name="oeuvre_index", methods={"GET"})
      */
-    public function index(OeuvreRepository $oeuvreRepository, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function index(OeuvreRepository $oeuvreRepository): Response
     {
-        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('oeuvre/index.html.twig', [
             'oeuvres' => $oeuvreRepository->classByAnnee(),
-            'galeries' => $galeries,
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 
     /**
      * @Route("/new", name="oeuvre_new", methods={"GET","POST"})
      */
-    public function new(Request $request, YearDirectoryRepository $yearDirectoryRepository, OeuvreRepository $oeuvreRepository): Response
+    public function new(Request $request, OeuvreRepository $oeuvreRepository): Response
     {
-        $galeries = $yearDirectoryRepository->classByYear();
         $oeuvre = new Oeuvre();
         $form = $this->createForm(OeuvreType::class, $oeuvre);
         $form->handleRequest($request);
@@ -54,28 +71,28 @@ class OeuvreController extends AbstractController
         return $this->render('oeuvre/new.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form->createView(),
-            'galeries' => $galeries,
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 
     /**
      * @Route("/{id}", name="oeuvre_show", methods={"GET"})
      */
-    public function show(Oeuvre $oeuvre, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function show(Oeuvre $oeuvre): Response
     {
-        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('oeuvre/show.html.twig', [
             'oeuvre' => $oeuvre,
-            'galeries' => $galeries,
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="oeuvre_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Oeuvre $oeuvre, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function edit(Request $request, Oeuvre $oeuvre): Response
     {
-        $galeries = $yearDirectoryRepository->classByYear();
         $form = $this->createForm(OeuvreType::class, $oeuvre);
         $form->handleRequest($request);
 
@@ -89,7 +106,8 @@ class OeuvreController extends AbstractController
         return $this->render('oeuvre/edit.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form->createView(),
-            'galeries' => $galeries,
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 

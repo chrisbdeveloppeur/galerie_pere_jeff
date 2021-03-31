@@ -2,26 +2,40 @@
 
 namespace App\Controller;
 
-use App\Entity\Admin;
-use App\Entity\YearDirectory;
-use App\Repository\OeuvreRepository;
+use App\Entity\TextMenuBurger;
+use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class HomeController extends AbstractController
 {
+
+    private $galeries;
+    private $textMenuBurger;
+    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em)
+    {
+        $this->galeries = $yearDirectoryRepository->classByYear();
+        if (empty($textMenuBurgerRepository->findAll())){
+            $newTextMenuBurger = new TextMenuBurger();
+            $em->persist($newTextMenuBurger);
+            $em->flush();
+            $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }else{
+            $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }
+    }
+
     /**
      * @Route("/", name="home")
      */
-    public function index(OeuvreRepository $repository, YearDirectoryRepository $yearDirectoryRepository, EntityManagerInterface $em): Response
+    public function index(): Response
     {
-        $galeries = $yearDirectoryRepository->classByYear();
         return $this->render('home.html.twig', [
-            'galeries' => $galeries,
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 }

@@ -2,13 +2,15 @@
 <div id="menu-slide" class="is-absolute-fullscreen has-max-height-100vh has-transition-7-ms is-left-100 is-top-0 opacity-0 has-background-white-ter is-bold">
 
     {% if is_granted('ROLE_ADMIN') %}
-    <div class="is-absolute is-flex is-flex-direction-column is-width-100 is-hidden-desktop">
-        <div class="column">
-            <a class="button is-small is-danger" href="{{ path('app_logout') }}">
-                Deconnexion
-            </a>
+        <div class="is-absolute is-flex is-flex-direction-column is-width-100 is-hidden-desktop">
+            <div class="column">
+                <a class="button is-small is-danger" href="{{ path('app_logout') }}">
+                    Deconnexion
+                </a>
+            </div>
         </div>
-        <div class="column is-flex is-justify-content-space-evenly has-text-weight-bold">
+
+        <div class="column is-absolute is-bottom-0 is-flex is-justify-content-space-evenly has-text-weight-bold is-hidden-desktop is-width-100">
             <a href="{{ path('year_directory_index') }}" class="">
                 Galeries
             </a>
@@ -16,19 +18,22 @@
                 Oeuvres
             </a>
         </div>
-    </div>
     {% endif %}
 
     <div class="is-flex is-justify-content-center is-align-items-center" style="height: 100%;width: 100%">
         <div class="column is-flex-desktop">
-            <div class="column px-6 is-flex is-align-items-center">
-                {{ include('includes/text_slide_menue.html.twig') }}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="button is-small is-dark is-absolute is-left-075rem" style="top: 50px;">Modifier le contenue</a>
+            {% endif %}
+            <div class="column px-6">
+                {{ text_menu_burger.text|raw }}
+{#                {{ include('includes/text_slide_menue.html.twig') }}#}
             </div>
             <div class="column px-6 is-flex is-align-items-center">
                 <div class="columns has-text-info is-multiline is-flex is-align-items-center">
                     {% for galerie in galeries %}
                         {% if galerie.year %}
-                            <a class="column has-transition-5-ms is-half has-text-weight-bold is-size-4 has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}">
+                            <a class="column has-transition-5-ms is-half has-text-weight-bold is-size-4-desktop has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}">
                                 {{ galerie.year }}
                             </a>
                         {% endif %}

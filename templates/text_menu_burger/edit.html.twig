@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TextMenuBurger{% endblock %}
+
+{% block body %}
+<div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center py-6">
+    <h1>Modifier le contenue du menu "slide"</h1>
+
+    {{ include('text_menu_burger/_form.html.twig', {'button_label': 'Update'}) }}
+
+{#    <a href="{{ path('text_menu_burger_index') }}">back to list</a>#}
+
+    {{ include('text_menu_burger/_delete_form.html.twig') }}
+</div>
+{% endblock %}

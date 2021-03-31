@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TextMenuBurger index{% endblock %}
+
+{% block body %}
+    <h1>TextMenuBurger index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Text</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for text_menu_burger in text_menu_burgers %}
+            <tr>
+                <td>{{ text_menu_burger.id }}</td>
+                <td>{{ text_menu_burger.text }}</td>
+                <td>
+                    <a href="{{ path('text_menu_burger_show', {'id': text_menu_burger.id}) }}">show</a>
+                    <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('text_menu_burger_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TextMenuBurger{% endblock %}
+
+{% block body %}
+    <h1>TextMenuBurger</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ text_menu_burger.id }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ text_menu_burger.text }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('text_menu_burger_index') }}">back to list</a>
+
+    <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id}) }}">edit</a>
+
+    {{ include('text_menu_burger/_delete_form.html.twig') }}
+{% endblock %}
