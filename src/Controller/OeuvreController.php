@@ -100,7 +100,10 @@ class OeuvreController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             $msg = 'L\'oeuvre à bien été modifiée';
             $this->addFlash('success', $msg);
-            return $this->redirectToRoute('oeuvre_index');
+            $idGalerie = $oeuvre->getYearDirectory()->getId();
+            return $this->redirectToRoute('gallery_year',[
+                'id_gallery' => $idGalerie,
+            ]);
         }
 
         return $this->render('oeuvre/edit.html.twig', [

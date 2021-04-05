@@ -2,13 +2,13 @@ $size-1 : 7rem;
 $size-2 : 5rem;
 $size-3 : 3em;
 //$info : #3298DC;
-$info : #dd2c00;
+$info : rgb(221, 44, 0);
 $info-light: rgb(203, 245, 255);
 $dark: #363636;
 $link-hover: $info;
 $navbar-item-hover-color: $info;
 $link: $info;
-$modal-background-background-color: rgba(0,0,0,0.95);
+$modal-background-background-color: rgba(255,255,255,0.95);
 
 *{
   font-family: 'Poppins', serif;
@@ -33,7 +33,6 @@ $font-4: 'Train One', cursive !important;
 .title-galerie{
   //font-family: $font-4;
 }
-
 
 
 .has-background-light-transparent-75{
@@ -294,7 +293,9 @@ $font-4: 'Train One', cursive !important;
 
 #burger
 {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   position: relative;
   z-index: 5;
 
@@ -318,34 +319,43 @@ $font-4: 'Train One', cursive !important;
 
 .change .bar1 {
   opacity: 0;
+  transform: rotate(40deg);
 }
 
 .change .bar2 {
   transform: rotate(-40deg);
   background-color: $dark;
+  width: 40px;
 }
 
 .change .bar3 {
   opacity: 0;
+  transform: rotate(-40deg);
 }
 
 .change .bar4{
   transform: rotate(40deg);
   background-color: $dark;
+  width: 40px;
 }
 .bar1, .bar3{
   background: $dark;
   transition: .5s !important;
 }
 .bar3{
-  width: 30px;
+  width: 40px;
 }
 .bar1{
-  width: 25px;
+  width: 40px;
+}
+.bar4{
+  position: absolute !important;
+  right: 0;
 }
 .bar4, .bar2{
   background-color: $info;
-  width: 40px;
+  width: 25px;
+  transition: .5s !important;
 }
 
 
