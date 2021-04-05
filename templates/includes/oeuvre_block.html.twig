@@ -12,17 +12,17 @@
             <div class="modal opacity-0 has-transition-5-ms">
                 <div class="modal-background" onclick="closeModal(this)"></div>
                 <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
-                    <img class="img-galery has-max-height-60vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
-                    <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">
+                    <img class="img-galery has-max-height-80vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
+{#                    <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">#}
                 </figure>
-                <h3 class="has-text-left has-font-playfair has-text-weight-bold has-text-light z-index-more-1">
-                    {{ oeuvre.titre }}
-                </h3>
-                <div class="column is-one-third is-flex is-align-items-center">
-                    <span class="has-text-left has-font-playfair has-text-weight-light has-text-light z-index-more-1 help">
-                        {{ oeuvre.description|raw }}
-                    </span>
-                </div>
+{#                <h3 class="has-text-left has-font-playfair has-text-weight-bold has-text-light z-index-more-1">#}
+{#                    {{ oeuvre.titre }}#}
+{#                </h3>#}
+{#                <div class="column is-one-third is-flex is-align-items-center">#}
+{#                    <span class="has-text-left has-font-playfair has-text-weight-light has-text-light z-index-more-1 help">#}
+{#                        {{ oeuvre.description|raw }}#}
+{#                    </span>#}
+{#                </div>#}
                 <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
             </div>
             <img class="has-max-height-30vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">

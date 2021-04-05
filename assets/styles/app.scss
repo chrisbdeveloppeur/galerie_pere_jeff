@@ -2,7 +2,7 @@ $size-1 : 7rem;
 $size-2 : 5rem;
 $size-3 : 3em;
 //$info : #3298DC;
-$info : #ff7b1c;
+$info : #dd2c00;
 $info-light: rgb(203, 245, 255);
 $dark: #363636;
 $link-hover: $info;
@@ -373,6 +373,9 @@ $font-4: 'Train One', cursive !important;
   }
   .transform-year-desktop{
     transform: translate(20%,-50%);
+  }
+  .border-75px-desktop{
+    border: solid 75px #8080801a !important;
   }
 }
 

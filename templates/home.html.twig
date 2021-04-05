@@ -7,69 +7,22 @@
             <h1 class="title has-text-weight-bold is-uppercase">
                 Accueil
             </h1>
-{#            <p class="subtitle">#}
-{#                My first website with <strong>Bulma</strong>!#}
-{#            </p>#}
-
 
             <div class="columns is-multiline is-justify-content-center">
                 {% set i = 0 %}
                 {% for galerie in galeries %}
 
-{#                    {% if i is odd %}{% endif %}#}
-
                         <div class="px-3 mb-6 is-relative has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-evenly column is-full is-height-70vh">
 
-                            <div class="px-2 py-2 z-index-less-1 is-absolute is-top-0 is-left-0 is-width-100 is-height-100 is-flex is-justify-content-center is-align-items-center">
-{#                                {% if not galerie.filename %}#}
-{#                                    {% if galerie.oeuvres is not empty and galerie.oeuvres[0].filename %}#}
-{#                                        <div class="opacity-1 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }});width: 100%;height: 100%;">#}
+{#                            <div class="px-2 py-2 z-index-less-1 is-absolute is-top-0 is-left-0 is-width-100 is-height-100 is-flex is-justify-content-center is-align-items-center">#}
 
-{#                                        </div>#}
-{#                                    {% endif %}#}
-{#                                {% else %}#}
-{#                                    <div class="opacity-1 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/years_directory_img/' ~ galerie.filename ) }});width: 100%;height: 100%;">#}
+{#                                <div class="has-background-light-transparent-50 is-absolute is-top-0 is-left-0 is-width-100 is-height-100">#}
 
-{#                                    </div>#}
-{#                                {% endif %}#}
-                                <div class="has-background-light-transparent-50 is-absolute is-top-0 is-left-0 is-width-100 is-height-100">
-
-                                </div>
-                            </div>
-
-{#                            <div class="is-flex is-justify-content-end">#}
-{#                                <span class="title has-text-info has-text-weight-bold title-galerie has-text-right">#}
-{#                                    {{ galerie.year }}#}
-{#                                </span>#}
+{#                                </div>#}
 {#                            </div>#}
 
-                            {% if not galerie.filename %}
+                            {% if galerie.filename %}
 
-                                    <div class="">
-                                        <div class="is-relative">
-                                            {% if is_granted('ROLE_ADMIN') %}
-                                                <a href="{{ path('year_directory_edit', {'id': galerie.id}) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette galerie">
-                                                    <span class="icon">
-                                                        <i class="fas fa-lg fa-pencil-alt"></i>
-                                                    </span>
-                                                </a>
-                                            {% endif %}
-                                            <div class="has-text-right">
-                                                <span class="title is-2 is-size-3-touch has-text-info has-text-weight-bold title-galerie has-text-right">
-                                                    {{ galerie.year }}
-                                                </span>
-                                            </div>
-                                            <h2 class="has-text-black is-size-4">
-                                                {{ galerie.title }}
-                                            </h2>
-                                            {% if galerie.oeuvres is not empty and galerie.oeuvres[0].filename %}
-                                                <img class="has-max-height-50vh" src="{{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }}" alt="Couverture de galerie manquante" title="{{ galerie.title }}">
-                                            {% endif %}
-                                        </div>
-                                    </div>
-
-
-                            {% else %}
                                 <div class="is-flex is-justify-content-center">
                                     <div class="is-relative">
                                         {% if is_granted('ROLE_ADMIN') %}
@@ -87,24 +40,64 @@
                                         <h2 class="is-absolute has-text-black is-size-4" style="left: -1.25rem;bottom: 0;transform: translate(0,30%)">
                                             {{ galerie.title }}
                                         </h2>
-                                        <img class="has-max-height-50vh" src="{{ asset('/images/years_directory_img/' ~ galerie.filename ) }}" alt="{{ galerie.filename }}" title="{{ galerie.title }}">
+                                        <img class="has-max-height-60vh border-75px-desktop" src="{{ asset('/images/years_directory_img/' ~ galerie.filename ) }}" alt="{{ galerie.filename }}" title="{{ galerie.title }}">
+                                    </div>
+                                </div>
+
+                            {% elseif galerie.oeuvres[0].filename %}
+
+                                <div class="is-flex is-justify-content-center">
+                                    <div class="is-relative">
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <a href="{{ path('year_directory_edit', {'id': galerie.id}) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette galerie">
+                                                <span class="icon">
+                                                    <i class="fas fa-lg fa-pencil-alt"></i>
+                                                </span>
+                                            </a>
+                                        {% endif %}
+                                        <div class="is-absolute-desktop has-text-right transform-year-desktop" style="right: 0;top: 0;">
+                                            <span class="title is-2 is-size-3-touch has-text-info has-text-weight-bold title-galerie">
+                                                {{ galerie.year }}
+                                            </span>
+                                        </div>
+                                        <h2 class="is-absolute has-text-black is-size-4" style="left: -1.25rem;bottom: 0;transform: translate(0,30%)">
+                                            {{ galerie.title }}
+                                        </h2>
+                                        <img class="has-max-height-60vh border-75px-desktop" src="{{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }}" alt="Couverture de galerie manquante" title="{{ galerie.title }}">
+                                    </div>
+                                </div>
+
+                            {% else %}
+
+                                <div class="is-flex is-justify-content-center">
+                                    <div class="is-relative">
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <a href="{{ path('year_directory_edit', {'id': galerie.id}) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette galerie">
+                                                <span class="icon">
+                                                    <i class="fas fa-lg fa-pencil-alt"></i>
+                                                </span>
+                                            </a>
+                                        {% endif %}
+                                        <div class="is-absolute-desktop has-text-right transform-year-desktop" style="right: 0;top: 0;">
+                                            <span class="title is-2 is-size-3-touch has-text-info has-text-weight-bold title-galerie">
+                                                {{ galerie.year }}
+                                            </span>
+                                        </div>
+                                        <h2 class="is-absolute has-text-black is-size-4" style="left: -1.25rem;bottom: 0;transform: translate(0,30%)">
+                                            {{ galerie.title }}
+                                        </h2>
+                                        <img class="has-max-height-60vh border-75px-desktop" src="{{ asset('/build/images/480x320.86ac0bc4.png' ) }}" alt="Couverture de galerie manquante" title="Couverture de galerie manquante">
                                     </div>
                                 </div>
 
                             {% endif %}
 
-{#                            <h2 class="subtitle has-text-centered is-size-4">#}
-{#                                {{ galerie.title }}#}
-{#                            </h2>#}
-
                             {% if galerie.year %}
-                                <div class="is-flex is-justify-content-center is-align-items-end">
+                                <div class="is-flex is-justify-content-end is-align-items-center">
                                     <a href="{{ path('gallery_year', {'id_gallery': galerie.id }) }}" class="button is-normal is-outlined is-info has-transition-5-ms">Parcourir la galerie</a>
                                 </div>
                             {% endif %}
                         </div>
-
-{#                    {% if i is odd %}{% endif %}#}
 
                     {% set i = i+1 %}
                 {% endfor %}
