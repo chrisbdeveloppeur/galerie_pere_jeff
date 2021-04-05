@@ -5,7 +5,7 @@ $size-3 : 3em;
 $info : rgb(221, 44, 0);
 $info-light: rgb(203, 245, 255);
 $dark: #363636;
-$link-hover: $info;
+//$link-hover: $info;
 $navbar-item-hover-color: $info;
 $link: $info;
 $modal-background-background-color: rgba(255,255,255,0.95);
@@ -37,6 +37,10 @@ $font-4: 'Train One', cursive !important;
 
 .has-borderless-radius{
   border-radius: $borderless-radius;
+}
+
+.menu-burger-orange-square *{
+  color: white;
 }
 
 .button{
