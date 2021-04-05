@@ -37,3 +37,9 @@ liip_imagine:
             filters:
                 thumbnail: { size: [800, 600], mode: outbound }
                 background: { size: [804, 604], position: center, color: '#ffffff' }
+
+        portrait:
+            quality: 100
+            filters:
+                thumbnail: { size: [480, 600], mode: outbound }
+#                background: { size: [484, 604], position: center, color: '#ffffff' }

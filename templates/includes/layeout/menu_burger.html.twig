@@ -2,16 +2,6 @@
 <div id="menu-slide" class="is-absolute-fullscreen has-max-height-100vh has-transition-7-ms is-left-100 is-top-0 opacity-0 has-background-white-ter is-bold">
 
     {% if is_granted('ROLE_ADMIN') %}
-{#        <div class="is-absolute is-flex is-flex-direction-column is-width-100 is-hidden-desktop" style="z-index: 2">#}
-{#            <div class="column buttons">#}
-{#                <a class="button is-small is-danger" href="{{ path('app_logout') }}">#}
-{#                    Deconnexion#}
-{#                </a>#}
-{#                {% if is_granted('ROLE_ADMIN') %}#}
-{#                    <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="button is-small is-dark" >Modifier le contenu</a>#}
-{#                {% endif %}#}
-{#            </div>#}
-{#        </div>#}
 
         <div class="column is-absolute is-bottom-0 is-flex is-justify-content-start has-text-weight-bold is-hidden-desktop is-width-100" style="z-index: 2">
             <div class="buttons">
