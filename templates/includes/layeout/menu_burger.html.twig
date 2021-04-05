@@ -21,35 +21,75 @@
     {% endif %}
 
     <div class="is-flex is-justify-content-center is-align-items-center container" style="height: 100%;width: 100%">
-        <div class="column is-flex-desktop has-max-height-80vh" style="overflow: auto">
+        <div class="column is-flex-desktop has-max-height-80vh is-align-items-center" style="overflow: auto">
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="button is-small is-dark is-absolute is-left-075rem" style="top: 50px;">Modifier le contenu</a>
             {% endif %}
-            <div class="column px-6 is-flex is-flex-direction-column is-align-items-start is-justify-content-center has-background-info menu-burger-orange-square" style="height: 450px;width: 100%;">
+            <div class="column is-one-third-desktop px-6 is-flex is-flex-direction-column is-align-items-start is-justify-content-center has-background-info menu-burger-orange-square" style="height: 450px;">
 {#                {{ text_menu_burger.text|raw }}#}
-                <a class="is-uppercase has-text-weight-bold py-4 is-size-5" href="">- Biographie</a>
-                <a class="is-uppercase has-text-weight-bold py-4 is-size-5" href="">- Peinture</a>
-                <a class="is-uppercase has-text-weight-bold py-4 is-size-5" href="">- Exposition</a>
+                <a class="is-uppercase has-text-weight-bold py-4 is-size-5" onclick="removeClass('menu-2','out-of-screen')">- Biographie</a>
+                <a class="is-uppercase has-text-weight-bold py-4 is-size-5" onclick="removeClass('menu-1','out-of-screen')">- Peinture</a>
+                <a class="is-uppercase has-text-weight-bold py-4 is-size-5" onclick="removeClass('menu-3','out-of-screen')">- Exposition</a>
             </div>
-            <div class="column is-two-thirds-desktop px-6 is-flex is-align-items-center is-justify-content-center" style="position: relative;left: -100px">
-                <div class="columns is-flex-desktop has-text-info is-align-items-center">
-                    {% set i = 0 %}
-                    {% for galerie in galeries %}
-                        {% if i < galeries|length-1 and (i is divisible by(2)) %}
-                        <div class="column is-flex-touch has-text-centered">
-                            <a class="column has-transition-5-ms has-text-weight-bold is-size-4-desktop has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galeries[i].id}) }}">
-                                {{ galeries[i].year }}
-                            </a>
-                            <span class="has-text-weight-bold is-size-4-desktop has-text-centered has-text-info is-hidden-touch">/</span>
-                            <a class="column has-transition-5-ms has-text-weight-bold is-size-4-desktop has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galeries[i+1].id}) }}">
-                                {{ galeries[i+1].year }}
-                            </a>
-                        </div>
-                        {% endif %}
-                        {% set i = i+1 %}
-                    {% endfor %}
+
+            <div id="menu-3" class="menu-burger-block-right has-transition-7-ms has-background-dark-transparent-25">
+                <div class="column px-6 is-flex is-justify-content-center">
+                    <div class="columns is-flex-desktop has-text-info is-align-items-center">
+                        {% set i = 0 %}
+                        {% for galerie in galeries %}
+                            {% if i < galeries|length-1 and (i is divisible by(2)) %}
+                                <div class="column is-flex-touch has-text-centered">
+                                    <a class="column has-transition-7-ms has-text-weight-bold is-size-4-desktop has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galeries[i].id}) }}">
+                                        {{ galeries[i].year }}
+                                    </a>
+                                    <span class="has-text-weight-bold is-size-4-desktop has-text-centered has-text-info is-hidden-touch">/</span>
+                                    <a class="column has-transition-7-ms has-text-weight-bold is-size-4-desktop has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galeries[i+1].id}) }}">
+                                        {{ galeries[i+1].year }}
+                                    </a>
+                                </div>
+                            {% endif %}
+                            {% set i = i+1 %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
+
+
+            <div id="menu-2" class="menu-burger-block-right has-transition-7-ms has-background-dark-transparent-25 out-of-screen is-flex is-justify-content-center">
+                <div  class="column px-6 is-flex is-justify-content-center">
+                    <div class="columns is-flex-desktop has-text-info">
+                        <div class="column">
+                            <figure class="figure is-flex is-justify-content-center is-align-items-center">
+                                <img src="{{ asset('build/images/480x600.603e1bf2.png') }}" alt="Photo">
+                            </figure>
+                        </div>
+                        <div class="column" style="margin-top: 20rem">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur cupiditate
+                                ea error quisquam unde velit? Ad animi aut eveniet labore nam quod vel? Assumenda
+                                corporis cumque ipsum molestiae perspiciatis?</p>
+                            <p>Ea et ex id modi, mollitia unde voluptate. Cumque, delectus excepturi! Adipisci, aperiam
+                                consequatur cupiditate distinctio enim eum harum laborum laudantium officiis possimus
+                                praesentium provident, recusandae repellendus, soluta suscipit veritatis?</p>
+                            <p>Aperiam eos laudantium maxime nulla porro, quae? At culpa ducimus rem sapiente ullam.
+                                Accusamus adipisci architecto beatae cum nemo nihil quidem saepe sapiente totam
+                                voluptate! Commodi deleniti dolorum fugit harum!</p>
+                            <p>Accusamus aliquam asperiores assumenda commodi deleniti, dolorem error incidunt maiores
+                                modi nesciunt nisi nostrum obcaecati placeat quis recusandae repudiandae rerum similique
+                                sint sunt tempora totam ullam unde. Nam, quasi voluptatibus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="menu-1" class="menu-burger-block-right has-transition-7-ms has-background-dark-transparent-25 out-of-screen is-flex is-justify-content-center">
+                <div  class="column px-6 is-flex is-justify-content-center">
+                    <div class="columns is-flex-desktop has-text-info is-align-items-center">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam delectus dolore enim eum excepturi explicabo in ipsa itaque magni minus neque odio odit omnis perspiciatis quasi qui, sint voluptate voluptatibus!
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

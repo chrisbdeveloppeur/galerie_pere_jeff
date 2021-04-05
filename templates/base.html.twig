@@ -177,6 +177,18 @@
     </script>
     {#                               #}
 
+
+    <script>
+
+        function removeClass(targetId, classToRemove) {
+            document.querySelectorAll('.menu-burger-block-right').forEach(function (elem) {
+                elem.classList.add(classToRemove);
+            });
+            document.getElementById(targetId).classList.remove(classToRemove);
+        }
+
+    </script>
+
 {% endblock %}
 
 </html>

@@ -136,6 +136,21 @@ $font-4: 'Train One', cursive !important;
   max-width: 500px !important;
 }
 
+.menu-burger-block-right{
+  position: absolute;
+  //left: -100px;
+  width: 70%;
+  right: 0;
+  display: flex;
+  justify-content: end;
+  max-height: 95vh;
+  overflow-y: auto;
+}
+.out-of-screen{
+  transform: translateY(-100%);
+  visibility: hidden;
+  opacity: 0;
+}
 
 
 .has-transition-7-ms{
