@@ -18,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/styles/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="354" column="13" lean-forward="true" selection-start-line="354" selection-start-column="13" selection-end-line="354" selection-end-column="13" />
+            <state relative-caret-position="595">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
             </state>
           </provider>
         </entry>
@@ -91,11 +91,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+            <state relative-caret-position="396">
+              <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+              <folding>
+                <element signature="e#2125#2137#0#Twig" expanded="true" />
+                <element signature="e#2417#2429#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -208,8 +212,8 @@
         <option value="$PROJECT_DIR$/templates/galleries/gallery.html.twig" />
         <option value="$PROJECT_DIR$/templates/includes/oeuvre_block.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/OeuvreController.php" />
-        <option value="$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig" />
         <option value="$PROJECT_DIR$/assets/styles/app.scss" />
+        <option value="$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig" />
       </list>
     </option>
   </component>
@@ -463,15 +467,16 @@
       <workItem from="1617209507278" duration="42000" />
       <workItem from="1617368610076" duration="1814000" />
       <workItem from="1617565463542" duration="25000" />
-      <workItem from="1617620016655" duration="14828000" />
+      <workItem from="1617620016655" duration="17337000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165262000" />
+    <option name="totallyTimeSpent" value="167771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29744136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -896,17 +901,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig">
+    <entry file="file://$PROJECT_DIR$/assets/styles/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        <state relative-caret-position="595">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles/app.scss">
+    <entry file="file://$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="354" column="13" lean-forward="true" selection-start-line="354" selection-start-column="13" selection-end-line="354" selection-end-column="13" />
+        <state relative-caret-position="396">
+          <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+          <folding>
+            <element signature="e#2125#2137#0#Twig" expanded="true" />
+            <element signature="e#2417#2429#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
