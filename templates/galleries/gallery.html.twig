@@ -30,11 +30,11 @@
                         <h2 class="subtitle is-5 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ galerie.title }}</h2>
                     </div>
                     {% if galerie.fileName %}
-                        <img class="has-max-height-70vh" src="{{ asset('/images/years_directory_img/') }}{{ galerie.fileName }}" alt="{{ galerie.fileName }}" title="{{ galerie.title }}">
+                        <img class="has-max-height-70vh border-75px-desktop" src="{{ asset('/images/years_directory_img/') }}{{ galerie.fileName }}" alt="{{ galerie.fileName }}" title="{{ galerie.title }}">
                     {% elseif galerie.oeuvres[0].fileName %}
-                        <img class="has-max-height-70vh" src="{{ asset('/images/oeuvres/') }}{{ galerie.oeuvres[0].fileName }}" alt="{{ galerie.oeuvres[0].fileName }}" title="{{ galerie.title }}">
+                        <img class="has-max-height-70vh border-75px-desktop" src="{{ asset('/images/oeuvres/') }}{{ galerie.oeuvres[0].fileName }}" alt="{{ galerie.oeuvres[0].fileName }}" title="{{ galerie.title }}">
                     {% else %}
-                        <img class="has-max-height-70vh" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant" title="Fichier image manquant">
+                        <img class="has-max-height-70vh border-75px-desktop" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant" title="Fichier image manquant">
                     {% endif %}
  </figure>
             </div>
@@ -64,55 +64,6 @@
                             {% set i = i+1 %}
                         {% endfor %}
                     </div>
-
-{#                {% set i = 0 %}#}
-{#                {% for oeuvre in oeuvres %}#}
-{#                        <div class="column is-flex is-flex-direction-column is-justify-content-center has-text-centered is-relative is-full-touch is-half-desktop">#}
-
-{#                            <div class="has-border-thin has-border-radius-3px py-2 px-2 has-background-white-bis">#}
-{#                                {% if is_granted('ROLE_ADMIN') %}#}
-{#                                    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">#}
-{#                                    <span class="icon">#}
-{#                                        <i class="fas fa-lg fa-pencil-alt"></i>#}
-{#                                    </span>#}
-{#                                    </a>#}
-{#                                {% endif %}#}
-
-{#                                {% if oeuvre.fileName %}#}
-{#                                    <div class="column is-flex is-justify-content-center">#}
-{#                                        <div class="modal opacity-0 has-transition-5-ms">#}
-{#                                            <div class="modal-background" onclick="closeModal(this)"></div>#}
-{#                                            <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">#}
-{#                                                <img class="img-galery has-max-height-60vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">#}
-{#                                                <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">#}
-{#                                            </figure>#}
-{#                                            <h3 class="has-text-centered has-font-playfair has-text-weight-bold has-text-light z-index-more-1">#}
-{#                                                {{ oeuvre.titre }}#}
-{#                                            </h3>#}
-{#                                            <div class="column is-one-third is-flex is-justify-content-center is-align-items-center">#}
-{#                                            <span class="has-text-centered has-font-playfair has-text-weight-light has-text-light z-index-more-1 help">#}
-{#                                                {{ oeuvre.description|raw }}#}
-{#                                            </span>#}
-{#                                            </div>#}
-{#                                            <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>#}
-{#                                        </div>#}
-{#                                        <img class="has-max-height-30vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">#}
-{#                                    </div>#}
-{#                                {% endif %}#}
-
-{#                                <h3 class="subtitle has-text-centered has-text-weight-bold has-font-playfair">#}
-{#                                    {{ oeuvre.titre }}#}
-{#                                </h3>#}
-
-{#                                <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center has-max-width-500px has-font-playfair help" style="margin: 0 auto">#}
-{#                                    {{ oeuvre.description|raw }}#}
-{#                                </div>#}
-{#                            </div>#}
-
-
-{#                        </div>#}
-{#                    {% set i = i+1 %}#}
-{#                {% endfor %}#}
             </div>
 
 
