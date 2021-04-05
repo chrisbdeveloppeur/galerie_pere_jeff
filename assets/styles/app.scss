@@ -2,7 +2,7 @@ $size-1 : 7rem;
 $size-2 : 5rem;
 $size-3 : 3em;
 //$info : #3298DC;
-$info : #5158a1;
+$info : #ff7b1c;
 $info-light: rgb(203, 245, 255);
 $dark: #363636;
 $link-hover: $info;
@@ -235,6 +235,12 @@ $font-4: 'Train One', cursive !important;
 .is-height-100{
   height: 100%;
 }
+.is-height-80vh{
+  height: 80vh;
+}
+.is-height-70vh{
+  height: 70vh;
+}
 .z-index-less-1{
   z-index: -1;
 }
@@ -351,6 +357,14 @@ $font-4: 'Train One', cursive !important;
   transition: transform 0.7s cubic-bezier(0.77,0.2,0.05,1.0),
   background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
   opacity 0.55s ease;
+}
+
+
+
+@media (min-width: 1024px) {
+  .margin-10rem-desktop{
+    margin-top: 10rem;
+  }
 }
 
 

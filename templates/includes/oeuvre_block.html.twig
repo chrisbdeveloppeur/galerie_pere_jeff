@@ -1,0 +1,39 @@
+<div class="is-relative mb-6 py-6 px-4">
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
+            <span class="icon">
+                <i class="fas fa-lg fa-pencil-alt"></i>
+            </span>
+        </a>
+    {% endif %}
+
+    {% if oeuvre.fileName %}
+        <div class="column is-flex px-0">
+            <div class="modal opacity-0 has-transition-5-ms">
+                <div class="modal-background" onclick="closeModal(this)"></div>
+                <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
+                    <img class="img-galery has-max-height-60vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
+                    <hr class="has-background-light-transparent-50" style="width: 75%; height: 1px;">
+                </figure>
+                <h3 class="has-text-left has-font-playfair has-text-weight-bold has-text-light z-index-more-1">
+                    {{ oeuvre.titre }}
+                </h3>
+                <div class="column is-one-third is-flex is-align-items-center">
+                    <span class="has-text-left has-font-playfair has-text-weight-light has-text-light z-index-more-1 help">
+                        {{ oeuvre.description|raw }}
+                    </span>
+                </div>
+                <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
+            </div>
+            <img class="has-max-height-30vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
+        </div>
+    {% endif %}
+
+    <h3 class="subtitle has-text-left has-text-weight-bold has-font-playfair">
+        {{ oeuvre.titre }}
+    </h3>
+
+    <div class="is-flex is-flex-direction-column has-max-width-500px has-font-playfair help has-text-black" style="margin: 0 auto">
+        {{ oeuvre.description|raw }}
+    </div>
+</div>

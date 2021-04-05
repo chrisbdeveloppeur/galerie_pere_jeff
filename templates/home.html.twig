@@ -18,7 +18,7 @@
 
 {#                    {% if i is odd %}{% endif %}#}
 
-                        <div class="mx-5 is-relative is-boxed-like has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-between {% if i == 0 %} column is-full {% else %} column is-one-third is-one-quarter-desktop{% endif %}">
+                        <div class="mx-5 mb-6 is-relative has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-between column is-full is-height-70vh">
 
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('year_directory_edit', {'id': galerie.id}) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette galerie">
@@ -29,47 +29,69 @@
                             {% endif %}
 
                             <div class="px-2 py-2 z-index-less-1 is-absolute is-top-0 is-left-0 is-width-100 is-height-100 is-flex is-justify-content-center is-align-items-center">
-                                {% if not galerie.filename %}
-                                    {% if galerie.oeuvres is not empty and galerie.oeuvres[0].filename %}
-                                        <div class="opacity-1 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }});width: 100%;height: 100%;">
+{#                                {% if not galerie.filename %}#}
+{#                                    {% if galerie.oeuvres is not empty and galerie.oeuvres[0].filename %}#}
+{#                                        <div class="opacity-1 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }});width: 100%;height: 100%;">#}
 
-                                        </div>
-                                    {% endif %}
-                                {% else %}
-                                    <div class="opacity-1 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/years_directory_img/' ~ galerie.filename ) }});width: 100%;height: 100%;">
+{#                                        </div>#}
+{#                                    {% endif %}#}
+{#                                {% else %}#}
+{#                                    <div class="opacity-1 target-change-opacity has-transition-5-ms" style="filter: blur(5px);background:center / cover no-repeat url({{ asset('/images/years_directory_img/' ~ galerie.filename ) }});width: 100%;height: 100%;">#}
 
-                                    </div>
-                                {% endif %}
+{#                                    </div>#}
+{#                                {% endif %}#}
                                 <div class="has-background-light-transparent-50 is-absolute is-top-0 is-left-0 is-width-100 is-height-100">
 
                                 </div>
                             </div>
 
-                            <div class="is-flex is-justify-content-end">
-                                <span class="title has-text-info has-text-weight-bold title-galerie has-text-right">
-                                    {{ galerie.year }}
-                                </span>
-                            </div>
+{#                            <div class="is-flex is-justify-content-end">#}
+{#                                <span class="title has-text-info has-text-weight-bold title-galerie has-text-right">#}
+{#                                    {{ galerie.year }}#}
+{#                                </span>#}
+{#                            </div>#}
 
                             {% if not galerie.filename %}
                                 {% if galerie.oeuvres is not empty and galerie.oeuvres[0].filename %}
-                                    <div class="column is-flex is-justify-content-center is-align-items-center">
-                                        <img class="has-max-height-30vh has-border-white-2px" src="{{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }}" alt="Couverture de galerie manquante" title="{{ galerie.title }}">
+                                    <div class="is-flex is-justify-content-center">
+                                        <div class="is-relative">
+                                            <div class="is-absolute is-flex is-justify-content-end">
+                                                <span class="title has-text-info has-text-weight-bold title-galerie has-text-right">
+                                                    {{ galerie.year }}
+                                                </span>
+                                            </div>
+                                            <h2 class="is-absolute has-text-black is-bottom-0 has-text-centered has-font-playfair">
+                                                {{ galerie.title }}
+                                            </h2>
+                                            <img class="has-max-height-50vh" src="{{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }}" alt="Couverture de galerie manquante" title="{{ galerie.title }}">
+                                        </div>
                                     </div>
+
                                 {% endif %}
                             {% else %}
-                                <div class="column is-flex is-justify-content-center is-align-items-center">
-                                    <img class="has-max-height-30vh has-border-white-2px" src="{{ asset('/images/years_directory_img/' ~ galerie.filename ) }}" alt="{{ galerie.filename }}" title="{{ galerie.title }}">
+                                <div class="is-flex is-justify-content-center">
+                                    <div class="is-relative">
+                                        <div class="is-absolute is-flex is-justify-content-end">
+                                            <span class="title has-text-info has-text-weight-bold title-galerie has-text-right">
+                                                {{ galerie.year }}
+                                            </span>
+                                        </div>
+                                        <h2 class="is-absolute has-text-black is-bottom-0 has-text-centered has-font-playfair">
+                                            {{ galerie.title }}
+                                        </h2>
+                                        <img class="has-max-height-50vh" src="{{ asset('/images/years_directory_img/' ~ galerie.filename ) }}" alt="{{ galerie.filename }}" title="{{ galerie.title }}">
+                                    </div>
                                 </div>
+
                             {% endif %}
 
-                            <h2 class="subtitle has-text-centered has-font-playfair">
-                                {{ galerie.title }}
-                            </h2>
+{#                            <h2 class="subtitle has-text-centered has-font-playfair">#}
+{#                                {{ galerie.title }}#}
+{#                            </h2>#}
 
                             {% if galerie.year %}
                                 <div class="is-flex is-justify-content-center is-align-items-end">
-                                    <a href="{{ path('gallery_year', {'id_gallery': galerie.id }) }}" class="button is-normal is-info has-transition-5-ms">Parcourir la galerie</a>
+                                    <a href="{{ path('gallery_year', {'id_gallery': galerie.id }) }}" class="button is-normal is-outlined is-info has-transition-5-ms">Parcourir la galerie</a>
                                 </div>
                             {% endif %}
                         </div>
