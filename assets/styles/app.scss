@@ -124,7 +124,7 @@ $font-1: 'Merriweather Sans', sans-serif;
 .menu-burger-block-right{
   position: absolute;
   //left: -100px;
-  width: 70%;
+  width: 75%;
   right: 0;
   display: flex;
   justify-content: end;
@@ -317,7 +317,7 @@ $font-1: 'Merriweather Sans', sans-serif;
   user-select: none;
 }
 
-#burger:hover .bar1, #burger:hover .bar3{
+#burger:hover .bar2, #burger:hover .bar4{
   background-color: $info;
   width: 40px;
 }
@@ -333,7 +333,7 @@ $font-1: 'Merriweather Sans', sans-serif;
 
 .change .bar1 {
   opacity: 0;
-  transform: rotate(40deg);
+  //transform: rotate(40deg);
 }
 
 .change .bar2 {
@@ -344,7 +344,7 @@ $font-1: 'Merriweather Sans', sans-serif;
 
 .change .bar3 {
   opacity: 0;
-  transform: rotate(-40deg);
+  //transform: rotate(-40deg);
 }
 
 .change .bar4{
