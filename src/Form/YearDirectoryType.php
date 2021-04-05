@@ -21,6 +21,7 @@ class YearDirectoryType extends AbstractType
     {
         $builder
             ->add('year',TextType::class,[
+                'error_bubbling' => true,
                 'label' => 'Titre *',
                 'required' => true,
                 'label_attr' => ['class'=>'has-text-weight-bold'],
@@ -44,6 +45,7 @@ class YearDirectoryType extends AbstractType
                 ],
             ])
             ->add('title',TextareaType::class,[
+                'error_bubbling' => true,
                 'label' => 'Sous-titre',
                 'required' => false,
                 'label_attr' => ['class'=>'has-text-weight-bold'],
@@ -63,14 +65,16 @@ class YearDirectoryType extends AbstractType
                 ],
             ])
             ->add('file', FileType::class,[
+                'error_bubbling' => true,
                 'label' => 'Image de couverture',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class' => 'field is-flex is-flex-direction-column'],
                 'attr' => [
                     'class' => 'has-text-centered'
                 ],
-                'error_bubbling' => true,
                 'required' => false,
+                'help' => 'Types de fichier autorisés : .jpeg .png .svg .bmp .pdf',
+                'help_attr' => ['class' => 'help']
             ])
         ;
     }

@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -47,6 +48,11 @@ class YearDirectory
     /**
      * @var File|null
      * @Vich\UploadableField(mapping="year_directory_img", fileNameProperty="fileName")
+     * @Assert\File(
+     *     maxSize = "40M",
+     *     mimeTypes = {"application/pdf", "application/x-pdf", "image/bmp", "image/png", "image/svg+xml"},
+     *     mimeTypesMessage = "Seul les formats suivant sont acceptés : jpeg/png/svg/bmp/pdf"
+     * )
      */
     private $file;
 

@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=OeuvreRepository::class)
@@ -34,6 +35,11 @@ class Oeuvre
     /**
      * @var File|null
      * @Vich\UploadableField(mapping="oeuvre", fileNameProperty="fileName")
+     * @Assert\File(
+     *     maxSize = "100Mi",
+     *     mimeTypes = {"application/pdf", "application/x-pdf", "image/bmp", "image/png", "image/svg+xml"},
+     *     mimeTypesMessage = "Seul les formats suivant sont acceptés : jpeg/png/svg/bmp/pdf"
+     * )
      */
     private $file;
 

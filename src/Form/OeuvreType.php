@@ -18,6 +18,7 @@ class OeuvreType extends AbstractType
     {
         $builder
             ->add('titre',TextType::class,[
+                'error_bubbling' => true,
                 'label' => 'Titre',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class'=>'mb-4'],
@@ -29,18 +30,20 @@ class OeuvreType extends AbstractType
                 'help_attr' => ['class' => 'help'],
             ])
             ->add('file', FileType::class,[
+                'error_bubbling' => true,
                 'label' => 'Fichier image',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class'=>'field is-flex is-flex-direction-column'],
                 'attr' => [
                     'class' => 'has-text-centered'
                 ],
-                'error_bubbling' => true,
                 'required' => false,
+                'help' => 'Types de fichier autorisés : .jpeg .png .svg .bmp .pdf',
+                'help_attr' => ['class' => 'help']
             ])
             ->add('description',CKEditorType::class,[
-                'config' => ['toolbar' => 'config_custom_min'],
                 'error_bubbling' => true,
+                'config' => ['toolbar' => 'config_custom_min'],
                 'label' => 'Description',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class'=>'mb-4'],
@@ -52,6 +55,7 @@ class OeuvreType extends AbstractType
                 'help_attr' => ['class' => 'help'],
             ])
             ->add('year_directory', EntityType::class,[
+                'error_bubbling' => true,
                 'class' => YearDirectory::class,
                 'required' => false,
                 'label' => false,
