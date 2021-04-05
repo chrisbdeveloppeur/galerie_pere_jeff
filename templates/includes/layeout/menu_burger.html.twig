@@ -2,39 +2,65 @@
 <div id="menu-slide" class="is-absolute-fullscreen has-max-height-100vh has-transition-7-ms is-left-100 is-top-0 opacity-0 has-background-white-ter is-bold">
 
     {% if is_granted('ROLE_ADMIN') %}
-        <div class="is-absolute is-flex is-flex-direction-column is-width-100 is-hidden-desktop">
-            <div class="column">
-                <a class="button is-small is-danger" href="{{ path('app_logout') }}">
-                    Deconnexion
-                </a>
-            </div>
-        </div>
+{#        <div class="is-absolute is-flex is-flex-direction-column is-width-100 is-hidden-desktop" style="z-index: 2">#}
+{#            <div class="column buttons">#}
+{#                <a class="button is-small is-danger" href="{{ path('app_logout') }}">#}
+{#                    Deconnexion#}
+{#                </a>#}
+{#                {% if is_granted('ROLE_ADMIN') %}#}
+{#                    <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="button is-small is-dark" >Modifier le contenu</a>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </div>#}
 
-        <div class="column is-absolute is-bottom-0 is-flex is-justify-content-space-evenly has-text-weight-bold is-hidden-desktop is-width-100">
-            <a href="{{ path('year_directory_index') }}" class="">
-                Galeries
-            </a>
-            <a href="{{ path('oeuvre_index') }}" class="">
-                Oeuvres
-            </a>
+        <div class="column is-absolute is-bottom-0 is-flex is-justify-content-start has-text-weight-bold is-hidden-desktop is-width-100" style="z-index: 2">
+            <div class="buttons">
+                <div class="dropdown is-up" onclick="this.classList.toggle('is-active')">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <span>Menue</span>
+                            <span class="icon is-small">
+                            <i class="fas fa-angle-up" aria-hidden="true"></i>
+                        </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                        <div class="dropdown-content">
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('year_directory_index') }}" class="dropdown-item has-text-centered">
+                                    Gestion des Galeries
+                                </a>
+                                <a href="{{ path('oeuvre_index') }}" class="dropdown-item has-text-centered">
+                                    Gestion des Oeuvres
+                                </a>
+                                <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="button dropdown-item is-small is-dark has-text-centered">
+                                    Modifier le contenu
+                                </a>
+                                <a class="button dropdown-item is-small is-danger has-text-centered" href="{{ path('app_logout') }}">
+                                    Deconnexion
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     {% endif %}
 
-    <div class="is-flex is-justify-content-center is-align-items-center container" style="height: 100%;width: 100%">
+    <div class="is-flex-desktop is-justify-content-center is-align-items-center container" style="height: 100%;width: 100%">
         <div class="column is-flex-desktop has-max-height-80vh is-align-items-center" style="overflow: auto">
-            {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="button is-small is-dark is-absolute is-left-075rem" style="top: 50px;">Modifier le contenu</a>
-            {% endif %}
-            <div class="column is-one-third-desktop px-6 is-flex is-flex-direction-column is-align-items-start is-justify-content-center has-background-info menu-burger-orange-square" style="height: 450px;">
+            <div class="column is-one-third-desktop px-6 is-flex is-flex-direction-column is-align-items-start is-justify-content-center has-background-info menu-burger-orange-square">
 {#                {{ text_menu_burger.text|raw }}#}
                 <a class="is-uppercase has-text-weight-bold py-4 is-size-5" onclick="removeClass('menu-2','out-of-screen')">- Biographie</a>
                 <a class="is-uppercase has-text-weight-bold py-4 is-size-5" onclick="removeClass('menu-1','out-of-screen')">- Peinture</a>
                 <a class="is-uppercase has-text-weight-bold py-4 is-size-5" onclick="removeClass('menu-3','out-of-screen')">- Exposition</a>
             </div>
 
-            <div id="menu-3" class="menu-burger-block-right has-transition-7-ms has-background-dark-transparent-25">
-                <div class="column px-6 is-flex is-justify-content-center">
-                    <div class="columns is-flex-desktop has-text-info is-align-items-center">
+            <div id="menu-3" class="menu-burger-block-right column is-full-touch has-transition-7-ms">
+                <div class="column is-flex is-justify-content-center has-background-dark-transparent-25 overflow-y-auto">
+                    <div class="is-flex-desktop has-text-info is-align-items-center">
                         {% set i = 0 %}
                         {% for galerie in galeries %}
                             {% if i < galeries|length-1 and (i is divisible by(2)) %}
@@ -55,36 +81,18 @@
             </div>
 
 
-            <div id="menu-2" class="menu-burger-block-right has-transition-7-ms has-background-dark-transparent-25 out-of-screen is-flex is-justify-content-center">
-                <div  class="column px-6 is-flex is-justify-content-center">
-                    <div class="columns is-flex-desktop has-text-info">
-                        <div class="column">
-                            <figure class="figure is-flex is-justify-content-center is-align-items-center">
-                                <img src="{{ asset('build/images/480x600.603e1bf2.png') }}" alt="Photo">
-                            </figure>
-                        </div>
-                        <div class="column" style="margin-top: 20rem">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur cupiditate
-                                ea error quisquam unde velit? Ad animi aut eveniet labore nam quod vel? Assumenda
-                                corporis cumque ipsum molestiae perspiciatis?</p>
-                            <p>Ea et ex id modi, mollitia unde voluptate. Cumque, delectus excepturi! Adipisci, aperiam
-                                consequatur cupiditate distinctio enim eum harum laborum laudantium officiis possimus
-                                praesentium provident, recusandae repellendus, soluta suscipit veritatis?</p>
-                            <p>Aperiam eos laudantium maxime nulla porro, quae? At culpa ducimus rem sapiente ullam.
-                                Accusamus adipisci architecto beatae cum nemo nihil quidem saepe sapiente totam
-                                voluptate! Commodi deleniti dolorum fugit harum!</p>
-                            <p>Accusamus aliquam asperiores assumenda commodi deleniti, dolorem error incidunt maiores
-                                modi nesciunt nisi nostrum obcaecati placeat quis recusandae repudiandae rerum similique
-                                sint sunt tempora totam ullam unde. Nam, quasi voluptatibus.</p>
-                        </div>
+            <div id="menu-2" class="menu-burger-block-right column is-full-touch has-transition-7-ms out-of-screen is-flex is-justify-content-center">
+                <div class="column is-flex is-justify-content-center has-background-dark-transparent-25">
+                    <div class="is-flex-desktop has-text-info pb-4 overflow-y-auto">
+                        {{ include('includes/bio.html.twig') }}
                     </div>
                 </div>
             </div>
 
 
-            <div id="menu-1" class="menu-burger-block-right has-transition-7-ms has-background-dark-transparent-25 out-of-screen is-flex is-justify-content-center">
-                <div  class="column px-6 is-flex is-justify-content-center">
-                    <div class="columns is-flex-desktop has-text-info is-align-items-center">
+            <div id="menu-1" class="menu-burger-block-right column is-full-touch has-transition-7-ms out-of-screen is-flex is-justify-content-center">
+                <div  class="column is-flex is-justify-content-center has-background-dark-transparent-25 overflow-y-auto">
+                    <div class="is-flex-desktop has-text-info is-align-items-center">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam delectus dolore enim eum excepturi explicabo in ipsa itaque magni minus neque odio odit omnis perspiciatis quasi qui, sint voluptate voluptatibus!
                     </div>
                 </div>

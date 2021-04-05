@@ -143,7 +143,9 @@ $font-4: 'Train One', cursive !important;
   right: 0;
   display: flex;
   justify-content: end;
-  max-height: 95vh;
+  max-height: 65vh;
+}
+.overflow-y-auto{
   overflow-y: auto;
 }
 .out-of-screen{
@@ -419,6 +421,12 @@ $font-4: 'Train One', cursive !important;
   }
   .border-75px-desktop{
     border: solid 75px #8080801a !important;
+  }
+  .menu-burger-orange-square{
+    height: 450px;
+  }
+  .menu-burger-block-right{
+    max-height: 95vh;
   }
 }
 
