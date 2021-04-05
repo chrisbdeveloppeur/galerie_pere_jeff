@@ -10,29 +10,14 @@ $navbar-item-hover-color: $info;
 $link: $info;
 $modal-background-background-color: rgba(255,255,255,0.95);
 $borderless-radius: 0 !important;
+$font-1: 'Merriweather Sans', sans-serif;
 
 *{
-  font-family: 'Poppins', serif;
-}
-
-$font-1: 'Playfair Display', serif !important;
-$font-2: 'Poppins', sans-serif !important;
-$font-3: 'Josefin Sans', sans-serif !important;
-$font-4: 'Train One', cursive !important;
-
-.has-font-playfair, .has-font-playfair *{
   font-family: $font-1;
 }
-.has-font-poppins, .has-font-poppins *{
-  font-family: $font-2;
-}
 
-.has-font-josefin, .has-font-josefin *{
-  font-family: $font-3;
-}
-
-.title-galerie{
-  //font-family: $font-4;
+.has-font-1 *{
+  font-family: $font-1;
 }
 
 .has-borderless-radius{
