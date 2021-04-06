@@ -1,17 +1,15 @@
-<div class="is-relative">
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
-            <span class="icon">
-                <i class="fas fa-lg fa-pencil-alt"></i>
-            </span>
-        </a>
-    {% endif %}
-
-    {% if oeuvre.fileName %}
+{% if oeuvre.fileName %}
+    <div class="is-relative">
         <div class="column px-0 mb-6 py-6">
 
-            <figure class="figure">
-
+            <figure class="figure is-relative">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
+                        <span class="icon">
+                            <i class="fas fa-lg fa-pencil-alt"></i>
+                        </span>
+                    </a>
+                {% endif %}
                 <div class="modal opacity-0 has-transition-5-ms">
                     <div class="modal-background" onclick="closeModal(this)"></div>
                     <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
@@ -24,17 +22,15 @@
 
             </figure>
 
-                <h3 class="has-text-left has-text-weight-bold has-font-playfair has-text-black has-text-left">
-                    {{ oeuvre.titre }}
-                </h3>
+            <h3 class="has-text-left has-text-weight-bold has-font-playfair has-text-black has-text-left">
+                {{ oeuvre.titre }}
+            </h3>
 
-                <div class="is-flex is-flex-direction-column has-max-width-500px help has-text-black has-text-left">
-                    {{ oeuvre.description|raw }}
-                </div>
-
-
+            <div class="is-flex is-flex-direction-column has-max-width-500px help has-text-black has-text-left">
+                {{ oeuvre.description|raw }}
+            </div>
 
         </div>
-    {% endif %}
+    </div>
+{% endif %}
 
-</div>
