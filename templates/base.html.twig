@@ -186,6 +186,18 @@
 
     </script>
 
+    <script>
+
+        function changeMinusToPlus(object) {
+            let linksMenuBurger = document.querySelectorAll('.link-menu-burger');
+            linksMenuBurger.forEach(function (elem) {
+                elem.querySelector('i').classList.replace('fa-minus', 'fa-plus');
+            });
+            object.querySelector('i').classList.replace('fa-plus', 'fa-minus');
+        }
+
+    </script>
+
 {% endblock %}
 
 </html>

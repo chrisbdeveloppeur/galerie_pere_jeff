@@ -43,9 +43,30 @@
     <div class="is-flex-desktop is-justify-content-center is-align-items-center container" style="height: 100%;width: 100%">
         <div class="column is-flex-desktop has-max-height-80vh is-align-items-center" style="overflow: auto">
             <div class="column is-one-third-desktop px-6 is-flex is-flex-direction-column is-align-items-start is-justify-content-center has-background-info menu-burger-orange-square">
-                <a class="is-uppercase has-text-weight-bold py-4 is-size-5" onclick="removeClass('menu-2','out-of-screen')">- Biographie</a>
-                <a class="is-uppercase has-text-weight-bold py-4 is-size-5" onclick="removeClass('menu-1','out-of-screen')">- Peinture</a>
-                <a class="is-uppercase has-text-weight-bold py-4 is-size-5" onclick="removeClass('menu-3','out-of-screen')">- Exposition</a>
+                <a class="is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger" onclick="removeClass('menu-2','out-of-screen'); changeMinusToPlus(this)">
+                    <span class="icon is-size-6">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span>
+                        Biographie
+                    </span>
+                </a>
+                <a class="is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger" onclick="removeClass('menu-1','out-of-screen'); changeMinusToPlus(this)">
+                    <span class="icon is-size-6">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span>
+                        Peinture
+                    </span>
+                </a>
+                <a class="is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger" onclick="removeClass('menu-3','out-of-screen'); changeMinusToPlus(this)">
+                    <span class="icon is-size-6">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                    <span>
+                       Exposition
+                    </span>
+                </a>
             </div>
 
             <div id="menu-3" class="menu-burger-block-right column is-full-touch has-transition-7-ms">
@@ -71,7 +92,7 @@
             </div>
 
 
-            <div id="menu-2" class="menu-burger-block-right column is-full-touch has-transition-7-ms out-of-screen is-flex is-justify-content-center">
+            <div id="menu-2" class="menu-burger-block-right column is-full-touch has-transition-7-ms is-flex is-justify-content-center out-of-screen">
                 <div class="column is-flex is-justify-content-center has-background-light-transparent-50">
                     <div class="is-flex-desktop has-text-info pb-4 overflow-y-auto">
                         {{ include('includes/bio.html.twig') }}
@@ -80,7 +101,7 @@
             </div>
 
 
-            <div id="menu-1" class="menu-burger-block-right column is-full-touch has-transition-7-ms out-of-screen is-flex is-justify-content-center">
+            <div id="menu-1" class="menu-burger-block-right column is-full-touch has-transition-7-ms is-flex is-justify-content-center out-of-screen">
                 <div  class="column is-flex is-justify-content-center has-background-light-transparent-50 overflow-y-auto">
                     <div class="is-flex-desktop has-text-info is-align-items-center">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam delectus dolore enim eum excepturi explicabo in ipsa itaque magni minus neque odio odit omnis perspiciatis quasi qui, sint voluptate voluptatibus!
