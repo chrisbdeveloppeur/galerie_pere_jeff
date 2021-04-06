@@ -36,7 +36,7 @@ class Oeuvre
      * @var File|null
      * @Vich\UploadableField(mapping="oeuvre", fileNameProperty="fileName")
      * @Assert\File(
-     *     maxSize = "100Mi",
+     *     maxSize = "40M",
      *     mimeTypes = {"application/pdf", "application/x-pdf", "image/bmp", "image/png", "image/svg+xml"},
      *     mimeTypesMessage = "Seul les formats suivant sont acceptés : jpeg/png/svg/bmp/pdf"
      * )
