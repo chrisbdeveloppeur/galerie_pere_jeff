@@ -1,11 +1,9 @@
 $size-1 : 7rem;
 $size-2 : 5rem;
 $size-3 : 3em;
-//$info : #3298DC;
 $info : rgb(221, 44, 0);
 $info-light: rgb(203, 245, 255);
 $dark: #363636;
-//$link-hover: $info;
 $navbar-item-hover-color: $info;
 $link: $info;
 $modal-background-background-color: rgba(255,255,255,0.95);
@@ -23,6 +21,10 @@ $grey: #8080801a;
 
 .has-borderless-radius{
   border-radius: $borderless-radius;
+}
+
+a{
+  outline: none;
 }
 
 .menu-burger-orange-square *{
@@ -124,7 +126,7 @@ $grey: #8080801a;
 
 .menu-burger-block-right{
   position: absolute;
-  //left: -100px;
+  height: 80%;
   width: 75%;
   right: 0;
   display: flex;
