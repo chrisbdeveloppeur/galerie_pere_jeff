@@ -68,6 +68,16 @@ class YearDirectory
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $year_start;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $year_end;
+
     public function __construct()
     {
         $this->oeuvres = new ArrayCollection();
@@ -166,6 +176,30 @@ class YearDirectory
     public function setFileName(?string $fileName): YearDirectory
     {
         $this->fileName = $fileName;
+        return $this;
+    }
+
+    public function getYearStart(): ?int
+    {
+        return $this->year_start;
+    }
+
+    public function setYearStart(int $year_start): self
+    {
+        $this->year_start = $year_start;
+
+        return $this;
+    }
+
+    public function getYearEnd(): ?int
+    {
+        return $this->year_end;
+    }
+
+    public function setYearEnd(int $year_end): self
+    {
+        $this->year_end = $year_end;
+
         return $this;
     }
 }

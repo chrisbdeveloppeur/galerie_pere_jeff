@@ -40,7 +40,9 @@ class AppFixtures extends Fixture
             $nb2 = $faker->numberBetween(5,20);
 //            $year->setTitle($faker->words($nb, true));
             $annee_start = new \DateTime('now -'.($x+1).'Years');
+            $year->setYearEnd($annee_start->format('Y'));
             $annee_end = new \DateTime('now -'.($x+10).'Years');
+            $year->setYearStart($annee_end->format('Y'));
             $annee = $annee_start->format('Y') . " / ". $annee_end->format('Y');
             $year->setYear($annee);
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\TextMenuBurger;
+use App\Repository\OeuvreRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -34,10 +35,10 @@ class GalleriesController extends AbstractController
     /**
      * @Route("/{id_gallery}", name="year")
      */
-    public function galeriesAnnees($id_gallery, YearDirectoryRepository $yearDirectoryRepository): Response
+    public function galeriesAnnees($id_gallery, YearDirectoryRepository $yearDirectoryRepository, OeuvreRepository $oeuvreRepository): Response
     {
         $galerie = $yearDirectoryRepository->find($id_gallery);
-        $oeuvres = $galerie->getOeuvres();
+        $oeuvres = $oeuvreRepository->findByGalery($galerie->getId());
         return $this->render('galleries/gallery.html.twig', [
             'oeuvres' => $oeuvres,
             'id_gallery' => $id_gallery,

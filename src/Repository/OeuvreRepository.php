@@ -43,12 +43,12 @@ class OeuvreRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findByYear($value)
+    public function findByGalery($value)
     {
         return $this->createQueryBuilder('o')
-            ->andWhere('o.annee = :val')
+            ->andWhere('o.year_directory = :val')
             ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
+            ->orderBy('o.year', 'DESC')
             ->getQuery()
             ->getResult()
         ;
