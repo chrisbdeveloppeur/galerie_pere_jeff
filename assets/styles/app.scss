@@ -406,7 +406,10 @@ $grey: #8080801a;
     transform: translate(20%,-50%);
   }
   .border-75px-desktop{
-    border: solid 75px #8080801a !important;
+    border: solid 75px $grey !important;
+  }
+  .border-30px-desktop{
+    border: solid 30px $grey !important;
   }
   .menu-burger-orange-square{
     height: 450px;
