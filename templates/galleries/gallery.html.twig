@@ -26,11 +26,11 @@
                         <h2 class="subtitle is-5 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ galerie.title }}</h2>
                     </div>
                     {% if galerie.fileName %}
-                        <img class="has-max-height-70vh border-30px-desktop" src="{{ asset('/images/years_directory_img/') }}{{ galerie.fileName }}" alt="{{ galerie.fileName }}" title="{{ galerie.title }}">
+                        <img class="has-max-height-70vh border-60px-desktop is-width-100" src="{{ asset('/images/years_directory_img/') }}{{ galerie.fileName }}" alt="{{ galerie.fileName }}" title="{{ galerie.title }}">
                     {% elseif galerie.oeuvres[0].fileName %}
-                        <img class="has-max-height-70vh border-30px-desktop" src="{{ asset('/images/oeuvres/') }}{{ galerie.oeuvres[0].fileName }}" alt="{{ galerie.oeuvres[0].fileName }}" title="{{ galerie.title }}">
+                        <img class="has-max-height-70vh border-60px-desktop is-width-100" src="{{ asset('/images/oeuvres/') }}{{ galerie.oeuvres[0].fileName }}" alt="{{ galerie.oeuvres[0].fileName }}" title="{{ galerie.title }}">
                     {% else %}
-                        <img class="has-max-height-70vh border-30px-desktop" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant" title="Fichier image manquant">
+                        <img class="has-max-height-70vh border-60px-desktop is-width-100" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant" title="Fichier image manquant">
                     {% endif %}
                 </figure>
 {#            </div>#}

@@ -1,6 +1,5 @@
-{% if oeuvre.fileName %}
     <div class="is-relative">
-        <div class="column px-0 mb-6 py-6">
+        <div class="column px-0 mb-6 py-6 has-text-centered-touch">
 
             <figure class="figure is-relative">
                 {% if is_granted('ROLE_ADMIN') %}
@@ -13,24 +12,36 @@
                 <div class="modal opacity-0 has-transition-5-ms">
                     <div class="modal-background" onclick="closeModal(this)"></div>
                     <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
-                        <img class="img-galery has-max-height-80vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
+                        {% if oeuvre.fileName %}
+                            <img class="img-galery has-max-height-80vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
+                        {% else %}
+                            <img class="img-galery has-max-height-80vh" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant">
+                        {% endif %}
                     </figure>
                     <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
                 </div>
 
-                <img width="100%" class="btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
+                {% if oeuvre.fileName %}
+                    <img width="100%" class="btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
+                {% else %}
+                    <img class="img-galery has-max-height-80vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant">
+                {% endif %}
 
             </figure>
 
-            <h3 class="has-text-left has-text-weight-bold has-font-playfair has-text-black has-text-left">
+            <h3 class="has-text-left has-text-weight-bold has-font-playfair has-text-black has-text-left has-text-centered-touch">
                 {{ oeuvre.titre }}
             </h3>
 
-            <div class="is-flex is-flex-direction-column has-max-width-500px help has-text-black has-text-left">
+            <span class="has-text-weight-bold">
+                {{ oeuvre.year }}
+            </span>
+
+            <div class="help has-text-black has-text-left has-text-centered-touch">
                 {{ oeuvre.description|raw }}
             </div>
 
         </div>
     </div>
-{% endif %}
+
 

@@ -66,6 +66,17 @@ class Oeuvre
      */
     private $img_position;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=GroupeGaleries::class, inversedBy="Oeuvres")
+     */
+    private $groupeGaleries;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $year;
+
+
     public function __construct()
     {
     }
@@ -159,4 +170,30 @@ class Oeuvre
 
         return $this;
     }
+
+    public function getGroupeGaleries(): ?GroupeGaleries
+    {
+        return $this->groupeGaleries;
+    }
+
+    public function setGroupeGaleries(?GroupeGaleries $groupeGaleries): self
+    {
+        $this->groupeGaleries = $groupeGaleries;
+
+        return $this;
+    }
+
+    public function getYear(): ?int
+    {
+        return $this->year;
+    }
+
+    public function setYear(?int $year): self
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+
 }

@@ -2,12 +2,14 @@
 
 namespace App\Form;
 
+use App\Entity\GroupeGaleries;
 use App\Entity\Oeuvre;
 use App\Entity\YearDirectory;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -54,6 +56,18 @@ class OeuvreType extends AbstractType
                 'help' => 'Entrez éventuellement la description de cette oeuvre',
                 'help_attr' => ['class' => 'help'],
             ])
+            ->add('year',NumberType::class,[
+                'error_bubbling' => true,
+                'label' => 'Année',
+                'label_attr' => ['class'=>'has-text-weight-bold'],
+                'row_attr' => ['class'=>'mb-4'],
+                'attr' => [
+                    'class' => 'input has-text-centered',
+                    'placeholder' => 'Ex : 2010',
+                ],
+                'help' => 'Indiquer l\'année de l\'oeuvre',
+                'help_attr' => ['class' => 'help'],
+            ])
             ->add('year_directory', EntityType::class,[
                 'error_bubbling' => true,
                 'class' => YearDirectory::class,
@@ -68,6 +82,20 @@ class OeuvreType extends AbstractType
                 ],
                 'choice_label' => 'year',
             ])
+//            ->add('groupeGaleries', EntityType::class,[
+//                'error_bubbling' => true,
+//                'class' => GroupeGaleries::class,
+//                'required' => false,
+//                'label' => false,
+//                'placeholder' => '',
+//                'row_attr' => [
+//                    'class' => 'select is-fullwidth',
+//                ],
+//                'attr' => [
+//                    'class' => 'has-text-centered has-font-poppins'
+//                ],
+//                'choice_label' => 'year',
+//            ])
         ;
     }
 

@@ -15,6 +15,7 @@
                 <thead>
                 <tr>
                     <th>Titre</th>
+                    <th>Année</th>
                     <th>Galerie</th>
                     <th class="is-hidden-touch">Fichier image</th>
                     <th>Gestion</th>
@@ -24,6 +25,7 @@
                 {% for oeuvre in oeuvres %}
                     <tr>
                         <td>{{ oeuvre.titre }}</td>
+                        <td>{{ oeuvre.year }}</td>
                         <td>
                             {% if oeuvre.yearDirectory %}
                                 <a href="{{ path('gallery_year', {'id_gallery': oeuvre.yearDirectory.id }) }}" title="Se rendre à la galerie {{ oeuvre.yearDirectory }}">{{ oeuvre.yearDirectory }}</a>

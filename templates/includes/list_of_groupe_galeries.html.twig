@@ -1,0 +1,37 @@
+<div class="columns is-multiline is-justify-content-center">
+    {% set i = 0 %}
+    {% for groupe_galerie in groupes %}
+
+        <div class="px-3 mb-6 is-relative has-transition-5-ms has-no-text-decoration is-flex is-flex-direction-column is-justify-content-space-evenly column is-full is-height-90vh">
+
+            <div class="is-flex is-justify-content-center">
+                <div class="is-relative">
+                    <div class="is-absolute-desktop has-text-right transform-year-desktop" style="right: 0;top: 0;">
+                        <span class="title is-2 is-size-3-touch has-text-info has-text-weight-bold title-galerie">
+                            {{ groupe_galerie.title }}
+                        </span>
+                    </div>
+                    {% if groupe_galerie.oeuvres[0].filename is defined %}
+                        <img class="has-max-height-60vh border-30px-desktop" src="{{ asset('/images/years_directory_img/' ~ galerie.filename ) }}" alt="{{ galerie.filename }}" title="{{ galerie.title }}">
+                    {% else %}
+                        <img class="has-max-height-60vh border-30px-desktop" src="{{ asset('/build/images/480x320.86ac0bc4.png' ) }}" alt="Couverture de galerie manquante" title="Couverture de galerie manquante">
+                    {% endif %}
+                </div>
+            </div>
+
+                <div class="is-flex is-justify-content-end is-align-items-center buttons">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('groupe_galeries_edit', {'id': groupe_galerie.id}) }}" class="button is-dark has-transition-5-ms is-normal" title="Modifier ce groupe de galeries">
+                            <span class="icon">
+                                <i class="fas fa-lg fa-pencil-alt"></i>
+                            </span>
+                        </a>
+                    {% endif %}
+                    <a href="" class="button is-normal is-outlined is-info has-transition-5-ms">Visionner</a>
+                </div>
+
+        </div>
+
+        {% set i = i+1 %}
+    {% endfor %}
+</div>

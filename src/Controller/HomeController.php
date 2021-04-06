@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\TextMenuBurger;
+use App\Repository\GroupeGaleriesRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,9 +16,11 @@ class HomeController extends AbstractController
 
     private $galeries;
     private $textMenuBurger;
-    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em)
+    private $groupes;
+    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em, GroupeGaleriesRepository $groupeGaleriesRepository)
     {
         $this->galeries = $yearDirectoryRepository->classByYear();
+        $this->groupes = $groupeGaleriesRepository->findAll();
         if (empty($textMenuBurgerRepository->findAll())){
             $newTextMenuBurger = new TextMenuBurger();
             $em->persist($newTextMenuBurger);
@@ -36,6 +39,7 @@ class HomeController extends AbstractController
         return $this->render('home.html.twig', [
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'groupes' => $this->groupes,
         ]);
     }
 }
