@@ -41,18 +41,55 @@
         {{ include('includes/layeout/footer.html.twig') }}
     {% endblock %}
 
+        <button id="arrow-up" class="icon button is-info is-outlined visibility-hidden opacity-0 has-transition-2-ms is-large is-fixed is-bottom-1rem is-right-1rem" onclick="goUp()">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
 {% block script %}
 
     <script>
 
+        {#  ARROW-UP  #}
+        function showArrowUp(){
+            let arrowUp = document.getElementById('arrow-up');
+            let screenPosition = document.querySelector('body').getBoundingClientRect().top;
+            if (screenPosition < (-700)){
+                arrowUp.classList.replace('visibility-hidden','visibility-visible');
+                arrowUp.classList.replace('opacity-0','opacity-1');
+                arrowUp.classList.remove('scale-down-1');
+            } else {
+                arrowUp.classList.replace('visibility-visible','visibility-hidden');
+                arrowUp.classList.replace('opacity-1','opacity-0');
+                arrowUp.classList.add('scale-down-1');
+            }
+        }
+
+        function goUp() {
+            window.scrollTo({
+                top: 400,
+                behavior: 'smooth',
+            });
+        }
+        {#                               #}
+
+
         {#  FADE-OUT FADE-IN BLOCK PEINTURE  #}
         let blockPeintures = document.querySelectorAll('.block-peinture');
 
+
+        
         document.addEventListener('scroll', function () {
-            blockPeintures.forEach(changeOpacityOnTopPosition)
+            blockPeintures.forEach(changeOpacityOnTopPosition);
+            // console.log(document.querySelector('body').getBoundingClientRect().top)
+            showArrowUp();
         });
 
-        window.onload = blockPeintures.forEach(changeOpacityOnTopPosition);
+        window.onload = onLoad();
+        function onLoad() {
+            blockPeintures.forEach(changeOpacityOnTopPosition);
+            // console.log(document.querySelector('body').getBoundingClientRect().top)
+            showArrowUp();
+        }
 
         function changeOpacityOnTopPosition(element) {
                 if ( -300 < element.getBoundingClientRect().top && element.getBoundingClientRect().top < 600 ){

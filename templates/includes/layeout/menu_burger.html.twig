@@ -2,7 +2,7 @@
 
 
 <div id="menu-slide" class="is-absolute-fullscreen has-max-height-100vh has-transition-7-ms is-right-100 is-top-0 opacity-0 visibility-hidden has-background-white-ter is-bold has-max-width-60vw-touch">
-    <div style="position: absolute;top: 0;left: -100vw;height: 100vh;width: 100vw;background: rgba(255,255,255,0.8)" onclick="burgerAnimation(document.getElementById('burger')); slideFromRight('menu-slide')"></div>
+    <div id="background-menu-burger" onclick="burgerAnimation(document.getElementById('burger')); slideFromRight('menu-slide')"></div>
 
     {% if is_granted('ROLE_ADMIN') %}
         <div class="column is-absolute is-bottom-0 is-flex is-justify-content-start has-text-weight-bold is-width-100" style="z-index: 2">
@@ -72,7 +72,7 @@
                 </a>
             </div>
 
-            <div id="menu-3" class="menu-burger-block-right column is-two-thirds is-full-touch has-transition-7-ms is-flex is-justify-content-center out-of-screen py-6">
+            <div id="menu-3" class="menu-burger-block-right column is-two-thirds is-full-touch has-transition-7-ms is-flex is-justify-content-center out-of-screen pb-6">
                 <div class="column is-flex is-justify-content-center overflow-y-auto">
                     <div class="columns is-multiline is-flex-desktop has-text-info is-align-items-center">
                         {% set i = 0 %}
@@ -92,7 +92,7 @@
 
 
             <div id="menu-2" class="menu-burger-block-right column is-full-touch has-transition-7-ms is-flex is-justify-content-center overflow-y-auto">
-                <div class="column is-height-80vh">
+                <div class="column is-height-80vh-desktop">
                     <div class="is-flex-desktop has-text-info pb-4">
                         {{ include('includes/bio.html.twig') }}
                     </div>
@@ -100,7 +100,7 @@
             </div>
 
 
-            <div id="menu-1" class="menu-burger-block-right column is-full-touch has-transition-7-ms is-flex is-justify-content-center out-of-screen py-6">
+            <div id="menu-1" class="menu-burger-block-right column is-full-touch has-transition-7-ms is-flex is-justify-content-center out-of-screen pb-6">
                 <div  class="column is-two-thirds is-flex is-justify-content-center overflow-y-auto">
                     <div class="has-text-info">
                         {{ expo.text|raw }}
