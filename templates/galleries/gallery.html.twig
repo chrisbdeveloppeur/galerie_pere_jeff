@@ -27,10 +27,21 @@
                                 </h1>
                                 <h2 class="subtitle is-5 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ oeuvre }}</h2>
                             </div>
+                            <div class="modal opacity-0 has-transition-5-ms">
+                                <div class="modal-background" onclick="closeModal(this)"></div>
+                                <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
+                                    {% if oeuvre.fileName %}
+                                        <img class="img-galery has-max-height-80vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
+                                    {% else %}
+                                        <img class="img-galery has-max-height-80vh" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant">
+                                    {% endif %}
+                                </figure>
+                                <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
+                            </div>
                             {% if oeuvre.fileName %}
-                                <img class="has-max-height-70vh border-60px-desktop is-width-100" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.title }}">
+                                <img class="has-max-height-70vh border-60px-desktop is-width-100 btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.title }}">
                             {% else %}
-                                <img class="has-max-height-70vh border-60px-desktop is-width-100" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant" title="Fichier image manquant">
+                                <img class="has-max-height-70vh border-60px-desktop is-width-100 btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant" title="Fichier image manquant">
                             {% endif %}
                         </figure>
                     {% endif %}
