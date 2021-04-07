@@ -20,7 +20,7 @@
                 {% set j = 0 %}
                 {% for oeuvre in oeuvres %}
                     {% if j == 0 %}
-                        <figure class="figure block-peinture opacity-0 visibility-hidden has-transition-1-s is-relative has-text-centered is-flex-touch is-align-items-center is-justify-content-center is-flex-direction-column">
+                        <figure class="figure block-peinture opacity-0 visibility-hidden has-transition-2-s is-relative has-text-centered is-flex-touch is-align-items-center is-justify-content-center is-flex-direction-column">
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
                                     <span class="icon">
