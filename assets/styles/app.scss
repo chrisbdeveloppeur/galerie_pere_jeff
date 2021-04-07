@@ -87,7 +87,9 @@ $grey: #8080801a;
   max-height: 20vh !important;
 }
 
-
+.has-max-width-100{
+  max-width: 100% !important;
+}
 .has-max-width-100vw{
   max-width: 100vw !important;
 }
@@ -136,6 +138,9 @@ $grey: #8080801a;
   transform: translateY(-100%);
   visibility: hidden;
   opacity: 0;
+}
+.is-grid{
+  display: grid;
 }
 
 .has-transition-2-s{
@@ -495,8 +500,8 @@ $grey: #8080801a;
 
 @media (max-width: 1024px){
   .border-grey-touch{
-    height: 500px;
-    width: 95vw;
+    height: max-content;
+    //width: max-content;
     background: $grey;
   }
   .is-fixed-touch{

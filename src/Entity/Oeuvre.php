@@ -66,10 +66,6 @@ class Oeuvre
      */
     private $img_position;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=GroupeGaleries::class, inversedBy="Oeuvres")
-     */
-    private $groupeGaleries;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -167,18 +163,6 @@ class Oeuvre
     public function setImgPosition(?int $img_position): self
     {
         $this->img_position = $img_position;
-
-        return $this;
-    }
-
-    public function getGroupeGaleries(): ?GroupeGaleries
-    {
-        return $this->groupeGaleries;
-    }
-
-    public function setGroupeGaleries(?GroupeGaleries $groupeGaleries): self
-    {
-        $this->groupeGaleries = $groupeGaleries;
 
         return $this;
     }

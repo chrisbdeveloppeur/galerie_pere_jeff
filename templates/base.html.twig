@@ -32,7 +32,7 @@
     {{ include('includes/flash_message.html.twig') }}
 
     <body class="has-navbar-fixed-top is-relative z-index-less-1 has-background-light">
-        <section class="section" style="min-height: 80vh">
+        <section class="section has-max-width-100vw" style="min-height: 80vh">
             {% block body %}{% endblock %}
         </section>
     </body>
@@ -55,7 +55,7 @@
         window.onload = blockPeintures.forEach(changeOpacityOnTopPosition);
 
         function changeOpacityOnTopPosition(element) {
-                if ( -200 < element.getBoundingClientRect().top && element.getBoundingClientRect().top < 600 ){
+                if ( -300 < element.getBoundingClientRect().top && element.getBoundingClientRect().top < 600 ){
                     element.classList.replace('opacity-0','opacity-1');
                     element.classList.replace('visibility-hidden','visibility-visible');
                 }else {

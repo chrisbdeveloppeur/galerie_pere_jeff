@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,30 +21,66 @@ class YearDirectoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('year',TextType::class,[
+            ->add('yearStart',NumberType::class,[
                 'error_bubbling' => true,
-                'label' => 'Titre *',
+                'label' => 'Année (début) *',
                 'required' => true,
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => [
-                    'class' => 'field',
-                    ],
+                    'class' => 'control',
+                ],
                 'attr' => [
                     'class' => 'input has-text-centered',
-                    'placeholder' => 'Ex : Mariage',
+                    'placeholder' => 'Ex : 2000',
                 ],
-                'help' => 'Nommez cette galerie avec quelques mots. Exemple : une année / un nom',
-                'help_attr' => ['class' => 'help'],
                 'constraints' => [
-                  new Length([
-                      'max' => 25,
-                      'maxMessage' => 'Le titre est trop long . . . (25 char. max)'
-                  ]),
-                  new NotBlank([
-                      'message' => 'Ce champs ce ne peut être vide'
-                  ])
+                    new NotBlank([
+                        'message' => 'Ce champs ce ne peut être vide'
+                    ])
                 ],
             ])
+            ->add('yearEnd',NumberType::class,[
+                'error_bubbling' => true,
+                'label' => 'Année (fin) *',
+                'required' => true,
+                'label_attr' => ['class'=>'has-text-weight-bold'],
+                'row_attr' => [
+                    'class' => 'control',
+                ],
+                'attr' => [
+                    'class' => 'input has-text-centered',
+                    'placeholder' => 'Ex : 2010',
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Ce champs ce ne peut être vide'
+                    ])
+                ],
+            ])
+//            ->add('year',TextType::class,[
+//                'error_bubbling' => true,
+//                'label' => 'Titre *',
+//                'required' => true,
+//                'label_attr' => ['class'=>'has-text-weight-bold'],
+//                'row_attr' => [
+//                    'class' => 'field',
+//                    ],
+//                'attr' => [
+//                    'class' => 'input has-text-centered',
+//                    'placeholder' => 'Ex : Mariage',
+//                ],
+//                'help' => 'Nommez cette galerie avec quelques mots. Exemple : une année / un nom',
+//                'help_attr' => ['class' => 'help'],
+//                'constraints' => [
+//                  new Length([
+//                      'max' => 25,
+//                      'maxMessage' => 'Le titre est trop long . . . (25 char. max)'
+//                  ]),
+//                  new NotBlank([
+//                      'message' => 'Ce champs ce ne peut être vide'
+//                  ])
+//                ],
+//            ])
             ->add('title',TextareaType::class,[
                 'error_bubbling' => true,
                 'label' => 'Sous-titre',

@@ -1,5 +1,16 @@
 
     {{ form_start(form, {'attr': {'class':'column has-text-centered'}}) }}
+    <div class="field">
+        <div class="field mb-0 has-addons">
+            <div class="is-flex">
+                {{ form_row(form.yearStart) }}
+                {{ form_row(form.yearEnd) }}
+            </div>
+        </div>
+        <span class="help">Indiquez la tranche annuelle de la galerie</span>
+    </div>
+
+
     {{ form_widget(form) }}
     {% if year_directory.fileName %}
         <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center field">

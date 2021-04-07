@@ -16,11 +16,10 @@ class HomeController extends AbstractController
 
     private $galeries;
     private $textMenuBurger;
-    private $groupes;
-    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em, GroupeGaleriesRepository $groupeGaleriesRepository)
+
+    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em)
     {
         $this->galeries = $yearDirectoryRepository->classByYear();
-        $this->groupes = $groupeGaleriesRepository->findAll();
         if (empty($textMenuBurgerRepository->findAll())){
             $newTextMenuBurger = new TextMenuBurger();
             $em->persist($newTextMenuBurger);
@@ -39,7 +38,6 @@ class HomeController extends AbstractController
         return $this->render('home.html.twig', [
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
-            'groupes' => $this->groupes,
         ]);
     }
 }

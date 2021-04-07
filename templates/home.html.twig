@@ -5,13 +5,11 @@
 {% block body %}
         <div class="container">
 
-{#            {{ include('includes/list_of_groupe_galeries.html.twig') }}#}
-
-            <div class="columns is-multiline is-justify-content-center">
+            <div class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
                 {% set i = 0 %}
                 {% for galerie in galeries %}
 
-                        <div class="column block-peinture opacity-0 visibility-hidden has-transition-1-s px-3 mb-6 is-relative has-no-text-decoration is-flex is-flex-direction-column is-align-items-center is-justify-content-center is-full is-height-90vh">
+                        <div class="column block-peinture opacity-0 visibility-hidden has-transition-1-s px-3 py-6 my-6 is-relative has-no-text-decoration is-flex is-flex-direction-column is-align-items-center is-justify-content-center is-full">
 
                                 <div class="is-flex is-justify-content-center is-align-items-center border-grey-touch">
                                     <div class="is-relative">
