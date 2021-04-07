@@ -40,7 +40,7 @@ class OeuvreType extends AbstractType
                     'class' => 'has-text-centered'
                 ],
                 'required' => false,
-                'help' => 'Types de fichier autorisés : .jpeg .png .svg .bmp .pdf',
+                'help' => 'Types de fichier autorisé : .jpg .png .svg .bmp',
                 'help_attr' => ['class' => 'help']
             ])
             ->add('description',CKEditorType::class,[
@@ -82,20 +82,7 @@ class OeuvreType extends AbstractType
                 ],
                 'choice_label' => 'year',
             ])
-//            ->add('groupeGaleries', EntityType::class,[
-//                'error_bubbling' => true,
-//                'class' => GroupeGaleries::class,
-//                'required' => false,
-//                'label' => false,
-//                'placeholder' => '',
-//                'row_attr' => [
-//                    'class' => 'select is-fullwidth',
-//                ],
-//                'attr' => [
-//                    'class' => 'has-text-centered has-font-poppins'
-//                ],
-//                'choice_label' => 'year',
-//            ])
+
         ;
     }
 

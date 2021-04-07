@@ -57,30 +57,6 @@ class YearDirectoryType extends AbstractType
                     ])
                 ],
             ])
-//            ->add('year',TextType::class,[
-//                'error_bubbling' => true,
-//                'label' => 'Titre *',
-//                'required' => true,
-//                'label_attr' => ['class'=>'has-text-weight-bold'],
-//                'row_attr' => [
-//                    'class' => 'field',
-//                    ],
-//                'attr' => [
-//                    'class' => 'input has-text-centered',
-//                    'placeholder' => 'Ex : Mariage',
-//                ],
-//                'help' => 'Nommez cette galerie avec quelques mots. Exemple : une année / un nom',
-//                'help_attr' => ['class' => 'help'],
-//                'constraints' => [
-//                  new Length([
-//                      'max' => 25,
-//                      'maxMessage' => 'Le titre est trop long . . . (25 char. max)'
-//                  ]),
-//                  new NotBlank([
-//                      'message' => 'Ce champs ce ne peut être vide'
-//                  ])
-//                ],
-//            ])
             ->add('title',TextareaType::class,[
                 'error_bubbling' => true,
                 'label' => 'Sous-titre',
@@ -110,7 +86,7 @@ class YearDirectoryType extends AbstractType
                     'class' => 'has-text-centered'
                 ],
                 'required' => false,
-                'help' => 'Types de fichier autorisés : .jpeg .png .svg .bmp .pdf',
+                'help' => 'Types de fichier autorisé : .jpg .png .svg .bmp',
                 'help_attr' => ['class' => 'help']
             ])
         ;
