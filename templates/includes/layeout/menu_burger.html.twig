@@ -1,8 +1,10 @@
 
-<div id="menu-slide" class="is-absolute-fullscreen has-max-height-100vh has-transition-7-ms is-left-100 is-top-0 opacity-0 has-background-white-ter is-bold">
+
+
+<div id="menu-slide" class="is-absolute-fullscreen has-max-height-100vh has-transition-7-ms is-right-100 is-top-0 opacity-0 visibility-hidden has-background-white-ter is-bold has-max-width-60vw-touch">
+    <div style="position: absolute;top: 0;left: -100vw;height: 100vh;width: 100vw;background: rgba(255,255,255,0.8)" onclick="burgerAnimation(document.getElementById('burger')); slideFromRight('menu-slide')"></div>
 
     {% if is_granted('ROLE_ADMIN') %}
-
         <div class="column is-absolute is-bottom-0 is-flex is-justify-content-start has-text-weight-bold is-width-100" style="z-index: 2">
             <div class="buttons">
                 <div class="dropdown is-up" onclick="this.classList.toggle('is-active')">
@@ -35,49 +37,47 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     {% endif %}
 
     <div class="is-flex-desktop is-justify-content-center is-align-items-center container" style="height: 100%;width: 100%">
         <div class="column is-flex-desktop has-max-height-80vh is-align-items-center px-0 py-0" style="overflow: auto">
-            <div class="column is-one-third-desktop px-6 is-flex is-flex-direction-column is-align-items-start is-justify-content-center has-background-info menu-burger-orange-square">
-                <a class="is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger" onclick="removeClass('menu-2','out-of-screen'); changeMinusToPlus(this)">
-                    <span class="icon is-size-6">
+            <div class="column is-one-third-desktop px-6 py-6 is-flex is-flex-direction-column is-align-items-start is-justify-content-center has-background-info menu-burger-orange-square">
+                <a class="is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger is-flex-touch" onclick="removeClass('menu-2','out-of-screen'); changeMinusToPlus(this)">
+                    <span class="icon is-size-6 is-size-7-touch">
                         <i class="fas fa-minus"></i>
                     </span>
-                    <span>
+                    <span class="is-size-7-touch">
                         Biographie
                     </span>
                 </a>
-                <a class="is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger" onclick="removeClass('menu-3','out-of-screen'); changeMinusToPlus(this)">
-                    <span class="icon is-size-6">
+                <a class="is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger is-flex-touch" onclick="removeClass('menu-3','out-of-screen'); changeMinusToPlus(this)">
+                    <span class="icon is-size-6 is-size-7-touch">
                         <i class="fas fa-plus"></i>
                     </span>
-                    <span>
+                    <span class="is-size-7-touch">
                         Peinture
                     </span>
                 </a>
-                <a class="is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger" onclick="removeClass('menu-1','out-of-screen'); changeMinusToPlus(this)">
-                    <span class="icon is-size-6">
+                <a class="is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger is-flex-touch" onclick="removeClass('menu-1','out-of-screen'); changeMinusToPlus(this)">
+                    <span class="icon is-size-6 is-size-7-touch">
                         <i class="fas fa-plus"></i>
                     </span>
-                    <span>
+                    <span class="is-size-7-touch">
                        Exposition
                     </span>
                 </a>
             </div>
 
-            <div id="menu-3" class="menu-burger-block-right column is-two-thirds is-full-touch has-transition-7-ms is-flex is-justify-content-center out-of-screen">
+            <div id="menu-3" class="menu-burger-block-right column is-two-thirds is-full-touch has-transition-7-ms is-flex is-justify-content-center out-of-screen py-6">
                 <div class="column is-flex is-justify-content-center overflow-y-auto">
                     <div class="columns is-multiline is-flex-desktop has-text-info is-align-items-center">
                         {% set i = 0 %}
                         {% for galerie in galeries %}
                                 <div class="column is-one-quarter is-flex-touch has-text-centered">
-                                    <a class="column has-transition-7-ms has-text-weight-bold is-size-4-desktop has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galeries[i].id}) }}">
+                                    <a class="column has-transition-7-ms has-text-weight-bold is-size-4-desktop is-size-7-touch has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galeries[i].id}) }}">
                                         {{ galerie.yearend }}
-                                        <br><span class="has-text-weight-bold is-size-4-desktop has-text-centered has-text-info is-hidden-touch">/</span><br>
+                                        <br><span class="has-text-weight-bold is-size-4-desktop has-text-centered has-text-info">/</span><br>
                                         {{ galerie.yearstart }}
                                     </a>
                                 </div>

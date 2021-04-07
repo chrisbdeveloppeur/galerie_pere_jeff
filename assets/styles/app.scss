@@ -238,7 +238,7 @@ $grey: #8080801a;
   bottom: .75rem;
 }
 .is-right-100{
-  right: 100vw;
+  right: -100vw;
 }
 .is-left-100{
   left: 100vw;
@@ -464,6 +464,16 @@ $grey: #8080801a;
   transform: translate(0,-50%);
 }
 
+.border-75px{
+  border: solid 75px $grey !important;
+}
+.border-60px{
+  border: solid 60px $grey !important;
+}
+.border-30px{
+  border: solid 30px $grey !important;
+}
+
 @media (min-width: 1024px) {
   .margin-10rem-desktop{
     margin-top: 10rem;
@@ -504,8 +514,43 @@ $grey: #8080801a;
     //width: max-content;
     background: $grey;
   }
+  .border-y-60px-touch{
+    border-top: solid 60px $grey !important;
+    border-bottom: solid 60px $grey !important;
+    width: max-content;
+  }
   .is-fixed-touch{
     position: fixed;
+  }
+  .has-max-width-10vw-touch{
+    max-width: 10vw;
+  }
+  .has-max-width-20vw-touch{
+    max-width: 20vw;
+  }
+  .has-max-width-30vw-touch{
+    max-width: 30vw;
+  }
+  .has-max-width-40vw-touch{
+    max-width: 40vw;
+  }
+  .has-max-width-50vw-touch{
+    max-width: 50vw;
+  }
+  .has-max-width-60vw-touch{
+    max-width: 60vw;
+  }
+  .has-max-width-70vw-touch{
+    max-width: 70vw;
+  }
+  .has-max-width-80vw-touch{
+    max-width: 80vw;
+  }
+  .has-max-width-90vw-touch{
+    max-width: 90vw;
+  }
+  .has-max-width-100vw-touch{
+    max-width: 100vw;
   }
 }
 

@@ -11,7 +11,7 @@
 
                         <div class="column block-peinture opacity-0 visibility-hidden has-transition-1-s px-3 py-6 my-6 is-relative has-no-text-decoration is-flex is-flex-direction-column is-align-items-center is-justify-content-center is-full">
 
-                                <div class="is-flex is-justify-content-center is-align-items-center border-grey-touch">
+                                <div class="border-grey-touch">
                                     <div class="is-relative">
                                         <div class="is-absolute has-text-right transform-year-desktop" style="right: 0;top: 0;">
                                             <span class="title is-2 is-size-3-touch has-text-info has-text-weight-bold title-galerie">
@@ -21,7 +21,7 @@
                                         <h2 class="is-absolute has-text-info has-text-black is-size-4" style="left: -1.25rem;bottom: 0;transform: translate(0,30%)">
                                             {{ galerie.title }}
                                         </h2>
-                                        <figure class="figure">
+                                        <figure class="figure is-flex is-justify-content-center is-align-items-center">
                                             {% if galerie.filename %}
                                                 <img class="has-max-height-60vh border-60px-desktop" src="{{ asset('/images/years_directory_img/' ~ galerie.filename ) }}" alt="{{ galerie.filename }}" title="{{ galerie.title }}">
                                             {% elseif galerie.oeuvres[0].filename %}
@@ -34,7 +34,7 @@
                                 </div>
 
                             {% if galerie.year %}
-                                <div class="is-flex is-justify-content-end is-align-items-center buttons">
+                                <div class="column is-flex is-justify-content-end is-align-items-center buttons">
                                     {% if is_granted('ROLE_ADMIN') %}
                                         <a href="{{ path('year_directory_edit', {'id': galerie.id}) }}" class="button is-dark has-transition-5-ms is-normal" title="Modifier cette galerie">
                                             <span class="icon">

@@ -50,8 +50,8 @@ class YearDirectory
      * @Vich\UploadableField(mapping="year_directory_img", fileNameProperty="fileName")
      * @Assert\File(
      *     maxSize = "40M",
-     *     mimeTypes = {"application/pdf", "application/x-pdf", "image/bmp", "image/png", "image/svg+xml"},
-     *     mimeTypesMessage = "Seul les formats suivant sont acceptés : jpeg/png/svg/bmp/pdf"
+     *     mimeTypes = {"image/bmp", "image/png", "image/svg+xml", "image/jpx", "image/jpg", "image/jpeg"},
+     *     mimeTypesMessage = "Seul les formats suivant sont acceptés : jpeg/png/svg/bmp"
      * )
      */
     private $file;
