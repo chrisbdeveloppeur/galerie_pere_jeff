@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Expo;
 use App\Entity\TextMenuBurger;
-use App\Repository\GroupeGaleriesRepository;
+use App\Repository\ExpoRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,8 +17,8 @@ class HomeController extends AbstractController
 
     private $galeries;
     private $textMenuBurger;
-
-    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em)
+    private $expo;
+    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, ExpoRepository $expoRepository, EntityManagerInterface $em)
     {
         $this->galeries = $yearDirectoryRepository->classByYear();
         if (empty($textMenuBurgerRepository->findAll())){
@@ -27,6 +28,14 @@ class HomeController extends AbstractController
             $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
         }else{
             $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }
+        if (empty($expoRepository->findAll())){
+            $newExpo = new Expo();
+            $em->persist($newExpo);
+            $em->flush();
+            $this->expo = $expoRepository->findOneBy([]);
+        }else{
+            $this->expo = $expoRepository->findOneBy([]);
         }
     }
 
@@ -38,6 +47,7 @@ class HomeController extends AbstractController
         return $this->render('home.html.twig', [
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 }

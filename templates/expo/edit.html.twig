@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Expo{% endblock %}
+
+{% block body %}
+<div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center py-6">
+    <h1 class="title">Modifier la rubrique exposition</h1>
+
+    {{ include('expo/_form.html.twig', {'button_label': 'Update'}) }}
+
+{#    <a href="{{ path('expo_index') }}">back to list</a>#}
+
+    {{ include('expo/_delete_form.html.twig') }}
+
+</div>
+{% endblock %}

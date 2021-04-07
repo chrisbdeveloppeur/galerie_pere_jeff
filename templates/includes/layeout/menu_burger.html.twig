@@ -19,17 +19,20 @@
                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                         <div class="dropdown-content">
                             {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('year_directory_index') }}" class="dropdown-item has-text-centered" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                <a href="{{ path('year_directory_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
                                     Gestion des Galeries
                                 </a>
-                                <a href="{{ path('oeuvre_index') }}" class="dropdown-item has-text-centered" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                <a href="{{ path('oeuvre_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
                                     Gestion des Oeuvres
                                 </a>
-                                <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="dropdown-item has-text-centered" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
                                     Modifier la biographie
                                 </a>
+                                <a href="{{ path('expo_edit', {'id': expo.id} ) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                    Modifier la rubrique exposition
+                                </a>
                                 <hr class="dropdown-divider">
-                                <a class="dropdown-item has-text-centered" href="{{ path('app_logout') }}" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                <a class="dropdown-item" href="{{ path('app_logout') }}" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
                                     Deconnexion
                                 </a>
                             {% endif %}
@@ -100,7 +103,7 @@
             <div id="menu-1" class="menu-burger-block-right column is-full-touch has-transition-7-ms is-flex is-justify-content-center out-of-screen">
                 <div  class="column is-two-thirds is-flex is-justify-content-center overflow-y-auto">
                     <div class="is-flex-desktop has-text-info is-align-items-center">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam delectus dolore enim eum excepturi explicabo in ipsa itaque magni minus neque odio odit omnis perspiciatis quasi qui, sint voluptate voluptatibus!
+                        {{ expo.text }}
                     </div>
                 </div>
             </div>

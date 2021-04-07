@@ -18,12 +18,17 @@
                     <a class="navbar-link">
                         Gestion
                     </a>
-
                     <div class="navbar-dropdown">
-                        <a href="{{ path('year_directory_index') }}" class="navbar-item">
+                        <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                            Modifier la biographie
+                        </a>
+                        <a href="{{ path('expo_edit', {'id': expo.id} ) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                            Modifier la rubrique exposition
+                        </a>
+                        <a href="{{ path('year_directory_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
                             Galeries
                         </a>
-                        <a href="{{ path('oeuvre_index') }}" class="navbar-item">
+                        <a href="{{ path('oeuvre_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
                             Oeuvres
                         </a>
                     </div>

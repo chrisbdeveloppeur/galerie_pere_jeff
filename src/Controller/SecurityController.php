@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Expo;
 use App\Entity\TextMenuBurger;
+use App\Repository\ExpoRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,7 +18,8 @@ class SecurityController extends AbstractController
 
     private $galeries;
     private $textMenuBurger;
-    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em)
+    private $expo;
+    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, ExpoRepository $expoRepository, EntityManagerInterface $em)
     {
         $this->galeries = $yearDirectoryRepository->classByYear();
         if (empty($textMenuBurgerRepository->findAll())){
@@ -26,6 +29,14 @@ class SecurityController extends AbstractController
             $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
         }else{
             $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }
+        if (empty($expoRepository->findAll())){
+            $newExpo = new Expo();
+            $em->persist($newExpo);
+            $em->flush();
+            $this->expo = $expoRepository->findOneBy([]);
+        }else{
+            $this->expo = $expoRepository->findOneBy([]);
         }
     }
 
@@ -42,6 +53,7 @@ class SecurityController extends AbstractController
             'error' => $error,
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 

@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Expo;
 use App\Entity\TextMenuBurger;
 use App\Entity\YearDirectory;
 use App\Form\YearDirectoryType;
+use App\Repository\ExpoRepository;
 use App\Repository\OeuvreRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
@@ -24,7 +26,8 @@ class YearDirectoryController extends AbstractController
 
     private $galeries;
     private $textMenuBurger;
-    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em)
+    private $expo;
+    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, ExpoRepository $expoRepository, EntityManagerInterface $em)
     {
         $this->galeries = $yearDirectoryRepository->classByYear();
         if (empty($textMenuBurgerRepository->findAll())){
@@ -34,6 +37,14 @@ class YearDirectoryController extends AbstractController
             $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
         }else{
             $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }
+        if (empty($expoRepository->findAll())){
+            $newExpo = new Expo();
+            $em->persist($newExpo);
+            $em->flush();
+            $this->expo = $expoRepository->findOneBy([]);
+        }else{
+            $this->expo = $expoRepository->findOneBy([]);
         }
     }
 
@@ -46,6 +57,7 @@ class YearDirectoryController extends AbstractController
             'year_directories' => $yearDirectoryRepository->findAll(),
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 
@@ -74,6 +86,7 @@ class YearDirectoryController extends AbstractController
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
             'oeuvres' => $oeuvres,
+            'expo' => $this->expo,
         ]);
     }
 
@@ -86,6 +99,7 @@ class YearDirectoryController extends AbstractController
             'year_directory' => $yearDirectory,
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 
@@ -110,6 +124,7 @@ class YearDirectoryController extends AbstractController
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
             'oeuvres' => $oeuvres,
+            'expo' => $this->expo,
         ]);
     }
 

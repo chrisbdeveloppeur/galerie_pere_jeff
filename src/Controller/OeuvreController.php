@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Expo;
 use App\Entity\Oeuvre;
 use App\Entity\TextMenuBurger;
 use App\Form\OeuvreType;
+use App\Repository\ExpoRepository;
 use App\Repository\OeuvreRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
@@ -23,7 +25,8 @@ class OeuvreController extends AbstractController
 {
     private $galeries;
     private $textMenuBurger;
-    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, EntityManagerInterface $em)
+    private $expo;
+    public function __construct(YearDirectoryRepository $yearDirectoryRepository, TextMenuBurgerRepository $textMenuBurgerRepository, ExpoRepository $expoRepository, EntityManagerInterface $em)
     {
         $this->galeries = $yearDirectoryRepository->classByYear();
         if (empty($textMenuBurgerRepository->findAll())){
@@ -33,6 +36,14 @@ class OeuvreController extends AbstractController
             $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
         }else{
             $this->textMenuBurger = $textMenuBurgerRepository->findOneBy([]);
+        }
+        if (empty($expoRepository->findAll())){
+            $newExpo = new Expo();
+            $em->persist($newExpo);
+            $em->flush();
+            $this->expo = $expoRepository->findOneBy([]);
+        }else{
+            $this->expo = $expoRepository->findOneBy([]);
         }
     }
 
@@ -45,6 +56,7 @@ class OeuvreController extends AbstractController
             'oeuvres' => $oeuvreRepository->classByAnnee(),
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 
@@ -73,6 +85,7 @@ class OeuvreController extends AbstractController
             'form' => $form->createView(),
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 
@@ -85,6 +98,7 @@ class OeuvreController extends AbstractController
             'oeuvre' => $oeuvre,
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 
@@ -116,6 +130,7 @@ class OeuvreController extends AbstractController
             'form' => $form->createView(),
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 

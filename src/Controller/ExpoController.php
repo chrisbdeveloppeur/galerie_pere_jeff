@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Expo;
 use App\Entity\TextMenuBurger;
-use App\Form\TextMenuBurgerType;
+use App\Form\ExpoType;
 use App\Repository\ExpoRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
@@ -15,9 +15,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/text/menu/burger")
+ * @Route("/expo")
  */
-class TextMenuBurgerController extends AbstractController
+class ExpoController extends AbstractController
 {
 
     private $galeries;
@@ -45,87 +45,88 @@ class TextMenuBurgerController extends AbstractController
     }
 
     /**
-     * @Route("/", name="text_menu_burger_index", methods={"GET"})
+     * @Route("/", name="expo_index", methods={"GET"})
      */
-    public function index(TextMenuBurgerRepository $textMenuBurgerRepository): Response
+    public function index(ExpoRepository $expoRepository): Response
     {
-        return $this->render('text_menu_burger/index.html.twig', [
+        return $this->render('expo/index.html.twig', [
+            'expos' => $expoRepository->findAll(),
+                        'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
-            'galeries' => $this->galeries,
             'expo' => $this->expo,
         ]);
     }
 
     /**
-     * @Route("/new", name="text_menu_burger_new", methods={"GET","POST"})
+     * @Route("/new", name="expo_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
-        $textMenuBurger = new TextMenuBurger();
-        $form = $this->createForm(TextMenuBurgerType::class, $textMenuBurger);
+        $expo = new Expo();
+        $form = $this->createForm(ExpoType::class, $expo);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($textMenuBurger);
+            $entityManager->persist($expo);
             $entityManager->flush();
 
-            return $this->redirectToRoute('text_menu_burger_index');
+            return $this->redirectToRoute('expo_index');
         }
 
-        return $this->render('text_menu_burger/new.html.twig', [
-            'text_menu_burger' => $textMenuBurger,
+        return $this->render('expo/new.html.twig', [
+            'expo' => $expo,
             'form' => $form->createView(),
             'galeries' => $this->galeries,
-            'expo' => $this->expo,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 
     /**
-     * @Route("/{id}", name="text_menu_burger_show", methods={"GET"})
+     * @Route("/{id}", name="expo_show", methods={"GET"})
      */
-    public function show(TextMenuBurger $textMenuBurger): Response
+    public function show(Expo $expo): Response
     {
-        return $this->render('text_menu_burger/show.html.twig', [
-            'text_menu_burger' => $textMenuBurger,
+        return $this->render('expo/show.html.twig', [
+            'expo' => $expo,
             'galeries' => $this->galeries,
-            'expo' => $this->expo,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="text_menu_burger_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="expo_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, TextMenuBurger $textMenuBurger): Response
+    public function edit(Request $request, Expo $expo): Response
     {
-        $form = $this->createForm(TextMenuBurgerType::class, $textMenuBurger);
+        $form = $this->createForm(ExpoType::class, $expo);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('home');
+//            return $this->redirectToRoute('expo_index');
         }
 
-        return $this->render('text_menu_burger/edit.html.twig', [
-            'text_menu_burger' => $textMenuBurger,
+        return $this->render('expo/edit.html.twig', [
+            'expo' => $expo,
             'form' => $form->createView(),
             'galeries' => $this->galeries,
-            'expo' => $this->expo,
+            'text_menu_burger' => $this->textMenuBurger,
         ]);
     }
 
     /**
-     * @Route("/{id}", name="text_menu_burger_delete", methods={"POST"})
+     * @Route("/{id}", name="expo_delete", methods={"POST"})
      */
-    public function delete(Request $request, TextMenuBurger $textMenuBurger): Response
+    public function delete(Request $request, Expo $expo): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$textMenuBurger->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$expo->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($textMenuBurger);
+            $entityManager->remove($expo);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('text_menu_burger_index');
+        return $this->redirectToRoute('expo_index');
     }
 }
