@@ -20,7 +20,7 @@
                 {% set j = 0 %}
                 {% for oeuvre in oeuvres %}
                     {% if j == 0 %}
-                        <figure class="figure is-relative has-text-centered is-height-80vh is-flex-touch is-align-items-center is-justify-content-center is-flex-direction-column">
+                        <figure class="figure block-peinture opacity-0 visibility-hidden has-transition-1-s is-relative has-text-centered is-height-80vh is-flex-touch is-align-items-center is-justify-content-center is-flex-direction-column">
                             <div class="is-absolute-desktop is-top-0 is-right-0 transform-year-desktop">
                                 <h1 class="title has-text-info is-size-2-desktop has-text-weight-bold has-text-right title-galerie">
                                     {{ oeuvre.year }}

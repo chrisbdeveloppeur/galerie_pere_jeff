@@ -44,30 +44,26 @@
 {% block script %}
 
     <script>
-        function burgerAnimation(object) {
-            object.classList.toggle("change");
+
+        {#  FADE-OUT FADE-IN BLOCK PEINTURE  #}
+        let blockPeintures = document.querySelectorAll('.block-peinture');
+
+        document.addEventListener('scroll', function () {
+            blockPeintures.forEach(changeOpacityOnTopPosition)
+
+        });
+
+        window.onload = blockPeintures.forEach(changeOpacityOnTopPosition);
+
+        function changeOpacityOnTopPosition(element) {
+                if (element.getBoundingClientRect().top < 600 ){
+                    element.classList.replace('opacity-0','opacity-1');
+                    element.classList.replace('visibility-hidden','visibility-visible');
+                }
         }
+        {#                               #}
 
-        function slideFromRight(id) {
-            let object = document.getElementById(id);
-            object.classList.toggle("is-left-0");
-            object.classList.toggle("is-left-100");
-            object.classList.toggle("opacity-0");
-            object.classList.toggle("opacity-1");
-            let html = document.querySelector("html");
-            html.classList.toggle("has-scrollbar-hidden");
-        }
-
-        function changeTargetOpacity(targetsClassName, container) {
-            container.querySelectorAll(targetsClassName).forEach(function (elem) {
-                elem.classList.toggle("opacity-1");
-            });
-        }
-
-    </script>
-
-    {#  JS POUR MODAL BULMA (POPUP)  #}
-    <script>
+        {#  JS POUR MODAL BULMA (POPUP)  #}
         let popupBtn = document.querySelectorAll('.btn-for-display-popup');
         popupBtn.forEach(function (element) {
             element.addEventListener('click', function () {
@@ -91,12 +87,9 @@
             let html = document.querySelector("html");
             html.classList.toggle("has-scrollbar-hidden");
         }
-    </script>
-    {#                               #}
+        {#                               #}
 
-    {#  JS POUR DEL AUTO NOTIF (FLASH-MESSAGE)  #}
-    <script>
-
+        {#  JS POUR DEL AUTO NOTIF (FLASH-MESSAGE)  #}
         let notifBlocks = document.querySelectorAll('.notification').forEach(elem => delAutoFlashMsg(elem));
 
         function delAutoFlashMsg(notifBlock){
@@ -118,12 +111,9 @@
                 },500);
             },5000)
         }
+        {#                               #}
 
-    </script>
-    {#                               #}
-
-    {#  JS POUR MONTRER LELEMENT PRECEDENT AU SURVALAGE DE LA SOURI  #}
-    <script>
+        {#  JS POUR MONTRER LELEMENT PRECEDENT AU SURVALAGE DE LA SOURI  #}
         function showPrevOnHover(object){
             object.previousElementSibling.classList.remove('is-hidden');
         }
@@ -131,9 +121,48 @@
         function hidePrevOnHover(object){
             object.previousElementSibling.classList.add('is-hidden');
         }
-    </script>
-    {#                               #}
+        {#                               #}
 
+        {#               MENU BURGER                   #}
+        function removeClass(targetId, classToRemove) {
+            document.querySelectorAll('.menu-burger-block-right').forEach(function (elem) {
+                elem.classList.add(classToRemove);
+            });
+            document.getElementById(targetId).classList.remove(classToRemove);
+        }
+
+        function burgerAnimation(object) {
+            object.classList.toggle("change");
+        }
+
+        function slideFromRight(id) {
+            let object = document.getElementById(id);
+            object.classList.toggle("is-left-0");
+            object.classList.toggle("is-left-100");
+            object.classList.toggle("opacity-0");
+            object.classList.toggle("opacity-1");
+            let html = document.querySelector("html");
+            html.classList.toggle("has-scrollbar-hidden");
+        }
+
+        function changeTargetOpacity(targetsClassName, container) {
+            container.querySelectorAll(targetsClassName).forEach(function (elem) {
+                elem.classList.toggle("opacity-1");
+            });
+        }
+        {#                               #}
+
+        {#               MENU BURGER LINKS                   #}
+        function changeMinusToPlus(object) {
+            let linksMenuBurger = document.querySelectorAll('.link-menu-burger');
+            linksMenuBurger.forEach(function (elem) {
+                elem.querySelector('i').classList.replace('fa-minus', 'fa-plus');
+            });
+            object.querySelector('i').classList.replace('fa-plus', 'fa-minus');
+        }
+        {#                               #}
+
+    </script>
 
 
     {#               SCRIPT POUR AJAX                   #}
@@ -171,31 +200,8 @@
         addRemoveOeuvreBtns.forEach(function (element){
             element.addEventListener('click' || 'touchstart', addRemoveOeuvre);
         });
-    </script>
+
     {#                               #}
-
-
-    <script>
-
-        function removeClass(targetId, classToRemove) {
-            document.querySelectorAll('.menu-burger-block-right').forEach(function (elem) {
-                elem.classList.add(classToRemove);
-            });
-            document.getElementById(targetId).classList.remove(classToRemove);
-        }
-
-    </script>
-
-    <script>
-
-        function changeMinusToPlus(object) {
-            let linksMenuBurger = document.querySelectorAll('.link-menu-burger');
-            linksMenuBurger.forEach(function (elem) {
-                elem.querySelector('i').classList.replace('fa-minus', 'fa-plus');
-            });
-            object.querySelector('i').classList.replace('fa-plus', 'fa-minus');
-        }
-
     </script>
 
 {% endblock %}
