@@ -577,6 +577,9 @@ $grey: #8080801a;
   .change .bar4{
     background-color: white;
   }
+  #burger:hover .bar2, #burger:hover .bar4{
+    background-color: $dark;
+  }
 
   .border-grey-touch{
     height: max-content;

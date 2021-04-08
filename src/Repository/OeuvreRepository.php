@@ -54,6 +54,17 @@ class OeuvreRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findTop10()
+    {
+        return $this->createQueryBuilder('o')
+//            ->andWhere('o.top_position = :val')
+            ->orderBy('o.top_position', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
 
 

@@ -33,11 +33,11 @@ class AppFixtures extends Fixture
         $manager->persist($admin);
 
         $k = 0;
-        for ($i=0; $i < 10; $i++){
+        for ($i=0; $i < 4; $i++){
             $x = $i*10;
             $year = new YearDirectory();
             $nb = $faker->numberBetween(1,7);
-            $nb2 = $faker->numberBetween(5,20);
+            $nb2 = $faker->numberBetween(7,20);
 //            $year->setTitle($faker->words($nb, true));
             $annee_start = new \DateTime('now -'.($x+10).'Years');
             $annee_end = new \DateTime('now -'.($x+1).'Years');
@@ -49,6 +49,7 @@ class AppFixtures extends Fixture
             for ($j=0; $j < $nb2; $j++){
                 $oeuvre = new Oeuvre();
                 $k = $k+1;
+                $oeuvre->setTopPosition(0);
                 $oeuvre->setImgPosition($k);
                 $oeuvre->setYear($faker->numberBetween($annee_start->format('Y'),$annee_end->format('Y')));
                 $nb = $faker->numberBetween(1,4);

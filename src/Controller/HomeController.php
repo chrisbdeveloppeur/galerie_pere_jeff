@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Expo;
 use App\Entity\TextMenuBurger;
 use App\Repository\ExpoRepository;
+use App\Repository\OeuvreRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -39,12 +40,29 @@ class HomeController extends AbstractController
         }
     }
 
+//    /**
+//     * @Route("/", name="home")
+//     */
+//    public function index(): Response
+//    {
+//        return $this->render('home.html.twig', [
+//            'galeries' => $this->galeries,
+//            'text_menu_burger' => $this->textMenuBurger,
+//            'expo' => $this->expo,
+//        ]);
+//    }
+
     /**
+     * @param OeuvreRepository $oeuvreRepository
+     * @return Response
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function galeriesAnnees( OeuvreRepository $oeuvreRepository): Response
     {
-        return $this->render('home.html.twig', [
+        $oeuvres = $oeuvreRepository->findTop10();
+//        dd($oeuvres);
+        return $this->render("home.html.twig", [
+            'oeuvres' => $oeuvres,
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
             'expo' => $this->expo,

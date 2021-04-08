@@ -47,6 +47,15 @@ class YearDirectoryRepository extends ServiceEntityRepository
             ;
     }
 
+    public function findByMostRecent()
+    {
+        return $this->createQueryBuilder('y')
+            ->orderBy('y.year_end', 'DESC')
+//            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
     /*
     public function findOneBySomeField($value): ?YearDirectory

@@ -5,51 +5,78 @@
 {% block body %}
         <div class="container">
 
-            <div class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
-                {% set i = 0 %}
-                {% for galerie in galeries %}
+            <div class="container is-flex-desktop is-justify-content-center pt-6">
 
-                        <div class="column block-peinture opacity-0 visibility-hidden has-transition-2-s px-3 py-6 my-6 is-relative has-no-text-decoration is-flex is-flex-direction-column is-align-items-center is-justify-content-center is-full">
+                <div class="column is-two-thirds-desktop">
 
-                                <div class="border-grey-touch">
-                                    <div class="is-relative">
-                                        <div class="is-absolute has-text-right transform-year-desktop" style="right: 0;top: 0;">
-                                            <span class="title is-2 is-size-3-touch has-text-info has-text-weight-bold title-galerie">
-                                                {{ galerie.year }}
-                                            </span>
-                                        </div>
-                                        <h2 class="is-absolute has-text-info has-text-black is-size-4" style="left: -1.25rem;bottom: 0;transform: translate(0,30%)">
-                                            {{ galerie.title }}
-                                        </h2>
-                                        <figure class="figure is-flex is-justify-content-center is-align-items-center">
-                                            {% if galerie.filename %}
-                                                <img class="has-max-height-60vh border-60px-desktop" src="{{ asset('/images/years_directory_img/' ~ galerie.filename ) }}" alt="{{ galerie.filename }}" title="{{ galerie.title }}">
-                                            {% elseif galerie.oeuvres[0].filename %}
-                                                <img class="has-max-height-60vh border-60px-desktop" src="{{ asset('/images/oeuvres/' ~ galerie.oeuvres[0].filename ) }}" alt="Couverture de galerie manquante" title="{{ galerie.title }}">
+                    {% set j = 0 %}
+                    {% for oeuvre in oeuvres %}
+                        {% if j == 0 %}
+                            <figure class="figure block-peinture opacity-0 visibility-hidden has-transition-2-s is-relative has-text-centered is-flex-touch is-align-items-center is-justify-content-center is-flex-direction-column">
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
+                                    <span class="icon">
+                                        <i class="fas fa-lg fa-pencil-alt"></i>
+                                    </span>
+                                    </a>
+                                {% endif %}
+                                <div class="is-absolute-desktop is-top-0 is-right-0 transform-year-desktop">
+                                    <h1 class="title has-text-info is-size-2-desktop has-text-weight-bold has-text-right title-galerie">
+                                        {{ oeuvre.year }}
+                                    </h1>
+                                    <h2 class="subtitle is-5 has-text-info has-text-weight-bold has-font-playfair has-text-right">{{ oeuvre }}</h2>
+                                </div>
+
+                                <div class="is-flex is-justify-content-center is-align-items-center is-width-100 border-60px-desktop border-y-60px-touch">
+                                    <div class="modal opacity-0 has-transition-5-ms">
+                                        <div class="modal-background" onclick="closeModal(this)"></div>
+                                        <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
+                                            {% if oeuvre.fileName %}
+                                                <img class="img-galery has-max-height-90vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
                                             {% else %}
-                                                <img class="has-max-height-60vh border-60px-desktop" src="{{ asset('/build/images/480x320.86ac0bc4.png' ) }}" alt="Couverture de galerie manquante" title="Couverture de galerie manquante">
+                                                <img class="img-galery has-max-height-90vh" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant">
                                             {% endif %}
                                         </figure>
+                                        <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
                                     </div>
+                                    {% if oeuvre.fileName %}
+                                        <img class="has-max-height-60vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/images/oeuvres/') }}{{ oeuvre.fileName }}" alt="{{ oeuvre.fileName }}" title="{{ oeuvre.titre }}">
+                                    {% else %}
+                                        <img class="has-max-height-60vh btn-for-display-popup is-hoverable-zoom-in" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant" title="Fichier image manquant">
+                                    {% endif %}
                                 </div>
 
-                            {% if galerie.year %}
-                                <div class="column is-flex is-justify-content-end is-align-items-center buttons">
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                        <a href="{{ path('year_directory_edit', {'id': galerie.id}) }}" class="button is-dark has-transition-5-ms is-normal" title="Modifier cette galerie">
-                                            <span class="icon">
-                                                <i class="fas fa-lg fa-pencil-alt"></i>
-                                            </span>
-                                        </a>
-                                    {% endif %}
-                                    <a href="{{ path('gallery_year', {'id_gallery': galerie.id }) }}" class="button is-normal is-outlined is-info has-transition-5-ms">Visionner</a>
+                                <div class="help has-text-black has-text-left-desktop has-text-centered-touch">
+                                    {{ oeuvre.description|raw }}
                                 </div>
-                            {% endif %}
+                            </figure>
+                        {% endif %}
+                        {% set j = j+1 %}
+                    {% endfor %}
+
+                    <div class="is-flex-desktop is-justify-content-space-between">
+
+                        <div class="column is-two-fifths-desktop py-0 px-0 is-flex-direction-column is-flex-desktop">
+                            {% set i = 0 %}
+                            {% for oeuvre in oeuvres %}
+                                {% if i is odd and i != 0 %}
+                                    {{ include('includes/oeuvre_block.html.twig') }}
+                                {% endif %}
+                                {% set i = i+1 %}
+                            {% endfor %}
                         </div>
 
-                    {% set i = i+1 %}
-                {% endfor %}
-            </div>
+                        <div class="column is-two-fifths-desktop py-0 px-0 margin-10rem-desktop">
+                            {% set i = 0 %}
+                            {% for oeuvre in oeuvres %}
+                                {% if i is even and i != 0 %}
+                                    {{ include('includes/oeuvre_block.html.twig') }}
+                                {% endif %}
+                                {% set i = i+1 %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
 
         </div>
 {% endblock %}

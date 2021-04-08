@@ -7,6 +7,13 @@
             Selectionnez une galerie à cette oeuvre
         </div>
     </div>
+    <div class="field">
+        <div class="label has-text-weight-bold">Top position</div>
+        {{ form_row(form.topPosition) }}
+        <div class="help">
+            Indiquer la position de la peinture dans le top 10, (présent en page d'accueil)
+        </div>
+    </div>
     {{ form_row(form.titre) }}
     {{ form_row(form.file) }}
     {% if oeuvre.fileName %}

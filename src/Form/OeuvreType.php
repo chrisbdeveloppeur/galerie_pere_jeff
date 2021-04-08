@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\GroupeGaleries;
 use App\Entity\Oeuvre;
 use App\Entity\YearDirectory;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -81,6 +81,30 @@ class OeuvreType extends AbstractType
                     'class' => 'has-text-centered has-font-poppins'
                 ],
                 'choice_label' => 'year',
+            ])
+            ->add('topPosition',ChoiceType::class,[
+                'error_bubbling' => true,
+                'label' => false,
+                'label_attr' => ['class'=>'has-text-weight-bold'],
+                'choices' => [
+                    'Sans classement' => 0,
+                    '1' => 10,
+                    '2' => 9,
+                    '3' => 8,
+                    '4' => 7,
+                    '5' => 6,
+                    '6' => 5,
+                    '7' => 4,
+                    '8' => 3,
+                    '9' => 2,
+                    '10' => 1,
+                ],
+                'row_attr' => [
+                    'class' => 'select is-fullwidth',
+                ],
+                'attr' => [
+                    'class' => 'has-text-centered has-font-poppins'
+                ],
             ])
 
         ;

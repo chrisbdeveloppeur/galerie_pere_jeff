@@ -72,9 +72,15 @@ class Oeuvre
      */
     private $year;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $top_position;
+
 
     public function __construct()
     {
+        $this->setTopPosition(-1);
     }
 
     public function  __toString()
@@ -175,6 +181,18 @@ class Oeuvre
     public function setYear(?int $year): self
     {
         $this->year = $year;
+
+        return $this;
+    }
+
+    public function getTopPosition(): ?int
+    {
+        return $this->top_position;
+    }
+
+    public function setTopPosition(?int $top_position): self
+    {
+        $this->top_position = $top_position;
 
         return $this;
     }
