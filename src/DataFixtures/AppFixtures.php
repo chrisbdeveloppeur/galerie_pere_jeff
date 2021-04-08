@@ -38,7 +38,6 @@ class AppFixtures extends Fixture
             $year = new YearDirectory();
             $nb = $faker->numberBetween(1,7);
             $nb2 = $faker->numberBetween(7,20);
-//            $year->setTitle($faker->words($nb, true));
             $annee_start = new \DateTime('now -'.($x+10).'Years');
             $annee_end = new \DateTime('now -'.($x+1).'Years');
             $year->setYearStart($annee_start->format('Y'));
@@ -55,27 +54,12 @@ class AppFixtures extends Fixture
                 $nb = $faker->numberBetween(1,4);
                 $oeuvre->setTitre($faker->words($nb, true));
                 $oeuvre->setDescription($faker->realText());
-//                $oeuvre->setFileName($faker->randomElement(['480x600.603e1bf2.png','480x480.ec819a0d.png','480x320.86ac0bc4.png','360x640.17a22b99.png']));
-//                $annee = $faker->dateTimeBetween('-10 years','now');
-//                $annee = $annee->format('Y');
                 $manager->persist($oeuvre);
                 $year->addOeuvre($oeuvre);
             }
 
             $manager->persist($year);
         }
-
-//        for ($i=0; $i < 50; $i++){
-//            $oeuvre = new Oeuvre();
-//            $nb = $faker->numberBetween(1,4);
-//            $oeuvre->setTitre($faker->words($nb, true));
-//            $oeuvre->setDescription($faker->realText());
-//            $oeuvre->setFileName($faker->randomElement(['480x600.603e1bf2.png','480x480.ec819a0d.png','480x320.86ac0bc4.png','360x640.17a22b99.png']));
-//            $annee = $faker->dateTimeBetween('-10 years','now');
-//            $annee = $annee->format('Y');
-//            $oeuvre->setAnnee($annee);
-//            $manager->persist($oeuvre);
-//        }
 
 
 

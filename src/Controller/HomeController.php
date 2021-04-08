@@ -66,6 +66,7 @@ class HomeController extends AbstractController
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
             'expo' => $this->expo,
+            'route' => 'home',
         ]);
     }
 }

@@ -170,8 +170,14 @@ $grey: #8080801a;
 .scale-up-1{
   transform: scale(1.5);
 }
+.scale-down-0{
+  transform: scale(0);
+}
 .scale-down-1{
   transform: scale(.1);
+}
+.scale-normal{
+  transform: scale(1);
 }
 
 .has-no-text-decoration{
@@ -281,6 +287,9 @@ $grey: #8080801a;
   bottom: 100vh;
 }
 
+.is-width-auto{
+  width: auto;
+}
 .is-width-0vw{
   width: 0vw;
 }
@@ -289,6 +298,9 @@ $grey: #8080801a;
 }
 .is-width-100{
   width: 100%;
+}
+.is-width-100px{
+  width: 100px;
 }
 .is-height-100{
   height: 100%;
