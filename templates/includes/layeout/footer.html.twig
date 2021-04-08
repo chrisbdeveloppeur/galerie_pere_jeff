@@ -5,7 +5,7 @@
                 {% for galerie in galeries %}
                     <a class="column is-one-quarter is-full-touch has-font-2 has-text-weight-bold has-text-info" href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}">
                         {{ galerie.yearend }}
-                        <br><span class="has-text-weight-bold has-text-centered has-text-info">/</span><br>
+                        <br><span class="has-text-weight-bold has-text-centered has-text-info has-font-2">/</span><br>
                         {{ galerie.yearstart }}
                     </a>
                 {% endfor %}
