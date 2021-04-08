@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/styles/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="290" column="14" selection-start-line="290" selection-start-column="14" selection-end-line="290" selection-end-column="14" />
+            <state relative-caret-position="376">
+              <caret line="299" column="14" selection-start-line="299" selection-start-column="14" selection-end-line="299" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -49,26 +49,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+            <state relative-caret-position="425">
+              <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
               <folding>
                 <element signature="e#4013#4025#0#Twig" expanded="true" />
                 <element signature="n#style#0;n#span#1;n#a#0;n#div#3;n#figure#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/includes/oeuvre_block.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="45" column="161" selection-start-line="45" selection-start-column="161" selection-end-line="45" selection-end-column="354" />
-              <folding>
-                <element signature="e#2708#2720#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,22 +93,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Oeuvre.php">
+        <entry file="file://$PROJECT_DIR$/templates/galleries/gallery.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="87" column="28" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
-              <folding>
-                <element signature="e#30#66#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="136">
+              <caret line="8" column="80" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/includes/layeout/footer.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/galleries/gallery.html.twig">
+        <entry file="file://$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-230">
-              <caret line="15" selection-start-line="15" selection-end-line="86" selection-end-column="14" />
+            <state relative-caret-position="340">
+              <caret line="80" selection-start-line="80" selection-end-line="84" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -190,11 +184,9 @@
         <option value="$PROJECT_DIR$/src/Controller/GroupeGaleriesController.php" />
         <option value="$PROJECT_DIR$/templates/includes/list_of_groupe_galeries.html.twig" />
         <option value="$PROJECT_DIR$/templates/oeuvre/index.html.twig" />
-        <option value="$PROJECT_DIR$/templates/includes/layeout/footer.html.twig" />
         <option value="$PROJECT_DIR$/templates/year_directory/_form.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/YearDirectory.php" />
         <option value="$PROJECT_DIR$/src/Form/YearDirectoryType.php" />
-        <option value="$PROJECT_DIR$/templates/galleries/gallery.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/GalleriesController.php" />
         <option value="$PROJECT_DIR$/src/Controller/OeuvreController.php" />
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
@@ -218,9 +210,11 @@
         <option value="$PROJECT_DIR$/src/Form/OeuvreType.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" />
         <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/templates/includes/oeuvre_block.html.twig" />
         <option value="$PROJECT_DIR$/assets/styles/app.scss" />
         <option value="$PROJECT_DIR$/templates/home.html.twig" />
+        <option value="$PROJECT_DIR$/templates/includes/oeuvre_block.html.twig" />
+        <option value="$PROJECT_DIR$/templates/galleries/gallery.html.twig" />
+        <option value="$PROJECT_DIR$/templates/includes/layeout/footer.html.twig" />
       </list>
     </option>
   </component>
@@ -511,18 +505,18 @@
       <workItem from="1617709081151" duration="10467000" />
       <workItem from="1617731706835" duration="16300000" />
       <workItem from="1617813121925" duration="20890000" />
-      <workItem from="1617864298551" duration="10083000" />
+      <workItem from="1617864298551" duration="10707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242619000" />
+    <option name="totallyTimeSpent" value="243243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31343284" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31343284" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -536,7 +530,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" visible="true" weight="0.2426869" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" visible="true" weight="0.2426869" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -640,13 +634,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/GroupeGaleriesController.php" />
-    <entry file="file://$PROJECT_DIR$/templates/includes/layeout/footer.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/GroupeGaleriesRepository.php" />
     <entry file="file://$PROJECT_DIR$/src/Entity/YearDirectory.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -778,13 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/OeuvreController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
@@ -849,13 +829,6 @@
     <entry file="file://$PROJECT_DIR$/templates/home_old.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/galleries/gallery.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="15" selection-start-line="15" selection-end-line="86" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Oeuvre.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="498">
@@ -910,29 +883,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/styles/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="290" column="14" selection-start-line="290" selection-start-column="14" selection-end-line="290" selection-end-column="14" />
+        <state relative-caret-position="376">
+          <caret line="299" column="14" selection-start-line="299" selection-start-column="14" selection-end-line="299" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/oeuvre_block.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="45" column="161" selection-start-line="45" selection-start-column="161" selection-end-line="45" selection-end-column="354" />
+        <state relative-caret-position="799">
+          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
           <folding>
-            <element signature="e#2708#2720#0#Twig" expanded="true" />
+            <element signature="e#2696#2708#0#Twig" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#a#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/home.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+        <state relative-caret-position="425">
+          <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
           <folding>
             <element signature="e#4013#4025#0#Twig" expanded="true" />
             <element signature="n#style#0;n#span#1;n#a#0;n#div#3;n#figure#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/galleries/gallery.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="80" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="80" selection-start-line="80" selection-end-line="84" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/layeout/footer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
         </state>
       </provider>
     </entry>

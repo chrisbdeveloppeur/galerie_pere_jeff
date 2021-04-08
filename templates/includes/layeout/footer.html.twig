@@ -2,11 +2,17 @@
     <div class="content has-text-centered">
         <div class="columns is-multiline is-justify-content-center is-flex">
             {% for galerie in galeries %}
-                <div class="column is-one-quarter is-half-mobile is-flex is-justify-content-center is-align-items-center">
-                    <a href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}" class="has-text-centered has-text-weight-bold has-text-info">
-                        {{ galerie.year }}
-                    </a>
-                </div>
+                <a class="column is-one-quarter has-text-weight-bold has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}">
+                    {{ galerie.yearend }}
+                    <br><span class="has-text-weight-bold has-text-centered has-text-info">/</span><br>
+                    {{ galerie.yearstart }}
+                </a>
+
+{#                <div class="column is-one-quarter is-half-mobile is-flex is-justify-content-center is-align-items-center">#}
+{#                    <a href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}" class="has-text-centered has-text-weight-bold has-text-info">#}
+{#                        {{ galerie.year }}#}
+{#                    </a>#}
+{#                </div>#}
             {% endfor %}
         </div>
         <hr class="has-background-grey">

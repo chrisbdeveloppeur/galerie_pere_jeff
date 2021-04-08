@@ -6,7 +6,7 @@
 
     <div class="is-relative">
         <div class="buttons is-absolute is-left-0" style="top: -25px;">
-            <a class="button is-small is-dark" href="{{ path('home') }}">Retour aux galeries</a>
+            <a class="button is-small is-dark" href="{{ path('home') }}">Accueil</a>
             {% if is_granted('ROLE_ADMIN') %}
                 <a class="button is-small is-dark" href="{{ path('year_directory_edit', {'id': galerie.id}) }}" title="Modifier cette galerie">Modifier la galerie</a>
             {% endif %}
