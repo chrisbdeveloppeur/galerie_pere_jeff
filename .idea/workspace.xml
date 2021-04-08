@@ -36,15 +36,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/includes/bio.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+            <state relative-caret-position="68">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
               <folding>
-                <element signature="n#style#0;n#figure#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#figure#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="78" lean-forward="true" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -141,10 +149,10 @@
         <option value="$PROJECT_DIR$/templates/expo/_delete_form.html.twig" />
         <option value="$PROJECT_DIR$/templates/expo/_form.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/ExpoType.php" />
-        <option value="$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig" />
         <option value="$PROJECT_DIR$/assets/styles/app.scss" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/includes/bio.html.twig" />
+        <option value="$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig" />
       </list>
     </option>
   </component>
@@ -416,12 +424,12 @@
       <workItem from="1617709081151" duration="10467000" />
       <workItem from="1617731706835" duration="16300000" />
       <workItem from="1617813121925" duration="20890000" />
-      <workItem from="1617864298551" duration="1068000" />
+      <workItem from="1617864298551" duration="1921000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233604000" />
+    <option name="totallyTimeSpent" value="234457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -811,16 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
-          <folding>
-            <element signature="e#1395#1415#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/styles/app.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2941">
@@ -837,12 +835,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/bio.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="68">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding>
-            <element signature="n#style#0;n#figure#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#figure#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/layeout/menu_burger.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="78" lean-forward="true" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
         </state>
       </provider>
     </entry>

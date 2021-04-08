@@ -7,7 +7,7 @@
     {% if is_granted('ROLE_ADMIN') %}
         <div class="column is-absolute is-bottom-0 is-flex is-justify-content-start has-text-weight-bold is-width-100" style="z-index: 2">
             <div class="buttons">
-                <div class="dropdown is-up" onclick="this.classList.toggle('is-active')">
+                <div class="dropdown is-up" onclick="this.classList.toggle('is-active'); this.querySelector('button i').classList.toggle('fa-angle-up'); this.querySelector('button i').classList.toggle('fa-angle-down')">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                             <span>Menu</span>
