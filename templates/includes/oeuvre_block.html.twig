@@ -41,18 +41,18 @@
                 {{ oeuvre.description|raw }}
             </div>
 
-            {% if route is defined and route == 'home' %}
-                <div class="has-text-right">
-                    <a class="button is-small has-transition-5-ms is-info is-outlined" href="{{ path('gallery_year', {'id_gallery': oeuvre.yeardirectory.id}) }}" onmouseover="this.querySelector('span.text').classList.replace('is-width-0vw', 'is-width-100px')" onmouseleave="this.querySelector('span.text').classList.replace('is-width-100px', 'is-width-0vw')">
-                        <span class="icon">
-                            <i class="fas fa-chevron-right"></i>
-                        </span>
-                        <span style="overflow: hidden" class="is-width-0vw has-transition-5-ms text">
-                            {{ oeuvre.yeardirectory.yearstart }} / {{ oeuvre.yeardirectory.yearend }}
-                        </span>
-                    </a>
-                </div>
-            {% endif %}
+{#            {% if route is defined and route == 'home' %}#}
+{#                <div class="has-text-right mt-2">#}
+{#                    <a class="button is-small has-transition-5-ms is-info is-outlined" href="{{ path('gallery_year', {'id_gallery': oeuvre.yeardirectory.id}) }}" onmouseover="this.querySelector('span.text').classList.replace('is-width-0vw', 'is-width-100px')" onmouseleave="this.querySelector('span.text').classList.replace('is-width-100px', 'is-width-0vw')">#}
+{#                        <span class="icon">#}
+{#                            <i class="fas fa-chevron-right"></i>#}
+{#                        </span>#}
+{#                        <span style="overflow: hidden" class="is-width-0vw has-transition-5-ms text">#}
+{#                            {{ oeuvre.yeardirectory.yearstart }} / {{ oeuvre.yeardirectory.yearend }}#}
+{#                        </span>#}
+{#                    </a>#}
+{#                </div>#}
+{#            {% endif %}#}
 
         </div>
     </div>
