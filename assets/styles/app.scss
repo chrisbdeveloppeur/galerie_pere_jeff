@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Copperplate Gothic Bold";
+  src: url('../fonts/copperplat_gothic/COPRGTB.ttf');
+}
+@font-face {
+  font-family: "Copperplate Gothic Light";
+  src: url('../fonts/copperplat_gothic/COPRGTL.ttf');
+}
+
 $size-1 : 7rem;
 $size-2 : 5rem;
 $size-3 : 3em;
@@ -9,15 +18,23 @@ $link: $info;
 $modal-background-background-color: rgba(255,255,255,0.95);
 $borderless-radius: 0 !important;
 $font-1: 'Merriweather Sans', sans-serif;
-$grey: #8080801a;
+$font-2: 'Copperplate Gothic Bold', sans-serif;
+$grey: #e2e2e2;
 
 *{
   font-family: $font-1;
 }
 
-.has-font-1 *{
+.title{
+  font-family: $font-2;
+}
+.has-font-1{
   font-family: $font-1;
 }
+.has-font-2{
+  font-family: $font-2;
+}
+
 
 .has-borderless-radius{
   border-radius: $borderless-radius;
@@ -649,7 +666,6 @@ $grey: #8080801a;
     height: 70vh;
   }
 }
-
 
 @import "~bulma";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";

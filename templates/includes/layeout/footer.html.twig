@@ -1,23 +1,21 @@
 <footer class="footer has-background-grey">
     <div class="content has-text-centered">
-        <div class="columns is-multiline is-justify-content-center is-flex">
-            {% for galerie in galeries %}
-                <a class="column is-one-quarter has-text-weight-bold has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}">
-                    {{ galerie.yearend }}
-                    <br><span class="has-text-weight-bold has-text-centered has-text-info">/</span><br>
-                    {{ galerie.yearstart }}
-                </a>
-
-{#                <div class="column is-one-quarter is-half-mobile is-flex is-justify-content-center is-align-items-center">#}
-{#                    <a href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}" class="has-text-centered has-text-weight-bold has-text-info">#}
-{#                        {{ galerie.year }}#}
-{#                    </a>#}
-{#                </div>#}
-            {% endfor %}
+        <div class="is-flex-desktop is-flex-direction-column is-align-items-center">
+            <div class="column is-two-thirds-desktop is-flex-desktop is-multiline is-justify-content-center is-size-4">
+                {% for galerie in galeries %}
+                    <a class="column is-one-quarter is-full-touch has-font-2 has-text-weight-bold has-text-info" href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}">
+                        {{ galerie.yearend }}
+                        <br><span class="has-text-weight-bold has-text-centered has-text-info">/</span><br>
+                        {{ galerie.yearstart }}
+                    </a>
+                {% endfor %}
+            </div>
         </div>
-        <hr class="has-background-grey">
+        <hr class="has-background-grey-light" style="height: .08rem;">
 
-        © 2021 | www.jacques-toupet.fr | Tout droits réservés.
-
+        <span class="is-size-6 has-text-grey-light">
+            © 2021 | www.jacques-toupet.fr | Tout droits réservés. <br>
+            jacques@toupet.ynh.fr
+        </span>
     </div>
 </footer>
