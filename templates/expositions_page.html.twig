@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exposition{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="container is-flex-desktop is-justify-content-center pt-6">
+
+            <div class="has-text-info">
+                {{ expo.text|raw }}
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

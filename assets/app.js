@@ -5,6 +5,7 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
+const favicon = require('../assets/favicon/favicon.png');
 const img = require('../assets/img/Chrisbdev.png');
 const img_360_640 = require('../assets/img/360x640.png');
 const img_480_320 = require('../assets/img/480x320.png');

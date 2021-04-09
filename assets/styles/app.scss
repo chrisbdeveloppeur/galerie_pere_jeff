@@ -48,6 +48,10 @@ $grey: #e2e2e2;
   border-radius: $borderless-radius;
 }
 
+.has-background-transparent{
+  background: none !important;
+}
+
 .has-background-light-transparent-75{
   background: rgba(255,255,255,.75) !important;
 }
@@ -534,7 +538,6 @@ $grey: #e2e2e2;
   left: -100vw;
   height: 100vh;
   width: 100vw;
-  background: rgba(255,255,255,0.6)
 }
 
 

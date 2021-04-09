@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Peintures{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="container is-flex-desktop is-justify-content-center pt-6">
+
+            <div class="columns is-multiline is-flex-desktop has-text-info is-align-items-center">
+                {% set i = 0 %}
+                {% for galerie in galeries %}
+                    <div class="column is-one-quarter is-flex-touch has-text-centered">
+                        <a class="column has-transition-7-ms has-font-2 has-text-weight-bold is-size-4-desktop is-size-7-touch has-text-centered has-text-info" href="{{ path('gallery_year', {'id_gallery': galeries[i].id}) }}">
+                            {{ galerie.yearend }}
+                            <br><span class="has-text-weight-bold is-size-4-desktop has-text-centered has-text-info has-font-2">/</span><br>
+                            {{ galerie.yearstart }}
+                        </a>
+                    </div>
+                    {% set i = i+1 %}
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

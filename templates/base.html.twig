@@ -20,6 +20,11 @@
             <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
         {% endblock %}
 
+        {% block favicon %}
+            <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.64bf24cc.png') }}">
+            <link rel="shortcut icon" type="image/x-icon" href="{{ asset('build/images/favicon.64bf24cc.png') }}">
+        {% endblock %}
+
     </head>
 
     <header>
@@ -69,6 +74,25 @@
                 top: 0,
                 behavior: 'smooth',
             });
+        }
+        {#                               #}
+
+
+        function activeDropDownButton(dropdownButton){
+            dropdownButton.classList.toggle('is-active');
+            dropdownButton.querySelector('button i').classList.toggle('fa-angle-up');
+            dropdownButton.querySelector('button i').classList.toggle('fa-angle-down')
+        }
+
+        {#  BUTTON "GO TO GALERY" EXTEND ANIMATION   #}
+        function extend(button){
+            button.querySelector('span.text').classList.replace('is-width-0vw', 'is-width-100px');
+            button.classList.replace('is-grey', 'is-info');
+        }
+
+        function retract(button) {
+            button.querySelector('span.text').classList.replace('is-width-100px', 'is-width-0vw');
+            button.classList.replace('is-info', 'is-grey');
         }
         {#                               #}
 

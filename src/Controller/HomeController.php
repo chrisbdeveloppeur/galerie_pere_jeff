@@ -40,17 +40,7 @@ class HomeController extends AbstractController
         }
     }
 
-//    /**
-//     * @Route("/", name="home")
-//     */
-//    public function index(): Response
-//    {
-//        return $this->render('home.html.twig', [
-//            'galeries' => $this->galeries,
-//            'text_menu_burger' => $this->textMenuBurger,
-//            'expo' => $this->expo,
-//        ]);
-//    }
+
 
     /**
      * @param OeuvreRepository $oeuvreRepository
@@ -69,4 +59,42 @@ class HomeController extends AbstractController
             'route' => 'home',
         ]);
     }
+
+
+    /**
+     * @Route("/biographie", name="biographie")
+     */
+    public function bio(): Response
+    {
+        return $this->render('biographie_page.html.twig', [
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
+        ]);
+    }
+
+    /**
+     * @Route("/expositions", name="expositions")
+     */
+    public function expo(): Response
+    {
+        return $this->render('expositions_page.html.twig', [
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
+        ]);
+    }
+
+    /**
+     * @Route("/peintures", name="peintures")
+     */
+    public function peinture(): Response
+    {
+        return $this->render('peintures_page.html.twig', [
+            'galeries' => $this->galeries,
+            'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
+        ]);
+    }
+
 }
