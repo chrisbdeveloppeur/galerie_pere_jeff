@@ -50,7 +50,6 @@ class HomeController extends AbstractController
     public function galeriesAnnees( OeuvreRepository $oeuvreRepository): Response
     {
         $oeuvres = $oeuvreRepository->findTop10();
-//        dd($oeuvres);
         return $this->render("home.html.twig", [
             'oeuvres' => $oeuvres,
             'galeries' => $this->galeries,

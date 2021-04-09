@@ -1,7 +1,7 @@
 {#     FOR DESKTOP     #}
 <a class="is-hidden-touch is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger is-flex-touch" onclick="removeClass('menu-2','out-of-screen'); changeMinusToPlus(this)">
     <span class="icon is-size-6 is-size-7-touch">
-        <i class="fas fa-minus"></i>
+        <i class="fas {% if app.request.attributes.get('_route') == 'biographie' %}fa-minus{% else %}fa-plus{% endif %}"></i>
     </span>
     <span class="is-size-7-touch has-font-2">
         Biographie
@@ -9,18 +9,18 @@
 </a>
 <a class="is-hidden-touch is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger is-flex-touch" onclick="removeClass('menu-3','out-of-screen'); changeMinusToPlus(this)">
     <span class="icon is-size-6 is-size-7-touch">
-        <i class="fas fa-plus"></i>
+        <i class="fas {% if app.request.attributes.get('_route') == 'peintures' %}fa-minus{% else %}fa-plus{% endif %}"></i>
     </span>
     <span class="is-size-7-touch has-font-2">
-        Peinture
+        Peintures
     </span>
 </a>
 <a class="is-hidden-touch is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger is-flex-touch" onclick="removeClass('menu-1','out-of-screen'); changeMinusToPlus(this)">
     <span class="icon is-size-6 is-size-7-touch">
-        <i class="fas fa-plus"></i>
+        <i class="fas {% if app.request.attributes.get('_route') == 'expositions' %}fa-minus{% else %}fa-plus{% endif %}"></i>
     </span>
     <span class="is-size-7-touch has-font-2">
-        Exposition
+        Expositions
     </span>
 </a>
 {#                  #}
@@ -28,7 +28,7 @@
 {#     FOR TOUCH     #}
 <a href="{{ path('biographie') }}" class="is-hidden-desktop is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger is-flex-touch" onclick="removeClass('menu-2','out-of-screen'); changeMinusToPlus(this)">
     <span class="icon is-size-6 ">
-        <i class="fas fa-minus"></i>
+        <i class="fas {% if app.request.attributes.get('_route') == 'biographie' %}fa-minus{% else %}fa-plus{% endif %}"></i>
     </span>
     <span class=" has-font-2">
         Biographie
@@ -36,18 +36,18 @@
 </a>
 <a href="{{ path('peintures') }}" class="is-hidden-desktop is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger is-flex-touch" onclick="removeClass('menu-3','out-of-screen'); changeMinusToPlus(this)">
     <span class="icon is-size-6 ">
-        <i class="fas fa-plus"></i>
+        <i class="fas {% if app.request.attributes.get('_route') == 'peintures' %}fa-minus{% else %}fa-plus{% endif %}"></i>
     </span>
     <span class=" has-font-2">
-        Peinture
+        Peintures
     </span>
 </a>
 <a href="{{ path('expositions') }}" class="is-hidden-desktop is-uppercase icon-text has-text-white has-text-weight-bold py-4 is-size-5 link-menu-burger is-flex-touch" onclick="removeClass('menu-1','out-of-screen'); changeMinusToPlus(this)">
     <span class="icon is-size-6 ">
-        <i class="fas fa-plus"></i>
+        <i class="fas {% if app.request.attributes.get('_route') == 'expositions' %}fa-minus{% else %}fa-plus{% endif %}"></i>
     </span>
     <span class=" has-font-2">
-        Exposition
+        Expositions
     </span>
 </a>
 {#                  #}
