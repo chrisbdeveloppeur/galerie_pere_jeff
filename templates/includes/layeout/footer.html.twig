@@ -3,7 +3,7 @@
         <div class="is-flex-desktop is-flex-direction-column is-align-items-center">
             <div class="column is-two-thirds-desktop is-flex-desktop is-multiline is-justify-content-center is-size-4">
                 {% for galerie in galeries %}
-                    <a class="column is-one-quarter is-full-touch has-font-2 has-text-weight-bold has-text-info" href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}">
+                    <a class="column is-one-quarter is-full-touch has-font-2 has-text-weight-bold has-text-info {% if app.request.get('id_gallery') == galerie.id %}opacity-05{% endif %}" href="{{ path('gallery_year', {'id_gallery': galerie.id}) }}">
                         {{ galerie.yearend }}
                         <br><span class="has-text-weight-bold has-text-centered has-text-info has-font-2">/</span><br>
                         {{ galerie.yearstart }}
