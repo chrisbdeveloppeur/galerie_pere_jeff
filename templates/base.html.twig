@@ -54,6 +54,20 @@
 
     <script>
 
+{#    FILTRE BY GALERY (in galeries index)    #}
+
+        function filtreByGalery(button,idGalery) {
+            button.classList.toggle('is-active');
+            button.classList.toggle('is-outlined');
+            let galeries = document.getElementsByClassName(idGalery);
+            [].forEach.call(galeries, function (elem) {
+                elem.classList.toggle('is-hidden')
+            })
+        }
+
+{#                      #}
+
+
         {#  ARROW-UP  #}
         function showArrowUp(){
             let arrowUp = document.getElementById('arrow-up');
@@ -268,6 +282,7 @@
 
     {#                               #}
     </script>
+
 
 {% endblock %}
 

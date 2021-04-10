@@ -50,9 +50,10 @@ class OeuvreController extends AbstractController
     /**
      * @Route("/", name="oeuvre_index", methods={"GET"})
      */
-    public function index(OeuvreRepository $oeuvreRepository): Response
+    public function index(OeuvreRepository $oeuvreRepository, YearDirectoryRepository $yearDirectoryRepository): Response
     {
         return $this->render('oeuvre/index.html.twig', [
+            'all_galeries' => $yearDirectoryRepository->findAll(),
             'oeuvres' => $oeuvreRepository->classByAnnee(),
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,

@@ -8,7 +8,18 @@
 
         <h1 class="title">Gestion des oeuvres</h1>
 
-        <a class="button is-small is-dark" href="{{ path('oeuvre_new') }}">Ajouter une oeuvre</a>
+        <div class="column">
+            <span class="help">Filtre :</span>
+            <div class="tags">
+                {% for galerie in all_galeries %}
+                    <div class="button tag is-small is-dark is-active" onclick="filtreByGalery(this,{{ galerie.id|raw }})">{{ galerie.year }}</div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="column">
+            <a class="button is-small is-dark" href="{{ path('oeuvre_new') }}">Ajouter une oeuvre</a>
+        </div>
 
         <div class="table-wrapper">
             <table class="table" style="margin: auto">
@@ -24,7 +35,7 @@
                 </thead>
                 <tbody>
                 {% for oeuvre in oeuvres %}
-                    <tr>
+                    <tr class="{{ oeuvre.yearDirectory.id|raw }}">
                         <td>
                             <span class="help">
                                 {{ oeuvre.id }}

@@ -37,7 +37,7 @@ class AppFixtures extends Fixture
             $x = $i*10;
             $year = new YearDirectory();
             $nb = $faker->numberBetween(1,7);
-            $nb2 = $faker->numberBetween(7,20);
+            $nb2 = 250;
             $annee_start = new \DateTime('now -'.($x+10).'Years');
             $annee_end = new \DateTime('now -'.($x+1).'Years');
             $year->setYearStart($annee_start->format('Y'));
