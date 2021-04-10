@@ -14,6 +14,7 @@
             <table class="table" style="margin: auto">
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Titre</th>
                     <th>Année</th>
                     <th>Galerie</th>
@@ -24,13 +25,18 @@
                 <tbody>
                 {% for oeuvre in oeuvres %}
                     <tr>
+                        <td>
+                            <span class="help">
+                                {{ oeuvre.id }}
+                            </span>
+                        </td>
                         <td>{{ oeuvre.titre }}</td>
                         <td>{{ oeuvre.year }}</td>
                         <td>
                             {% if oeuvre.yearDirectory %}
                                 <a href="{{ path('gallery_year', {'id_gallery': oeuvre.yearDirectory.id }) }}" title="Se rendre à la galerie {{ oeuvre.yearDirectory }}">{{ oeuvre.yearDirectory }}</a>
                             {% else %}
-                                <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}" class="is-italic has-text-weight-light" title="Modifier cette oeuvre">(Vide)</a>
+                                <span class="is-italic has-text-weight-light">(Vide)</span>
                             {% endif %}
                         </td>
                         <td class="has-text-centered is-relative is-hidden-touch">

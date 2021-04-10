@@ -21,6 +21,7 @@ class OeuvreType extends AbstractType
         $builder
             ->add('titre',TextType::class,[
                 'error_bubbling' => true,
+                'required' => false,
                 'label' => 'Titre',
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class'=>'mb-4'],
@@ -71,9 +72,9 @@ class OeuvreType extends AbstractType
             ->add('year_directory', EntityType::class,[
                 'error_bubbling' => true,
                 'class' => YearDirectory::class,
-                'required' => false,
+                'required' => true,
                 'label' => false,
-                'placeholder' => '',
+                'placeholder' => false,
                 'row_attr' => [
                     'class' => 'select is-fullwidth',
                 ],
