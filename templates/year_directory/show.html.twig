@@ -12,28 +12,28 @@
 
     <h1 class="title"><span class="has-text-weight-light">Galerie</span> {{ year_directory.year }}</h1>
 
-    {% if year_directory.fileName %}
-        <img class="" src="{{ asset('images/years_directory_img/' ~ year_directory.filename ) | imagine_filter('small') }}" alt="{{ year_directory.title }}" title="{{ year_directory.fileName }}">
-    {% else %}
+{#    {% if year_directory.fileName %}#}
+{#        <img class="" src="{{ asset('images/years_directory_img/' ~ year_directory.filename ) | imagine_filter('small') }}" alt="{{ year_directory.title }}" title="{{ year_directory.fileName }}">#}
+{#    {% else %}#}
 
-        {% if year_directory.oeuvres is not empty and year_directory.oeuvres[0].filename %}
-            <div class="column is-flex is-justify-content-center is-align-items-center">
-                <img class="has-max-height-40vh has-border-white-5px" src="{{ asset('/images/oeuvres/' ~ year_directory.oeuvres[0].filename ) }}" alt="Couverture de galerie manquante" title="{{ year_directory.title }}">
-            </div>
-        {% endif %}
+{#        {% if year_directory.oeuvres is not empty and year_directory.oeuvres[0].filename %}#}
+{#            <div class="column is-flex is-justify-content-center is-align-items-center">#}
+{#                <img class="has-max-height-40vh has-border-white-5px" src="{{ asset('/images/oeuvres/' ~ year_directory.oeuvres[0].filename ) }}" alt="Couverture de galerie manquante" title="{{ year_directory.title }}">#}
+{#            </div>#}
+{#        {% endif %}#}
 
-        <div class="column has-text-centered">
-            <h3 class="subtitle">
-                Aucun fichier image uploadé pour cette galerie
-            </h3>
-            <div class="help pb-6 text-icon">
-                <span class="icon">
-                    <i class="fas fa-lg fa-info-circle"></i>
-                </span>
-                Si aucun fichier image n'a été uploader, l'image de la première oeuvre sera affichée en couverture
-            </div>
-        </div>
-    {% endif %}
+{#        <div class="column has-text-centered">#}
+{#            <h3 class="subtitle">#}
+{#                Aucun fichier image uploadé pour cette galerie#}
+{#            </h3>#}
+{#            <div class="help pb-6 text-icon">#}
+{#                <span class="icon">#}
+{#                    <i class="fas fa-lg fa-info-circle"></i>#}
+{#                </span>#}
+{#                Si aucun fichier image n'a été uploader, l'image de la première oeuvre sera affichée en couverture#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endif %}#}
 
     <table class="table">
         <tbody>
@@ -45,12 +45,38 @@
                 <th>Sous-titre</th>
                 <td>{{ year_directory.title }}</td>
             </tr>
-            <tr>
-                <th>Fichier</th>
-                <td>{{ year_directory.fileName }}</td>
-            </tr>
+{#            <tr>#}
+{#                <th>Fichier</th>#}
+{#                <td>{{ year_directory.fileName }}</td>#}
+{#            </tr>#}
         </tbody>
     </table>
+
+    <div class="columns is-multiline is-flex is-justify-content-center">
+        {% for oeuvre in year_directory.oeuvres %}
+            {% if oeuvre.fileName %}
+
+                <div class="modal opacity-0 has-transition-5-ms">
+                    <div class="modal-background" onclick="closeModal(this)"></div>
+                    <figure class="z-index-more-1 is-flex-direction-column is-flex is-align-items-center">
+                        {% if oeuvre.fileName %}
+                            <img class="img-galery has-max-height-80vh" src="{{ asset('/images/oeuvres/' ~ oeuvre.fileName) }}" alt="{{ oeuvre.fileName }}">
+                        {% else %}
+                            <img class="img-galery has-max-height-80vh" src="{{ asset('/build/images/480x320.86ac0bc4.png') }}" alt="Fichier image manquant">
+                        {% endif %}
+                    </figure>
+                    <button class="modal-close is-large" aria-label="close" onclick="closeModal(this)"></button>
+                </div>
+
+                <div class="has-transition-5-ms column is-relative is-flex is-flex-direction-column is-justify-content-space-evenly is-align-items-center is-one-quarter-desktop is-half has-text-centered btn-for-display-popup is-hoverable-zoom-in">
+                    <img src="{{ asset('images/oeuvres/' ~ oeuvre.fileName) | imagine_filter('small') }}" alt="">
+                    <div class="tag">
+                        {{ oeuvre.titre }}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 
     <div class="column is-full is-flex is-justify-content-space-evenly">
         <a class="button is-small is-dark is-outlined mr-5" href="{{ path('year_directory_edit', {'id': year_directory.id}) }}">Modifier</a>

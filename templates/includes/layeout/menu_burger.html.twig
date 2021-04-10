@@ -20,10 +20,10 @@
                         <div class="dropdown-content">
                             {% if is_granted('ROLE_ADMIN') %}
                                 <a href="{{ path('year_directory_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
-                                    Gestion des Galeries
+                                    Liste des galeries
                                 </a>
                                 <a href="{{ path('oeuvre_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
-                                    Gestion des Oeuvres
+                                    Liste des peintures
                                 </a>
                                 <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
                                     Modifier la biographie

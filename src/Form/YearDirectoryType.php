@@ -77,18 +77,18 @@ class YearDirectoryType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('file', FileType::class,[
-                'error_bubbling' => true,
-                'label' => 'Image de couverture',
-                'label_attr' => ['class'=>'has-text-weight-bold'],
-                'row_attr' => ['class' => 'field is-flex is-flex-direction-column'],
-                'attr' => [
-                    'class' => 'has-text-centered'
-                ],
-                'required' => false,
-                'help' => 'Types de fichier autorisé : .jpg .png .svg .bmp',
-                'help_attr' => ['class' => 'help']
-            ])
+//            ->add('file', FileType::class,[
+//                'error_bubbling' => true,
+//                'label' => 'Image de couverture',
+//                'label_attr' => ['class'=>'has-text-weight-bold'],
+//                'row_attr' => ['class' => 'field is-flex is-flex-direction-column'],
+//                'attr' => [
+//                    'class' => 'has-text-centered'
+//                ],
+//                'required' => false,
+//                'help' => 'Types de fichier autorisé : .jpg .png .svg .bmp',
+//                'help_attr' => ['class' => 'help']
+//            ])
         ;
     }
 

@@ -15,7 +15,7 @@
             <tr>
                 <th>Titre</th>
                 <th>Description</th>
-                <th class="is-hidden-touch">Couverture</th>
+{#                <th class="is-hidden-touch">Couverture</th>#}
                 <th>Gestion</th>
             </tr>
             </thead>
@@ -30,21 +30,21 @@
                         {{ year_directory.title }}
                     </td>
 
-                    <td class="has-text-centered is-relative is-hidden-touch">
-                        {% if year_directory.fileName %}
-                            <div class="">
-                                <img style="bottom: 100%;left: 0" class="is-hidden is-absolute has-max-height-20vh has-border-white-5px" src="{{ asset('/images/years_directory_img/' ~ year_directory.filename ) | imagine_filter('vignette') }}" alt="{{ year_directory.title }}" title="{{ year_directory.fileName }}">
-                                <span class="icon has-text-dark is-hoverable-help-cursor" onmouseenter="showPrevOnHover(this)" onmouseleave="hidePrevOnHover(this)">
-                                <i class="fas fa-lg fa-eye"></i>
-                            </span>
-                            </div>
-                        {% else %}
-                            <span class="has-text-weight-light is-italic is-hoverable-help-cursor" title="L'image de la première oeuvre de cette galerie sera donc affichée">(Vide)</span>
-                        {% endif %}
-                    </td>
+{#                    <td class="has-text-centered is-relative is-hidden-touch">#}
+{#                        {% if year_directory.fileName %}#}
+{#                            <div class="">#}
+{#                                <img style="bottom: 100%;left: 0" class="is-hidden is-absolute has-max-height-20vh has-border-white-5px" src="{{ asset('/images/years_directory_img/' ~ year_directory.filename ) | imagine_filter('vignette') }}" alt="{{ year_directory.title }}" title="{{ year_directory.fileName }}">#}
+{#                                <span class="icon has-text-dark is-hoverable-help-cursor" onmouseenter="showPrevOnHover(this)" onmouseleave="hidePrevOnHover(this)">#}
+{#                                <i class="fas fa-lg fa-eye"></i>#}
+{#                            </span>#}
+{#                            </div>#}
+{#                        {% else %}#}
+{#                            <span class="has-text-weight-light is-italic is-hoverable-help-cursor" title="L'image de la première oeuvre de cette galerie sera donc affichée">(Vide)</span>#}
+{#                        {% endif %}#}
+{#                    </td>#}
 
                     <td>
-                        <div class="is-flex is-justify-content-space-between is-align-items-center">
+                        <div class="is-flex is-justify-content-space-evenly is-align-items-center">
                             <a href="{{ path('year_directory_show', {'id': year_directory.id}) }}" title="Voir les détails de cette galerie">
                             <span class="icon has-text-dark">
                                 <i class="fas fa-lg fa-search"></i>
@@ -69,7 +69,7 @@
             <tr>
                 <th>Titre</th>
                 <th>Année</th>
-                <th>Couverture</th>
+{#                <th>Couverture</th>#}
                 <th>Gestion</th>
             </tr>
             </tfoot>

@@ -114,14 +114,14 @@ class OeuvreController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             $msg = 'L\'oeuvre à bien été modifiée';
             $this->addFlash('success', $msg);
-            if ($oeuvre->getYearDirectory()){
-                $idGalerie = $oeuvre->getYearDirectory()->getId();
-                return $this->redirectToRoute('gallery_year',[
-                    'id_gallery' => $idGalerie,
-                ]);
-            }else{
+//            if ($oeuvre->getYearDirectory()){
+//                $idGalerie = $oeuvre->getYearDirectory()->getId();
+//                return $this->redirectToRoute('gallery_year',[
+//                    'id_gallery' => $idGalerie,
+//                ]);
+//            }else{
                 return $this->redirectToRoute('oeuvre_index');
-            }
+//            }
 
         }
 
