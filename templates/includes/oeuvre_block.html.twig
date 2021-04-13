@@ -1,7 +1,7 @@
     <div class="is-relative py-5 is-two-fifths-desktop is-full column py-0 px-0" >
-        <div class="column px-0 has-text-centered-touch {% if i is divisible by(2) and i != 0 %}translateY-30-desktop{% endif %}">
+        <div class="column px-0 has-text-centered-touch {% if i is divisible by(2) and i != 0 %}translateY-30-desktop{% endif %} block-peinture opacity-0 visibility-hidden has-transition-1-s">
 
-            <figure class="figure is-relative block-peinture opacity-0 visibility-hidden has-transition-1-s">
+            <figure class="figure is-relative">
                 {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('oeuvre_edit', {'id': oeuvre.id }) }}" class="button is-dark has-transition-5-ms is-small is-absolute is-top-0 is-left-0" title="Modifier cette oeuvre">
                         <span class="icon">
