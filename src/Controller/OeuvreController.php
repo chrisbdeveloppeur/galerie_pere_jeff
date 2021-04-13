@@ -134,10 +134,15 @@ class OeuvreController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$oeuvre->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
+            if ($oeuvre->getTitre() != null){
+                $oeuvreName = $oeuvre->getTitre();
+            }else{
+                $oeuvreName = $oeuvre->getId();
+            }
             $entityManager->remove($oeuvre);
             $entityManager->flush();
         }
-        $msg = 'L\'oeuvre à été supprimée';
+        $msg = 'L\'oeuvre <b>' . $oeuvreName . '</b> à été supprimée';
         $this->addFlash('warning', $msg);
         return $this->redirectToRoute('oeuvre_index');
     }
