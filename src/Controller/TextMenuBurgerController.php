@@ -69,7 +69,8 @@ class TextMenuBurgerController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($textMenuBurger);
             $entityManager->flush();
-
+            $msg = 'La biographie à bien étée crée';
+            $this->addFlash('success', $msg);
             return $this->redirectToRoute('text_menu_burger_index');
         }
 
@@ -103,7 +104,8 @@ class TextMenuBurgerController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $msg = 'La biographie à bien été modifiée';
+            $this->addFlash('success', $msg);
             return $this->redirectToRoute('home');
         }
 
@@ -125,7 +127,8 @@ class TextMenuBurgerController extends AbstractController
             $entityManager->remove($textMenuBurger);
             $entityManager->flush();
         }
-
+        $msg = 'La biographie à bien été suprimée';
+        $this->addFlash('success', $msg);
         return $this->redirectToRoute('text_menu_burger_index');
     }
 }

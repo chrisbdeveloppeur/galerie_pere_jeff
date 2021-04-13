@@ -80,6 +80,13 @@ $grey: #e2e2e2;
   transform: scale(1.05) !important;
 }
 
+.first-block-peinture{
+  display: flex;
+  min-height: 80vh;
+  align-items: center;
+  justify-content: center;
+}
+
 .has-max-height-100vh{
   max-height: 100vh !important;
 }

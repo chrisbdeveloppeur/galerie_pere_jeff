@@ -70,7 +70,8 @@ class ExpoController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($expo);
             $entityManager->flush();
-
+            $msg = 'La rubrique exposition à bien étée crée';
+            $this->addFlash('success', $msg);
             return $this->redirectToRoute('expo_index');
         }
 
@@ -104,7 +105,8 @@ class ExpoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $msg = 'La rubrique exposition à bien étée modifiée';
+            $this->addFlash('success', $msg);
 //            return $this->redirectToRoute('expo_index');
         }
 
@@ -125,6 +127,8 @@ class ExpoController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($expo);
             $entityManager->flush();
+            $msg = 'La rubrique exposition à bien étée suprimée';
+            $this->addFlash('success', $msg);
         }
 
         return $this->redirectToRoute('expo_index');

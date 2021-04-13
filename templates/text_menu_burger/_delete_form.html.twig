@@ -1,4 +1,4 @@
 <form method="post" action="{{ path('text_menu_burger_delete', {'id': text_menu_burger.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cet élément ?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ text_menu_burger.id) }}">
-    <button class="button is-small is-danger has-font-poppins">Supprimer</button>
+{#    <button class="button is-small is-danger has-font-poppins">Supprimer</button>#}
 </form>

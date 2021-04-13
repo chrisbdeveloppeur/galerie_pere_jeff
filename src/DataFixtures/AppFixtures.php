@@ -32,7 +32,7 @@ class AppFixtures extends Fixture
         $admin->setPassword($this->passwordEncoder->encodePassword($admin, $password));
         $manager->persist($admin);
 
-        $dir = 'assets/img';
+        $dir = 'public/images/oeuvres';
         $pics = scandir($dir);
         $pics = array_splice($pics, 2);
 
