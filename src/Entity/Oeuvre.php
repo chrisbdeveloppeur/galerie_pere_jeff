@@ -56,7 +56,7 @@ class Oeuvre
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=YearDirectory::class, inversedBy="oeuvres", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=YearDirectory::class, inversedBy="oeuvres", cascade={"persist"})
      * @ORM\JoinColumn(onDelete="SET NULL");
      */
     private $year_directory;

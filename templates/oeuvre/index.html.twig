@@ -35,7 +35,7 @@
                 </thead>
                 <tbody>
                 {% for oeuvre in oeuvres %}
-                    <tr class="{{ oeuvre.id|raw }}">
+                    <tr class="{{ oeuvre.yearDirectory.id|raw }}">
                         <td>
                             <span class="help">
                                 {{ oeuvre.id }}
