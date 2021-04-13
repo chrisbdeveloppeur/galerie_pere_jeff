@@ -561,7 +561,8 @@ $grey: #e2e2e2;
 
 @media (min-width: 1024px) {
   .translateY-30-desktop{
-    transform: translateY(30%);
+    position: relative;
+    bottom: -40%;
   }
   .padding-bottom-15rem-desktop{
     padding-bottom: 15rem !important;
@@ -624,6 +625,11 @@ $grey: #e2e2e2;
   }
   .is-height-70vh-desktop{
     height: 70vh;
+  }
+  .table-wrapper-desktop {
+    overflow-x: auto;
+    max-width: 100vw;
+    position: relative;
   }
 }
 

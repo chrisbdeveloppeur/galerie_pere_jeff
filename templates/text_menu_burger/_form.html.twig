@@ -1,4 +1,13 @@
 {{ form_start(form, {'attr': {'class':'column has-text-centered'}}) }}
     {{ form_widget(form) }}
+    {{ form_row(form.file) }}
+    {% if text_menu_burger.fileName %}
+        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center field">
+            <figure class="is-relative">
+                <img class="has-max-height-40vh" src="{{ asset('/images/bio_img/' ~ text_menu_burger.fileName )}}" alt="{{ text_menu_burger.fileName }}" title="{{ text_menu_burger.fileName }}">
+            </figure>
+            <span> <b>Fichier actuel</b> : {{ text_menu_burger.fileName }}</span>
+        </div>
+    {% endif %}
     <button class="button is-info is-outlined is-small has-font-poppins">Valider</button>
 {{ form_end(form) }}
