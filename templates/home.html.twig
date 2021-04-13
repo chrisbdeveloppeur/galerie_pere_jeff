@@ -68,25 +68,25 @@
 
                     <div class="is-flex-desktop is-justify-content-space-between">
 
-                        <div class="column is-two-fifths-desktop py-0 px-0 is-flex-direction-column is-flex-desktop">
+                        <div class="columns mx-0 is-multiline is-flex-desktop is-justify-content-space-between" style="margin-bottom: 10rem">
                             {% set i = 0 %}
                             {% for oeuvre in oeuvres %}
-                                {% if i is odd and i != 0 %}
+{#                                {% if i is not divisible by(2) and i != 0 %}#}
                                     {{ include('includes/oeuvre_block.html.twig') }}
-                                {% endif %}
+{#                                {% endif %}#}
                                 {% set i = i+1 %}
                             {% endfor %}
                         </div>
 
-                        <div class="column is-two-fifths-desktop py-0 px-0 margin-10rem-desktop">
-                            {% set i = 0 %}
-                            {% for oeuvre in oeuvres %}
-                                {% if i is even and i != 0 %}
-                                    {{ include('includes/oeuvre_block.html.twig') }}
-                                {% endif %}
-                                {% set i = i+1 %}
-                            {% endfor %}
-                        </div>
+{#                        <div class="column is-two-fifths-desktop px-0 is-flex-direction-column is-flex-desktop is-justify-content-space-evenly padding-top-15rem-desktop">#}
+{#                            {% set i = 0 %}#}
+{#                            {% for oeuvre in oeuvres %}#}
+{#                                {% if i is divisible by(2) and i != 0 %}#}
+{#                                    {{ include('includes/oeuvre_block.html.twig') }}#}
+{#                                {% endif %}#}
+{#                                {% set i = i+1 %}#}
+{#                            {% endfor %}#}
+{#                        </div>#}
                     </div>
                 </div>
 

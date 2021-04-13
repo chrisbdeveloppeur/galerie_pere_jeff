@@ -560,11 +560,26 @@ $grey: #e2e2e2;
 }
 
 @media (min-width: 1024px) {
+  .translateY-30-desktop{
+    transform: translateY(30%);
+  }
+  .padding-bottom-15rem-desktop{
+    padding-bottom: 15rem !important;
+  }
+  .padding-top-15rem-desktop{
+    padding-top: 15rem !important;
+  }
+  .padding-bottom-10rem-desktop{
+    padding-bottom: 10rem !important;
+  }
+  .padding-top-10rem-desktop{
+    padding-top: 10rem !important;
+  }
   .margin-10rem-desktop{
-    margin-top: 10rem;
+    margin-top: 10rem !important;
   }
   .margin-15rem-desktop{
-    margin-top: 15rem;
+    margin-top: 15rem !important;
   }
   .is-absolute-desktop{
     position: absolute !important;

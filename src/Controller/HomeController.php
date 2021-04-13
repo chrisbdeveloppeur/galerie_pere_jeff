@@ -49,6 +49,11 @@ class HomeController extends AbstractController
      */
     public function galeriesAnnees( OeuvreRepository $oeuvreRepository): Response
     {
+
+//        $dir = '../assets/img';
+//        $pics = scandir($dir);
+//        $pics = array_splice($pics, 2);
+//        dd($pics);
         $oeuvres = $oeuvreRepository->findTop10();
         return $this->render("home.html.twig", [
             'oeuvres' => $oeuvres,

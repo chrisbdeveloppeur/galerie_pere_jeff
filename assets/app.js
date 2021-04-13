@@ -7,10 +7,10 @@
 
 const favicon = require('../assets/favicon/favicon.png');
 const img = require('../assets/img/Chrisbdev.png');
-const img_360_640 = require('../assets/img/360x640.png');
-const img_480_320 = require('../assets/img/480x320.png');
-const img_480_480 = require('../assets/img/480x480.png');
-const img_480_600 = require('../assets/img/480x600.png');
+// const img_360_640 = require('../assets/img/360x640.png');
+// const img_480_320 = require('../assets/img/480x320.png');
+// const img_480_480 = require('../assets/img/480x480.png');
+// const img_480_600 = require('../assets/img/480x600.png');
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';

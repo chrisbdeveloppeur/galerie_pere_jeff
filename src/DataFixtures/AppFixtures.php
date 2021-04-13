@@ -32,6 +32,10 @@ class AppFixtures extends Fixture
         $admin->setPassword($this->passwordEncoder->encodePassword($admin, $password));
         $manager->persist($admin);
 
+        $dir = 'assets/img';
+        $pics = scandir($dir);
+        $pics = array_splice($pics, 2);
+
         $k = 0;
         for ($i=0; $i < 4; $i++){
             $x = $i*10;
@@ -50,10 +54,11 @@ class AppFixtures extends Fixture
                 $k = $k+1;
                 $oeuvre->setTopPosition(0);
                 $oeuvre->setImgPosition($k);
+                $oeuvre->setFileName($faker->randomElement($pics));
                 $oeuvre->setYear($faker->numberBetween($annee_start->format('Y'),$annee_end->format('Y')));
                 $nb = $faker->numberBetween(1,4);
                 $oeuvre->setTitre($faker->words($nb, true));
-                $oeuvre->setDescription($faker->realText());
+                $oeuvre->setDescription('- taille : <br>- type : <br>- matière : ');
                 $manager->persist($oeuvre);
                 $year->addOeuvre($oeuvre);
             }
