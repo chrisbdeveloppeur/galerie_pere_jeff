@@ -6,6 +6,8 @@ use App\Entity\Admin;
 use App\Entity\Expo;
 use App\Entity\TextMenuBurger;
 use App\Form\AdminType;
+use App\Form\SendRegisterFormType;
+use App\Notif\NotifMessage;
 use App\Repository\AdminRepository;
 use App\Repository\ExpoRepository;
 use App\Repository\TextMenuBurgerRepository;
@@ -49,12 +51,23 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/", name="admin_index", methods={"GET"})
+     * @Route("/", name="admin_index", methods={"GET", "POST"})
      * @IsGranted("ROLE_SUPER_ADMIN")
      */
-    public function index(AdminRepository $adminRepository): Response
+    public function index(AdminRepository $adminRepository, Request $request, NotifMessage $notifMessage): Response
     {
+        $form =  $this->createForm(SendRegisterFormType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $email = $form->get('email')->getData();
+            $token = bin2hex(random_bytes(16));
+            $notifMessage->sendRegisterLink($email, $token);
+            $message = 'Le formulaire d\'enregistrement vient d\'être envoyer à l\'adresse mail : '. $form->get('email')->getData();
+            $this->addFlash('success', $message);
+        }
+
         return $this->render('admin/index.html.twig', [
+            'form' => $form->createView(),
             'admins' => $adminRepository->findAll(),
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
