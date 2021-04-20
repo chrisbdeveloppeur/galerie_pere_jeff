@@ -65,7 +65,7 @@ class AdminController extends AbstractController
             $this->addFlash('success', $message);
         }
 
-        if ($this->getUser()->getRoles() == 'ROLE_SUPER_ADMIN'){
+        if ($this->isGranted('ROLE_SUPER_ADMIN')){
             return $this->render('admin/index.html.twig', [
                 'form' => $form->createView(),
                 'admins' => $adminRepository->findAll(),
