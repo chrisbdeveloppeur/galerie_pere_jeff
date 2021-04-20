@@ -39,19 +39,17 @@ class AdminRepository extends ServiceEntityRepository implements PasswordUpgrade
     // /**
     //  * @return Admin[] Returns an array of Admin objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findSuperAdmin($value)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
+            ->andWhere('a.email = :val')
             ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
+            ->getFirstResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Admin

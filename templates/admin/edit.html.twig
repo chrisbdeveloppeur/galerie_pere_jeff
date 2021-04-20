@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification du compte Admin{% endblock %}
+
+{% block body %}
+    <div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center py-6">
+        {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <div class="column is-full is-flex is-justify-content-start">
+            <a class="button is-small is-dark" href="{{ path('admin_index') }}">Retour à la liste des comptes</a>
+        </div>
+        {% endif %}
+
+        <h1 class="title">Modification du Compte admin</h1>
+
+        {{ include('admin/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+        {% if is_granted('ROLE_SUPER_ADMIN') %}
+        {{ include('admin/_delete_form.html.twig') }}
+        {% endif %}
+
+    </div>
+
+
+
+{% endblock %}

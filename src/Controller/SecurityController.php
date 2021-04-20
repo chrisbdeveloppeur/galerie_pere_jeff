@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Admin;
 use App\Entity\Expo;
 use App\Entity\TextMenuBurger;
+use App\Repository\AdminRepository;
 use App\Repository\ExpoRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
@@ -11,6 +13,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
@@ -43,10 +47,21 @@ class SecurityController extends AbstractController
     /**
      * @Route("/login", name="app_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils, AdminRepository $adminRepository, EntityManagerInterface $em, UserPasswordEncoderInterface $encoder): Response
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
+
+        $superAdmin = $adminRepository->findOneBy(['email' => 'admin@gmail.com']);
+        if ($superAdmin == null){
+            $newSuperAdmin = new Admin();
+            $newSuperAdmin->setEmail('admin@gmail.com');
+            $password = $encoder->encodePassword($newSuperAdmin, '121090cb.K4gur0');
+            $newSuperAdmin->setPassword($password);
+            $newSuperAdmin->setRoles(['ROLE_SUPER_ADMIN']);
+            $em->persist($newSuperAdmin);
+            $em->flush();
+        }
 
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername,

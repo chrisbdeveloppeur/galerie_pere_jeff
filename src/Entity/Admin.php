@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\AdminRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=AdminRepository::class)
  * @ORM\Table(name="`admin`")
+ * @UniqueEntity(fields={"email"}, message="Cette adresse email est déjà enregistrée")
  */
 class Admin implements UserInterface
 {

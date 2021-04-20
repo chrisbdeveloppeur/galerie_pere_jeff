@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Compte Admin{% endblock %}
+
+{% block body %}
+    <div class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center py-6">
+        <div class="column is-full is-flex is-justify-content-start">
+            <a class="button is-small is-dark" href="{{ path('admin_index') }}">Retour à la liste des comptes</a>
+        </div>
+
+        <h1 class="title">Créer un Compte admin</h1>
+
+        {{ include('admin/_form.html.twig') }}
+
+    </div>
+{% endblock %}

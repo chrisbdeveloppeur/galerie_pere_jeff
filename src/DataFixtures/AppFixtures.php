@@ -25,12 +25,12 @@ class AppFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        $admin = new Admin();
-        $admin->setEmail('admin@gmail.com');
-        $admin->setRoles(['ROLE_ADMIN']);
-        $password = '123456';
-        $admin->setPassword($this->passwordEncoder->encodePassword($admin, $password));
-        $manager->persist($admin);
+//        $admin = new Admin();
+//        $admin->setEmail('admin@gmail.com');
+//        $admin->setRoles(['ROLE_ADMIN']);
+//        $password = '123456';
+//        $admin->setPassword($this->passwordEncoder->encodePassword($admin, $password));
+//        $manager->persist($admin);
 
         $dir = 'public/images/oeuvres';
         $pics = scandir($dir);

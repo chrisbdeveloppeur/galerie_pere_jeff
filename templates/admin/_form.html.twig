@@ -1,0 +1,11 @@
+{{ form_start(form, {'attr': {'class':'column has-text-centered'}}) }}
+
+    {{ form_row(form.email) }}
+
+    {{ form_row(form.password) }}
+
+{#    {{ form_row(form.password.second) }}#}
+
+    <button class="button is-info is-outlined is-small has-font-poppins">Valider</button>
+
+{{ form_end(form) }}

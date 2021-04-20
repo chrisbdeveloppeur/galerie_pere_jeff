@@ -2,22 +2,26 @@
 
 namespace App\Controller;
 
+use App\Entity\Admin;
 use App\Entity\Expo;
 use App\Entity\TextMenuBurger;
-use App\Form\ExpoType;
+use App\Form\AdminType;
+use App\Repository\AdminRepository;
 use App\Repository\ExpoRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
- * @Route("/expo")
+ * @Route("/admin")
  */
-class ExpoController extends AbstractController
+class AdminController extends AbstractController
 {
 
     private $galeries;
@@ -45,12 +49,13 @@ class ExpoController extends AbstractController
     }
 
     /**
-     * @Route("/", name="expo_index", methods={"GET"})
+     * @Route("/", name="admin_index", methods={"GET"})
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
-    public function index(ExpoRepository $expoRepository): Response
+    public function index(AdminRepository $adminRepository): Response
     {
-        return $this->render('expo/index.html.twig', [
-            'expos' => $expoRepository->findAll(),
+        return $this->render('admin/index.html.twig', [
+            'admins' => $adminRepository->findAll(),
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
             'expo' => $this->expo,
@@ -58,79 +63,87 @@ class ExpoController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="expo_new", methods={"GET","POST"})
+     * @Route("/new", name="admin_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
-        $expo = new Expo();
-        $form = $this->createForm(ExpoType::class, $expo);
+        $admin = new Admin();
+        $form = $this->createForm(AdminType::class, $admin);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $admin->setPassword(
+              $passwordEncoder->encodePassword(
+                  $admin,
+                  $form->get('password')->getData()
+              )
+            );
+            $admin->setRoles(['ROLE_ADMIN']);
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($expo);
+            $entityManager->persist($admin);
             $entityManager->flush();
-            $msg = 'La rubrique exposition à bien étée crée';
-            $this->addFlash('success', $msg);
-            return $this->redirectToRoute('expo_index');
+
+            $message = 'Le compte administrateur '. $admin->getEmail() . ' a bien été crée';
+            $this->addFlash('success', $message);
+            return $this->redirectToRoute('admin_index');
         }
 
-        return $this->render('expo/new.html.twig', [
-            'expo' => $expo,
+        return $this->render('admin/new.html.twig', [
+            'admin' => $admin,
             'form' => $form->createView(),
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 
     /**
-     * @Route("/{id}", name="expo_show", methods={"GET"})
+     * @Route("/{id}", name="admin_show", methods={"GET"})
      */
-    public function show(Expo $expo): Response
+    public function show(Admin $admin): Response
     {
-        return $this->render('expo/show.html.twig', [
-            'expo' => $expo,
+        return $this->render('admin/show.html.twig', [
+            'admin' => $admin,
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="expo_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="admin_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Expo $expo): Response
+    public function edit(Request $request, Admin $admin): Response
     {
-        $form = $this->createForm(ExpoType::class, $expo);
+        $form = $this->createForm(AdminType::class, $admin);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $msg = 'La rubrique exposition à bien étée modifiée';
-            $this->addFlash('success', $msg);
-//            return $this->redirectToRoute('expo_index');
+            $message = 'Les modification de votre compte ont bien étées prises en compte';
+            $this->addFlash('success', $message);
         }
 
-        return $this->render('expo/edit.html.twig', [
-            'expo' => $expo,
+        return $this->render('admin/edit.html.twig', [
+            'admin' => $admin,
             'form' => $form->createView(),
             'galeries' => $this->galeries,
             'text_menu_burger' => $this->textMenuBurger,
+            'expo' => $this->expo,
         ]);
     }
 
     /**
-     * @Route("/{id}", name="expo_delete", methods={"POST"})
+     * @Route("/{id}", name="admin_delete", methods={"POST"})
      */
-    public function delete(Request $request, Expo $expo): Response
+    public function delete(Request $request, Admin $admin): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$expo->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$admin->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($expo);
+            $entityManager->remove($admin);
             $entityManager->flush();
-            $msg = 'La rubrique exposition à bien étée suprimée';
-            $this->addFlash('success', $msg);
         }
 
-        return $this->redirectToRoute('expo_index');
+        return $this->redirectToRoute('admin_index');
     }
 }

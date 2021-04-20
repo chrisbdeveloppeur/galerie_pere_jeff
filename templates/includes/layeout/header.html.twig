@@ -31,6 +31,15 @@
                         <a href="{{ path('oeuvre_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
                             Liste des peintures
                         </a>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <a href="{{ path('admin_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                            Comptes Administrateurs
+                        </a>
+                        {% elseif is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('admin_edit', {'id': app.user.id}) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                Modifier mon compte
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
