@@ -22,39 +22,40 @@
 
     </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Gestion</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for admin in admins %}
-            <tr>
-                <td>{{ admin.id }}</td>
-                <td>{{ admin.email }}</td>
-                <td>
-                    {% if 'ROLE_SUPER_ADMIN' in admin.roles %}
-                        Super Admin
-                    {% else %}
-                        Admin
-                    {% endif %}
-                </td>
+    <div class="table-wrapper-touch">
+        <table class="table" style="margin: auto">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+                    <th>Gestion</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for admin in admins %}
+                <tr>
+                    <td>{{ admin.id }}</td>
+                    <td>{{ admin.email }}</td>
+                    <td>
+                        {% if 'ROLE_SUPER_ADMIN' in admin.roles %}
+                            Super Admin
+                        {% else %}
+                            Admin
+                        {% endif %}
+                    </td>
 
-                <td>
-                    <a href="{{ path('admin_edit', {'id': admin.id}) }}">Modifier</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+                    <td>
+                        <a href="{{ path('admin_edit', {'id': admin.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
