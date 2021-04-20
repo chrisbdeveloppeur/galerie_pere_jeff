@@ -37,22 +37,6 @@ class Admin implements UserInterface
      */
     private $password;
 
-//    /**
-//     * @ORM\Column(type="string", length=255)
-//     */
-//    private $securityToken;
-
-//    /**
-//     * @ORM\PrePersist()
-//     */
-//    public function prePersist()
-//    {
-//        // Définir un jeton s'il n'y en a pas
-//        if ($this->securityToken === null) {
-//            $this->renewToken();
-//        }
-//    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -134,26 +118,4 @@ class Admin implements UserInterface
         // $this->plainPassword = null;
     }
 
-//    public function getSecurityToken(): ?string
-//    {
-//        return $this->securityToken;
-//    }
-//
-//    public function setSecurityToken(string $securityToken): self
-//    {
-//        $this->securityToken = $securityToken;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Renouveller le jeton de sécurité
-//     */
-//    public function renewToken() : self
-//    {
-//        // Création d'un jeton
-//        $token = bin2hex(random_bytes(16));
-//
-//        return $this->setSecurityToken($token);
-//    }
 }
