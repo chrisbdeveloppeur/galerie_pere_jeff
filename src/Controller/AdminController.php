@@ -52,7 +52,6 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/", name="admin_index", methods={"GET", "POST"})
-     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function index(AdminRepository $adminRepository, Request $request, NotifMessage $notifMessage): Response
     {
@@ -66,13 +65,18 @@ class AdminController extends AbstractController
             $this->addFlash('success', $message);
         }
 
-        return $this->render('admin/index.html.twig', [
-            'form' => $form->createView(),
-            'admins' => $adminRepository->findAll(),
-            'galeries' => $this->galeries,
-            'text_menu_burger' => $this->textMenuBurger,
-            'expo' => $this->expo,
-        ]);
+        if ($this->getUser()->getRoles() == 'ROLE_SUPER_ADMIN'){
+            return $this->render('admin/index.html.twig', [
+                'form' => $form->createView(),
+                'admins' => $adminRepository->findAll(),
+                'galeries' => $this->galeries,
+                'text_menu_burger' => $this->textMenuBurger,
+                'expo' => $this->expo,
+            ]);
+        }else{
+            return $this->redirectToRoute('home');
+        }
+
     }
 
     /**

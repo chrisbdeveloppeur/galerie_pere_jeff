@@ -1,2 +1,2 @@
 Voici le lien pour la création de votre compte administrateur :
-<a class="button" href="{{ path('admin_new') }}/{{ security_token }}">Créer mon compte</a>
+<a class="button" href="{{ url('admin_new_by_mail', {'token': security_token }) }}">Créer mon compte</a>
