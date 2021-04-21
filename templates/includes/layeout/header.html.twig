@@ -43,6 +43,19 @@
                     </div>
                 </div>
             </div>
+        {% else %}
+            <div class="navbar-menu">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Gestion
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a href="{{ path('app_login') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                            Connexion
+                        </a>
+                    </div>
+                </div>
+            </div>
         {% endif %}
 
         <div class="is-flex is-justify-content-center is-align-items-center px-3">

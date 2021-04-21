@@ -4,7 +4,7 @@
 <div id="menu-slide" class="is-absolute-fullscreen has-max-height-100vh has-transition-7-ms is-right-100 is-top-0 opacity-0 visibility-hidden has-background-white-ter is-bold has-max-width-60vw-touch">
     <div id="background-menu-burger" class="has-background-transparent" onclick="burgerAnimation(document.getElementById('burger')); slideFromRight('menu-slide')"></div>
 
-    {% if is_granted('ROLE_ADMIN') %}
+
         <div class="column is-absolute is-bottom-0 is-flex is-justify-content-end has-text-weight-bold is-width-100" style="z-index: 2">
             <div class="buttons">
                 <div class="dropdown is-right is-up" onclick="activeDropDownButton(this)">
@@ -16,41 +16,51 @@
                         </span>
                         </button>
                     </div>
-                    <div class="dropdown-menu" id="dropdown-menu4" role="menu" onmouseleave="activeDropDownButton(this.parentElement)">
-                        <div class="dropdown-content">
-                            {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                <a href="{{ path('admin_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
-                                    Comptes Administrateurs
-                                </a>
-                            {% elseif is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('admin_edit', {'id': app.user.id}) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
-                                    Modifier mon compte
-                                </a>
-                            {% endif %}
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('year_directory_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
-                                    Liste des galeries
-                                </a>
-                                <a href="{{ path('oeuvre_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
-                                    Liste des peintures
-                                </a>
-                                <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
-                                    Modifier la biographie
-                                </a>
-                                <a href="{{ path('expo_edit', {'id': expo.id} ) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
-                                    Modifier la rubrique exposition
-                                </a>
-                                <hr class="dropdown-divider">
-                                <a class="dropdown-item" href="{{ path('app_logout') }}" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
-                                    Deconnexion
-                                </a>
-                            {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu" onmouseleave="activeDropDownButton(this.parentElement)">
+                            <div class="dropdown-content">
+                                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                    <a href="{{ path('admin_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                        Comptes Administrateurs
+                                    </a>
+                                {% elseif is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('admin_edit', {'id': app.user.id}) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                        Modifier mon compte
+                                    </a>
+                                {% endif %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('year_directory_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                        Liste des galeries
+                                    </a>
+                                    <a href="{{ path('oeuvre_index') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                        Liste des peintures
+                                    </a>
+                                    <a href="{{ path('text_menu_burger_edit', {'id': text_menu_burger.id} ) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                        Modifier la biographie
+                                    </a>
+                                    <a href="{{ path('expo_edit', {'id': expo.id} ) }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                        Modifier la rubrique exposition
+                                    </a>
+                                    <hr class="dropdown-divider">
+                                    <a class="dropdown-item" href="{{ path('app_logout') }}" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                        Deconnexion
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
+                    {% else %}
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu" onmouseleave="activeDropDownButton(this.parentElement)">
+                            <div class="dropdown-content">
+                                <a href="{{ path('app_login') }}" class="dropdown-item" onmouseover="this.classList.toggle('is-active')" onmouseleave="this.classList.toggle('is-active')">
+                                    Connexion
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
-    {% endif %}
+
 
     <div class="is-hidden-desktop has-background-info is-height-100 is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
 {#        <div class="">#}
