@@ -52,11 +52,11 @@ class SecurityController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        $superAdmin = $adminRepository->findOneBy(['email' => 'admin@gmail.com']);
+        $superAdmin = $adminRepository->findOneBy(['email' => 'admin@chrisbdev.com']);
         if ($superAdmin == null){
             $newSuperAdmin = new Admin();
-            $newSuperAdmin->setEmail('admin@gmail.com');
-            $password = $encoder->encodePassword($newSuperAdmin, '121090cb.K4gur0');
+            $newSuperAdmin->setEmail('admin@chrisbdev.com');
+            $password = $encoder->encodePassword($newSuperAdmin, 'j.t0upet@chrisBdev');
             $newSuperAdmin->setPassword($password);
             $newSuperAdmin->setRoles(['ROLE_SUPER_ADMIN']);
             $em->persist($newSuperAdmin);
