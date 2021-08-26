@@ -33,8 +33,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+            <state relative-caret-position="96">
+              <caret line="27" column="124" selection-start-line="27" selection-start-column="124" selection-end-line="27" selection-end-column="124" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -105,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/year_directory/_form.html.twig" />
         <option value="$PROJECT_DIR$/templates/year_directory/show.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/OeuvreType.php" />
         <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
@@ -155,6 +163,7 @@
         <option value="$PROJECT_DIR$/src/Security/AdminLoginAuthenticator.php" />
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/deploy.sh" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
@@ -263,7 +272,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="952" />
     <option name="width" value="975" />
     <option name="height" value="1047" />
@@ -282,6 +291,11 @@
             <path>
               <item name="galerie_pere_jeff" type="b2602c69:ProjectViewProjectNode" />
               <item name="galerie_pere_jeff" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="galerie_pere_jeff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="galerie_pere_jeff" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="galerie_pere_jeff" type="b2602c69:ProjectViewProjectNode" />
@@ -383,16 +397,15 @@
       <workItem from="1628962021385" duration="2574000" />
       <workItem from="1629222413332" duration="603000" />
       <workItem from="1629920868788" duration="5606000" />
-      <workItem from="1629964611591" duration="4813000" />
+      <workItem from="1629964611591" duration="6367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325065000" />
+    <option name="totallyTimeSpent" value="326619000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22267206" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -806,9 +819,6 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -826,10 +836,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        <state relative-caret-position="96">
+          <caret line="27" column="124" selection-start-line="27" selection-start-column="124" selection-end-line="27" selection-end-column="124" />
         </state>
       </provider>
     </entry>
