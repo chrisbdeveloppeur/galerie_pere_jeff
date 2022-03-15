@@ -314,7 +314,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="951" />
     <option name="width" value="975" />
     <option name="height" value="1048" />
@@ -449,15 +449,16 @@
       <workItem from="1629920868788" duration="5606000" />
       <workItem from="1629964611591" duration="9505000" />
       <workItem from="1630150489284" duration="3758000" />
-      <workItem from="1647340701563" duration="13103000" />
+      <workItem from="1647340701563" duration="13821000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346618000" />
+    <option name="totallyTimeSpent" value="347336000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22818792" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
