@@ -296,7 +296,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="951" />
     <option name="width" value="975" />
     <option name="height" value="1048" />
