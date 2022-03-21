@@ -21,6 +21,25 @@ class YearDirectoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('year',TextType::class,[
+                'error_bubbling' => true,
+                'label' => 'Titre',
+                'required' => true,
+                'label_attr' => ['class'=>'has-text-weight-bold'],
+                'row_attr' => ['class' => 'field'],
+                'attr' => [
+                    'class' => 'input has-text-centered',
+                    'placeholder' => 'Ex : Galerie 2010',
+                ],
+                'help' => 'Donnez un titre et pertinent à cette galerie',
+                'help_attr' => ['class' => 'help'],
+                'constraints' => [
+                    new Length([
+                        'max' => 150,
+                        'maxMessage' => 'Le sous-titre est trop long . . . (150 char. max)'
+                    ]),
+                ],
+            ])
             ->add('yearStart',NumberType::class,[
                 'error_bubbling' => true,
                 'label' => 'Année (début) *',
@@ -59,7 +78,7 @@ class YearDirectoryType extends AbstractType
             ])
             ->add('title',TextareaType::class,[
                 'error_bubbling' => true,
-                'label' => 'Sous-titre',
+                'label' => 'Description',
                 'required' => false,
                 'label_attr' => ['class'=>'has-text-weight-bold'],
                 'row_attr' => ['class' => 'field'],
@@ -68,12 +87,12 @@ class YearDirectoryType extends AbstractType
                     'style' => 'resize:none;',
                     'placeholder' => 'Ex : Immortalisation des moments merveilleux',
                 ],
-                'help' => 'Donnez un sous-titre succinct et pertinent à cette galerie (description)',
+                'help' => 'Donnez une description succinct et pertinent à cette galerie',
                 'help_attr' => ['class' => 'help'],
                 'constraints' => [
                     new Length([
                         'max' => 150,
-                        'maxMessage' => 'Le sous-titre est trop long . . . (150 char. max)'
+                        'maxMessage' => 'La description est trop longue . . . (150 char. max)'
                     ]),
                 ],
             ])

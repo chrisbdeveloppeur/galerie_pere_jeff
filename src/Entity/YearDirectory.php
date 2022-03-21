@@ -85,7 +85,7 @@ class YearDirectory
 
     public function __toString()
     {
-        return $this->year;
+        return $this->getYear();
     }
 
     public function getId(): ?int

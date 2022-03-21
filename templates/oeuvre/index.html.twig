@@ -12,7 +12,9 @@
             <span class="help">Filtre :</span>
             <div class="tags">
                 {% for galerie in all_galeries %}
-                    <div class="button tag is-small is-dark is-active" onclick="filtreByGalery(this,{{ galerie.id|raw }})">{{ galerie.year }}</div>
+                    {% if galerie %}
+                        <div class="button tag is-small is-dark is-active" onclick="filtreByGalery(this,{{ galerie.id|raw }})">{{ galerie.year }}</div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -35,7 +37,8 @@
                 </thead>
                 <tbody>
                 {% for oeuvre in oeuvres %}
-                    <tr class="{{ oeuvre.yearDirectory.id|raw }}">
+                    {% if oeuvre %}
+                    <tr class="{% if oeuvre.yearDirectory %}{{ oeuvre.yearDirectory.id|raw }}{% endif %}">
                         <td>
                             <span class="help">
                                 {{ oeuvre.id }}
@@ -81,6 +84,7 @@
                     <tr>
                         <td colspan="7">Aucune oeuvres trouvées</td>
                     </tr>
+                    {% endif %}
                 {% endfor %}
                 </tbody>
             </table>
