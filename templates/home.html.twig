@@ -58,16 +58,18 @@
                                                 {% endif %}
                                             </div>
 
-                                            <div class="has-text-right mt-2">
-                                                <a class="button is-small has-transition-5-ms is-grey is-outlined" href="{{ path('gallery_year', {'id_gallery': oeuvre.yeardirectory.id}) }}" onmouseover="extend(this)" onmouseleave="retract(this)" onclick="extend(this)">
-                                            <span class="icon">
-                                              <i class="fas fa-chevron-right"></i>
-                                            </span>
-                                                    <span style="overflow: hidden" class="is-width-0vw has-transition-5-ms text">
-                                                {{ oeuvre.yeardirectory.yearstart }} / {{ oeuvre.yeardirectory.yearend }}
-                                            </span>
-                                                </a>
-                                            </div>
+                                            {% if oeuvre.yeardirectory %}
+                                                <div class="has-text-right mt-2">
+                                                    <a class="button is-small has-transition-5-ms is-grey is-outlined" href="{{ path('gallery_year', {'id_gallery': oeuvre.yeardirectory.id}) }}" onmouseover="extend(this)" onmouseleave="retract(this)" onclick="extend(this)">
+                                                        <span class="icon">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                        </span>
+                                                        <span style="overflow: hidden" class="is-width-0vw has-transition-5-ms text">
+                                                            {{ oeuvre.yeardirectory.yearstart }} / {{ oeuvre.yeardirectory.yearend }}
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            {% endif %}
 
                                         </figure>
                                     </div>

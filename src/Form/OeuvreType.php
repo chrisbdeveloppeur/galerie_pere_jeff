@@ -53,11 +53,12 @@ class OeuvreType extends AbstractType
                 'attr' => [
                     'class' => 'textarea has-text-centered'
                 ],
-                'required' => true,
+                'required' => false,
                 'help' => 'Entrez éventuellement la description de cette oeuvre',
                 'help_attr' => ['class' => 'help'],
             ])
             ->add('year',NumberType::class,[
+                'required' => false,
                 'error_bubbling' => true,
                 'label' => 'Année',
                 'label_attr' => ['class'=>'has-text-weight-bold'],

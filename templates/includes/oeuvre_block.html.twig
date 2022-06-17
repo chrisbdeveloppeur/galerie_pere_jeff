@@ -33,15 +33,19 @@
                 {{ oeuvre.titre }}
             </h3>
 
-            <span class="has-text-weight-bold">
-                {{ oeuvre.year }}
-            </span>
+            {% if oeuvre.year %}
+                <span class="has-text-weight-bold">
+                    {{ oeuvre.year }}
+                </span>
+            {% endif %}
 
-            <div class="help has-text-black has-text-left has-text-centered-touch">
-                {{ oeuvre.description|raw }}
-            </div>
+            {% if oeuvre.description %}
+                <div class="help has-text-black has-text-left has-text-centered-touch">
+                    {{ oeuvre.description|raw }}
+                </div>
+            {% endif %}
 
-            {% if route is defined and route == 'home' %}
+            {% if route is defined and route == 'home' and oeuvre.yeardirectory %}
                 <div class="has-text-right mt-2">
                     <a class="button is-small has-transition-5-ms is-grey is-outlined z-index-more-1" href="{{ path('gallery_year', {'id_gallery': oeuvre.yeardirectory.id}) }}" onmouseover="extend(this)" onmouseleave="retract(this)" onclick="extend(this)">
                         <span class="icon">
