@@ -1,5 +1,3 @@
-
-text/x-generic .htaccess ( UTF-8 Unicode text )
 RewriteOptions inherit
 # PH pagespeed start
 <IfModule pagespeed_module>
@@ -13,49 +11,19 @@ ModPagespeedEnableFilters add_head,fallback_rewrite_css_urls,flatten_css_imports
 RewriteEngine on
 RewriteBase /
 
-RewriteCond %{HTTPS} !=on
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteCond %{HTTP_HOST} ^(?:www\.)?ftoupet.ynh.fr/site\.ext(?:.*)$ [nc]
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [redirect=301,L]
+RewriteCond %{HTTPS} off
+# RewriteCond %{HTTP:X-Forwarded-Proto} !https
+# RewriteCond %{HTTP_HOST} ^(?:www\.)?jacques-toupet\.ext(?:.*)$ [nc]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Rewrite Regle 1: Rediriger toutes les requêtes pour les urls incluant le nom des répertoires et le nom des fichiers se trouvant dans public_html (www).
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /site/.*\ HTTP/
-RewriteRule ^blog/(.*)$ http://www.ftoupet.ynh.fr/site/public/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /jacques-toupet.com/public/.*\ HTTP/
+RewriteRule ^blog/(.*)$ https://jacques-toupet.com/$1 [R=301,L]
 
 # Rewrite Regle 2: Rediriger tous les www aux non-www et préserver le dossier et le chemin.
-RewriteCond %{HTTP_HOST} ^www.^ftoupet.ynh.fr/site\.com [NC]
-RewriteRule ^(.*)$ http://www.ftoupet.ynh.fr/site/public/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www.^jacques-toupet\.com [NC]
+RewriteRule ^(.*)$ https://jacques-toupet.com/$1 [R=301,L]
 
 # Rewrite Regle 3: Reecrire les urls qui ne sont pas des dossiers.
-RewriteCond %{REQUEST_URI} !^/site/
-RewriteRule ^(.*)$ /site/public/$1 [L]
-
-# RewriteEngine On
-# RewriteCond %{HTTP_HOST} ^chrisbdev\.com [NC]
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI}
-# RewriteBase /
-
-# # # Rewrite Regle 1: Rediriger toutes les requêtes pour les urls incluant le nom des répertoires et le nom des fichiers se trouvant dans public_html (www).
-# # RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /chrisbdev/public/.*\ HTTP/
-# # RewriteRule ^blog/(.*)$ http://www.chrisbdev.com/$1 [R=301,L]
-
-# # # # Rewrite Regle 2: Rediriger tous les www aux non-www et préserver le dossier et le chemin.
-# # RewriteCond %{HTTP_HOST} ^www.^chrisbdev\.com [NC]
-# # RewriteRule ^(.*)$ http://www.chrisbdev.com/$1 [R=301,L]
-
-# # # Rewrite Regle 3: Reecrire les urls qui ne sont pas des dossiers.
-# RewriteCond %{REQUEST_URI} !^/chrisbdev/public/
-# RewriteRule ^(.*)$ /chrisbdev/public/$1 [L]
-# RewriteCond %{HTTP_HOST} ^.*$
-# # RewriteRule ^chrisbdev\/public\/beats\/file\/\ \/?(.*)$ "https\:\/\/chrisbdev\.com\/$1" [R=301,L]
-
-# RewriteCond %{HTTP_REFERER} !^http://chrisbdev.com/.*$      [NC]
-# RewriteCond %{HTTP_REFERER} !^http://chrisbdev.com$      [NC]
-# RewriteCond %{HTTP_REFERER} !^http://www.chrisbdev.com/.*$      [NC]
-# RewriteCond %{HTTP_REFERER} !^http://www.chrisbdev.com$      [NC]
-# RewriteCond %{HTTP_REFERER} !^https://chrisbdev.com/.*$      [NC]
-# RewriteCond %{HTTP_REFERER} !^https://chrisbdev.com$      [NC]
-# RewriteCond %{HTTP_REFERER} !^https://www.chrisbdev.com/.*$      [NC]
-# RewriteCond %{HTTP_REFERER} !^https://www.chrisbdev.com$      [NC]
-# RewriteRule .*\.(jpg|jpeg|gif|png|bmp|mp3|wave|ogg)$ https://chrisbdev.com [R,NC]
+RewriteCond %{REQUEST_URI} !^/jacques-toupet.com/public/
+RewriteRule ^(.*)$ /jacques-toupet.com/public/$1 [L]
