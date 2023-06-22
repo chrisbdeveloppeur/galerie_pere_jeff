@@ -17,7 +17,7 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Rewrite Regle 1: Rediriger toutes les requêtes pour les urls incluant le nom des répertoires et le nom des fichiers se trouvant dans public_html (www).
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /jacques-toupet.com/public/.*\ HTTP/
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /jacques-toupet/public/.*\ HTTP/
 RewriteRule ^blog/(.*)$ https://jacques-toupet.com/$1 [R=301,L]
 
 # Rewrite Regle 2: Rediriger tous les www aux non-www et préserver le dossier et le chemin.
@@ -25,5 +25,5 @@ RewriteCond %{HTTP_HOST} ^www.^jacques-toupet\.com [NC]
 RewriteRule ^(.*)$ https://jacques-toupet.com/$1 [R=301,L]
 
 # Rewrite Regle 3: Reecrire les urls qui ne sont pas des dossiers.
-RewriteCond %{REQUEST_URI} !^/jacques-toupet.com/public/
-RewriteRule ^(.*)$ /jacques-toupet.com/public/$1 [L]
+RewriteCond %{REQUEST_URI} !^/jacques-toupet/public/
+RewriteRule ^(.*)$ /jacques-toupet/public/$1 [L]
