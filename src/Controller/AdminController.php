@@ -14,7 +14,6 @@ use App\Repository\ExpoRepository;
 use App\Repository\TextMenuBurgerRepository;
 use App\Repository\YearDirectoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -135,13 +134,22 @@ class AdminController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Admin $admin): Response
+    public function edit(Request $request, Admin $admin, EntityManagerInterface $em, UserPasswordEncoderInterface $passwordHasher): Response
     {
         $form = $this->createForm(AdminType::class, $admin);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $newPassword = $form->get('password')->getData();
+            $admin->setPassword(
+                $passwordHasher->encodePassword(
+                    $admin,
+                    $newPassword
+                )
+            );
+
+            $em->persist($admin);
+            $em->flush();
             $message = 'Les modification de votre compte ont bien étées prises en compte';
             $this->addFlash('success', $message);
         }
