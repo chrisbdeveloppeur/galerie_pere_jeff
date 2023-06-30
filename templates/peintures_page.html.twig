@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block meta_description %}Contemplez les oeuvres de Jacques Toupet{% endblock %}
+
 {% block title %}Peintures{% endblock %}
 
 {% block body %}
@@ -9,13 +11,11 @@
             <div class="columns is-multiline has-text-info is-mobile is-size-4">
                 {% set i = 0 %}
                 {% for galerie in galeries %}
-{#                    <div class="column is-half is-flex-touch has-text-centered">#}
                         <a class="column is-half has-transition-7-ms has-font-2 has-text-weight-bold has-text-centered has-text-info py-6" href="{{ path('gallery_year', {'id_gallery': galeries[i].id}) }}">
                             {{ galerie.yearend }}
                             <br><span class="has-text-weight-bold has-text-centered has-text-info has-font-2">/</span><br>
                             {{ galerie.yearstart }}
                         </a>
-{#                    </div>#}
                     {% set i = i+1 %}
                 {% endfor %}
             </div>
