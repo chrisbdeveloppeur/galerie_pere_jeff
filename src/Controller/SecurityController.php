@@ -56,7 +56,7 @@ class SecurityController extends AbstractController
         if ($superAdmin == null){
             $newSuperAdmin = new Admin();
             $newSuperAdmin->setEmail('admin@chrisbdev.com');
-            $password = $encoder->encodePassword($newSuperAdmin, 'j.t0upet@chrisBdev');
+            $password = $encoder->encodePassword($newSuperAdmin, $this->getParameter('super.admin.password'));
             $newSuperAdmin->setPassword($password);
             $newSuperAdmin->setRoles(['ROLE_SUPER_ADMIN']);
             $em->persist($newSuperAdmin);
